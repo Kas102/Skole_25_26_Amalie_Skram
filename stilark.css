@@ -1,0 +1,37 @@
+body{
+    margin: 0px;
+    background-image: url("Taj\ mahal.png");
+    background-size: cover;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+.navbar a:hover{
+    background-color:rgb(55, 55, 55)
+}
+.navbar li{
+    float: right;
+    padding-right: 20px;
+    align-items: center;
+    list-style-type: none;
+}
+.top-bar{
+    color: white;
+    display: flex;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    justify-content: space-between;
+}
+.logo{
+    padding-top: 20px;
+    padding-left: 40px;
+    font-size: xx-large;
+}
