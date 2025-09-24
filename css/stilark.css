@@ -1,50 +1,57 @@
 body{
     margin: 0px;
-    background-image: url("../bilder/Taj_mahal.png");
-    background-size: cover;
+    background-image: url("../bilder/Taj_mahal.png"); /*Lager et bagrunnsbilde*/
+    background-size: cover; /*Sørger for at bildet dekker hele bakgrunnen*/
 }
 
 .grid-container {
-    display: grid;
-   grid-template-columns: 3fr 1fr;
-}
-.top-bar{
-    background-color: black;
+    display: grid;  /**Sier at noe skal displayes som grid */
+   grid-template-columns: 3fr 1fr; /*Lager to kolonner, hvor den første er tre ganger så bred som den andre*/
 }
 .navbar a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    padding: 15px;
+    color: rgb(255, 255, 255);  /*Gjør at fargen på lenkene blir hvit*/
+    text-decoration: none;  /*Fjerner understreking på lenkene*/
+    padding: 15px;  /*Lager litt padding rundt lenkene*/
     display: block;
 }
 .navbar a:hover{
-    background-color:rgb(55, 55, 55);
-}
-
-.logo{
-    padding-left: 40px;
-    font-size: xx-large;
-    color: white;
-}
-.logo, .navbar{
-    display: inline-block;
-    vertical-align: middle;
-}
-.navbar li{
-    float: right;
-    padding-right: 20px;
-    align-items: center;
-    list-style-type: none;
-    padding-top: 10px;
+    background-color:rgb(55, 55, 55);   /*Gjør at bakgrunnsfargen på lenkene blir grå når man går over dem*/
 }
 .top-bar{
-    justify-content: space-between;
-    display: flex;
+    background-color: black;
+}
+.logo{
+    padding-left: 40px; /*Lager litt padding til venstre for logoen*/
+    font-size: xx-large;    /*Gjør at teksten blir stor*/
+    color: white;   /*Gjør at fargen på teksten blir hvit*/
+}
+.logo, .navbar{
+    display: inline-block;  /*Gjør at logoen og teksten vises på linje*/
+    vertical-align: middle; /*Sørger for at de er midtstilt vertikalt*/
+}
+.navbar li{
+    float: right;   /*Gjør at listen legger seg til høyre*/
+    padding-right: 20px;    /*Lager litt padding til høyre for listen*/
+    align-items: center;    /*Sørger for at elementene i listen er midtstilt vertikalt*/
+    list-style-type: none;  /*Fjerner punktene på listen*/
+    padding-top: 10px;  /*Lager litt padding over listen*/
+}
+.top-bar{
+    justify-content: space-between; /*Sørger for at logoen og listen får avstand mellom seg*/
+    display: flex;  /*Gjør at elementene i top-bar vises på linje*/
 }
 .banner{
-    background-color: black;
+    background-color: black;    /*Gjør at bakgrunnsfargen på banneret blir svart*/
     width: 100%;
-    height: 80px;
-    position: fixed;
-    bottom: 0;
+    height: 80px;   /*Gjør at banneret blir 80px høyt*/
+    position: fixed;    /*Gjør at banneret alltid er synlig*/
+    bottom: 0;  /*Plasserer banneret nederst på siden*/
+}
+.Dropdown-content {
+    display:none;
+    background-color: black;
+    min-width: 60px;
+}
+.Dropdown:hover .Dropdown-content {
+  display: block;
 }
