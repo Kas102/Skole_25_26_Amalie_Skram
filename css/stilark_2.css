@@ -6,7 +6,7 @@ body{
     grid-template-columns: 1fr 1fr 1fr;
 }
 .Mainpanel, .Sidepanel{
-    border-style: dashed;
+    border-style: solid;
     padding: 20px;
     background-color: rgb(130, 222, 228);
 }
@@ -49,3 +49,35 @@ body{
     position: fixed;
     bottom: 0;
 }
+  .image-wrap {
+      display: block;         /* container oppfører seg som blokk */
+      width: 100%;            /* ta opp all tilgjengelig bredde i foreldrekontekst */
+      max-width: 900px;       /* standard maksimal bredde (kan justeres) */
+      margin: 24px auto;      /* sentrerer containeren horisontalt */
+      padding: 0;        /* litt luft på sidene, spesielt på mobil */
+      border-style: none;
+  }
+      .image-wrap img {
+      display: block;         /* fjerner mulige inline-gap under bildet */
+      width: 100%;            /* bildet fyller containerens bredde */
+      height: auto;           /* behold aspektforholdet (bredde:høyde) */
+      max-height: none;       /* om ønskelig kan du sette en max-height */
+      border-radius: 6px;     /* estetisk avrunding */
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      /* Bruk object-fit hvis du setter max-height og ønsker kontroll over beskjæring */
+    }
+    @media (max-width: 250x) {
+      .image-wrap {
+        max-width: 300px;
+      }
+    }
+        @media (min-width: 500px) {
+      .image-wrap {
+        max-width: 600px;    /* gir større visning på stasjonære */
+      }
+      .image-wrap img {
+        /* Hvis du setter max-height, kan bildet bli beskåret med object-fit */
+        max-height: 700px;    /* valgfritt: begrenser høyden */
+        object-fit: cover;    /* fyller området og beskjærer om nødvendig */
+      }
+    }

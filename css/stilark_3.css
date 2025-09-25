@@ -1,6 +1,5 @@
 body{
     margin: 0px;
-    background-image: url("../bilder/Taj_mahal.png"); /*Lager et bagrunnsbilde*/
     background-size: cover; /*Sørger for at bildet dekker hele bakgrunnen*/
 }
 
@@ -50,7 +49,7 @@ body{
 .Dropdown-content {
     display: none;
     background-color: black; /* dropdown itself is black */
-    min-width: 50px; /* a more usable width */
+    min-width: 160px; /* a more usable width */
     position: absolute; /* remove from document flow so header won't expand */
     top: 100%; /* place directly below the parent li */
     right: 0; /* align dropdown to the right edge of the parent */
@@ -72,7 +71,6 @@ body{
     padding: 10px 15px;
     display: block;
     text-decoration: none;
-    text-align: center;
 }
 .Dropdown-content a:hover{
     background-color: rgba(255,255,255,0.08);
