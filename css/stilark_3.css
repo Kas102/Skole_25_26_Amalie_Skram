@@ -1,11 +1,19 @@
 body{
     margin: 0px;
-    background-size: cover; /*Sørger for at bildet dekker hele bakgrunnen*/
 }
-
 .grid-container {
-    display: grid;  /**Sier at noe skal displayes som grid */
-   grid-template-columns: 3fr 1fr; /*Lager to kolonner, hvor den første er tre ganger så bred som den andre*/
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 1fr;
+}
+.mainpanel, .sidepanel{
+    border-style: solid;
+    padding: 20px;
+    background-color: rgb(130, 222, 228);
+}
+h1 {
+    text-align: center;
+
 }
 .navbar a {
     color: rgb(255, 255, 255);  /*Gjør at fargen på lenkene blir hvit*/
@@ -49,7 +57,7 @@ body{
 .Dropdown-content {
     display: none;
     background-color: black; /* dropdown itself is black */
-    min-width: 160px; /* a more usable width */
+    min-width: 50px; /* a more usable width */
     position: absolute; /* remove from document flow so header won't expand */
     top: 100%; /* place directly below the parent li */
     right: 0; /* align dropdown to the right edge of the parent */
@@ -70,8 +78,41 @@ body{
     color: #fff; /* white text on black background */
     padding: 10px 15px;
     display: block;
+    text-align: center;
     text-decoration: none;
 }
 .Dropdown-content a:hover{
     background-color: rgba(255,255,255,0.08);
 }
+  .image-wrap {
+      display: block;         /* container oppfører seg som blokk */
+      width: 100%;            /* ta opp all tilgjengelig bredde i foreldrekontekst */
+      max-width: 900px;       /* standard maksimal bredde (kan justeres) */
+      margin: 24px auto;      /* sentrerer containeren horisontalt */
+      padding: 0;        /* litt luft på sidene, spesielt på mobil */
+      border-style: none;
+  }
+      .image-wrap img {
+      display: block;         /* fjerner mulige inline-gap under bildet */
+      width: 100%;            /* bildet fyller containerens bredde */
+      height: auto;           /* behold aspektforholdet (bredde:høyde) */
+      max-height: none;       /* om ønskelig kan du sette en max-height */
+      border-radius: 6px;     /* estetisk avrunding */
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      /* Bruk object-fit hvis du setter max-height og ønsker kontroll over beskjæring */
+    }
+    @media (max-width: 250x) {
+      .image-wrap {
+        max-width: 300px;
+      }
+    }
+        @media (min-width: 500px) {
+      .image-wrap {
+        max-width: 600px;    /* gir større visning på stasjonære */
+      }
+      .image-wrap img {
+        /* Hvis du setter max-height, kan bildet bli beskåret med object-fit */
+        max-height: 700px;    /* valgfritt: begrenser høyden */
+        object-fit: cover;    /* fyller området og beskjærer om nødvendig */
+      }
+    }
