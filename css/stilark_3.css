@@ -1,3 +1,4 @@
+
 body{
     margin: 0px;
 }
@@ -5,11 +6,16 @@ body{
 display: grid;
 grid-template-columns: 1fr 1fr;
 grid-template-rows: 1fr;
+/* Make implicit rows stretch equally and ensure items fill cell height */
+align-items: stretch;
+grid-auto-rows: 1fr;
+min-height: 100%;
 }
 .mainpanel, .sidepanel{
     border-style: solid;
-    padding: 20px;
-    background-color: rgb(130, 222, 228);
+    background-color: rgb(255, 255, 255);
+    display: flex; /* allow children to stretch vertically */
+    flex-direction: column;
 }
 h1 {
     text-align: center;
@@ -87,32 +93,37 @@ h1 {
   .image-wrap {
       display: block;         /* container oppfører seg som blokk */
       width: 100%;            /* ta opp all tilgjengelig bredde i foreldrekontekst */
-      max-width: 900px;       /* standard maksimal bredde (kan justeres) */
+      max-width: 900px;  
+      min-height: 100%;     /* standard maksimal bredde (kan justeres) */
       margin: 24px auto;      /* sentrerer containeren horisontalt */
-      padding: 0;        /* litt luft på sidene, spesielt på mobil */
+      padding: 0;             /* litt luft på sidene, spesielt på mobil */
       border-style: none;
+      align-items: center;
   }
       .image-wrap img {
       display: block;         /* fjerner mulige inline-gap under bildet */
       width: 100%;            /* bildet fyller containerens bredde */
       height: auto;           /* behold aspektforholdet (bredde:høyde) */
-      max-height: none;       /* om ønskelig kan du sette en max-height */
-      border-radius: 6px;     /* estetisk avrunding */
-      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      max-height: none;  
+      min-height: 100%;     /* om ønskelig kan du sette en max-height */
+      border-radius: 32px;     /* estetisk avrunding */
       /* Bruk object-fit hvis du setter max-height og ønsker kontroll over beskjæring */
     }
-    @media (max-width: 250x) {
+.image-panel .image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* cover the full area */
+    object-position: center;
+    border-radius: 0;
+    box-shadow: none;
+}
+    @media (max-width: 500x) {
       .image-wrap {
-        max-width: 300px;
+        max-width: 600px;
       }
     }
-        @media (min-width: 500px) {
+        @media (min-width: 100px) {
       .image-wrap {
-        max-width: 600px;    /* gir større visning på stasjonære */
+        max-width: 1200px;    /* gir større visning på stasjonære */
       }
-      .image-wrap img {
-        /* Hvis du setter max-height, kan bildet bli beskåret med object-fit */
-        max-height: 700px;    /* valgfritt: begrenser høyden */
-        object-fit: cover;    /* fyller området og beskjærer om nødvendig */
-      }
-    }
+        }
