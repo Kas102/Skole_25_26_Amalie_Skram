@@ -1,0 +1,123 @@
+body{
+    margin: 0px;
+}
+h1{
+    text-align: center;
+}
+.grid-container_1{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: black;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-bottom: 80px;
+}
+.mainpanel, .sidepanel{
+    border-style: solid;
+    padding: 20px;
+    background-color: rgb(130, 222, 228);
+}
+.top-bar{
+    background-color: black;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+}
+.navbar a:hover{
+    background-color:rgb(55, 55, 55);
+}
+.logo{
+    padding-left: 40px;
+    font-size: xx-large;
+    color: white;
+}
+.logo, .navbar{
+    display: inline-block;
+    vertical-align: middle;
+}
+.navbar li{
+    float: right;
+    padding-right: 20px;
+    align-items: center;
+    list-style-type: none;
+    padding-top: 10px;
+}
+.top-bar{
+    justify-content: space-between;
+    display: flex;
+}
+.banner{
+    background-color: black;
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    bottom: 0;
+}
+  .image-wrap {
+      display: block;         /* container oppfører seg som blokk */
+      width: 100%;            /* ta opp all tilgjengelig bredde i foreldrekontekst */
+      max-width: 900px;       /* standard maksimal bredde (kan justeres) */
+      margin: 24px auto;      /* sentrerer containeren horisontalt */
+      padding: 0;        /* litt luft på sidene, spesielt på mobil */
+      border-style: none;
+  }
+      .image-wrap img {
+      display: block;         /* fjerner mulige inline-gap under bildet */
+      width: 100%;            /* bildet fyller containerens bredde */
+      height: auto;           /* behold aspektforholdet (bredde:høyde) */
+      max-height: none;       /* om ønskelig kan du sette en max-height */
+      border-radius: 6px;     /* estetisk avrunding */
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      /* Bruk object-fit hvis du setter max-height og ønsker kontroll over beskjæring */
+    }
+    @media (max-width: 250px) {
+      .image-wrap {
+        max-width: 300px;
+      }
+    }
+        @media (min-width: 500px) {
+      .image-wrap {
+        max-width: 600px;    /* gir større visning på stasjonære */
+      }
+      .image-wrap img {
+        /* Hvis du setter max-height, kan bildet bli beskåret med object-fit */
+        max-height: 700px;    /* valgfritt: begrenser høyden */
+        object-fit: cover;    /* fyller området og beskjærer om nødvendig */
+      }
+    
+.Dropdown-content {
+    display: none;
+    background-color: black; /* dropdown itself is black */
+    min-width: 50px; /* a more usable width */
+    position: absolute; /* remove from document flow so header won't expand */
+    top: 100%; /* place directly below the parent li */
+    right: 0; /* align dropdown to the right edge of the parent */
+    z-index: 999; /* make sure it appears above other content */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+        }
+.Dropdown:hover .Dropdown-content {
+  display: block;
+}
+
+/* Ensure the Dropdown list item is the positioning context */
+.Dropdown{
+    position: relative;
+}
+
+/* Style links inside the dropdown so they're readable */
+.Dropdown-content a{
+    color: #fff; /* white text on black background */
+    padding: 10px 15px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+}
+.Dropdown-content a:hover{
+    background-color: rgba(255,255,255,0.08);
+}
