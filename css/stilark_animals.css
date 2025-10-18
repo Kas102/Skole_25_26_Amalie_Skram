@@ -1,62 +1,62 @@
 body{
-    margin: 0px;
+    margin: 0px;    /*Fjerner standard margin på body-elementet*/
 }
 h1{
-    text-align: center;
+    text-align: center; /*Sentrerer all tekst i h1 elementer*/
 }
 .grid-container_1{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: black;
+    display: grid;  /*sier at det skal displayes som grid*/
+    grid-template-columns: 1fr 1fr; /*Lager to kolonner som tar opp like mye plass*/
+    background-color: black;    /*Gjør at bakgrunnsfargen på grid-containeren blir svart*/
 }
 .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding-bottom: 80px;
+    display: grid;  /*sier at det skal displayes som grid*/
+    grid-template-columns: 1fr 1fr 1fr; /*Lager tre kolonner som tar opp like mye plass*/
+    padding-bottom: 80px;   /* Lager litt padding under*/
 }
 .mainpanel, .sidepanel{
-    border-style: solid;
-    padding: 20px;
-    background-color: rgb(130, 222, 228);
+    border-style: solid;    /*Gjør at panelene får en kantlinje*/
+    padding: 20px;  /*Lager litt padding rundt panelene*/
+    background-color: rgb(130, 222, 228);   /*Endrer bakrunnsfargen*/
 }
 .top-bar{
-    background-color: black;
+    background-color: black;    /*Gjør at bakgrunnsfargen på top-bar blir svart*/
 }
 .navbar a {
-    color: white;
-    text-decoration: none;
-    padding: 15px;
-    display: block;
+    color: white;   /*Gjør at fargen på lenkene blir hvit*/
+    text-decoration: none;  /*Fjerner understreking på lenkene*/
+    padding: 15px;  /*Lager litt padding rundt lenkene*/
+    display: block; /*Gjør at lenkene oppfører seg som blokker*/
 }
 .navbar a:hover{
-    background-color:rgb(55, 55, 55);
+    background-color:rgb(55, 55, 55);   /*Gjør at bakgrunnsfargen på lenkene blir grå når man går over dem med musen*/
 }
 .logo{
-    padding-left: 40px;
-    font-size: xx-large;
-    color: white;
+    padding-left: 40px; /*Lager litt padding til venstre for logoen*/
+    font-size: xx-large;    /*Gjør at teksten blir stor*/
+    color: white;   /*Gjør at fargen på teksten blir hvit*/
 }
 .logo, .navbar{
-    display: inline-block;
-    vertical-align: middle;
+    display: inline-block;  /*Gjør at logoen og navbaren vises på linje*/
+    vertical-align: middle; /*Sørger for at de er midtstilt vertikalt*/
 }
 .navbar li{
-    float: right;
-    padding-right: 20px;
-    align-items: center;
-    list-style-type: none;
-    padding-top: 10px;
+    float: right;   /*Gjør at listen legger seg til høyre*/
+    padding-right: 20px;    /*Lager litt padding til høyre for listen*/
+    align-items: center;    /*Sørger for at elementene i listen er midtstilt vertikalt*/
+    list-style-type: none;  /*Fjerner punktene på listen*/
+    padding-top: 10px;  /*Lager litt padding over listen*/
 }
 .top-bar{
-    justify-content: space-between;
-    display: flex;
+    justify-content: space-between; /*Sørger for at logoen og listen får avstand mellom seg*/
+    display: flex;  /*Gjør at elementene i top-bar vises på linje*/
 }
 .banner{
-    background-color: black;
-    width: 100%;
-    height: 80px;
-    position: fixed;
-    bottom: 0;
+    background-color: black;    /*Gjør at bakgrunnsfargen på banneret blir svart*/
+    width: 100%;    /*Gjør at banneret tar opp hele bredden*/
+    height: 80px;   /*Gjør at banneret blir 80px høyt*/
+    position: fixed;    /*Sørger for at banneret er festet til bunnen av siden*/
+    bottom: 0;  /*Plasserer banneret nederst*/
 }
   .image-wrap {
       display: block;         /* container oppfører seg som blokk */
@@ -70,54 +70,48 @@ h1{
       display: block;         /* fjerner mulige inline-gap under bildet */
       width: 100%;            /* bildet fyller containerens bredde */
       height: auto;           /* behold aspektforholdet (bredde:høyde) */
-      max-height: none;       /* om ønskelig kan du sette en max-height */
+      max-height: none;        /* ingen maksimal høydebegrensning */
       border-radius: 6px;     /* estetisk avrunding */
-      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-      /* Bruk object-fit hvis du setter max-height og ønsker kontroll over beskjæring */
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);   /* lett skygge for dybde */   
     }
-    @media (max-width: 250px) {
+    @media (max-width: 250px) {   /* responsiv justering for veldig små skjermer */
       .image-wrap {
-        max-width: 300px;
+        max-width: 300px;   /* mindre maks-bredde på veldig små skjermer */
       }
     }
-        @media (min-width: 500px) {
+        @media (min-width: 500px) {  /* responsiv justering for mellomstore skjermer */
       .image-wrap {
         max-width: 600px;    /* gir større visning på stasjonære */
       }
       .image-wrap img {
-        /* Hvis du setter max-height, kan bildet bli beskåret med object-fit */
-        max-height: 700px;    /* valgfritt: begrenser høyden */
+        max-height: 700px;  /* begrenser maksimal høyde for bedre layout */
         object-fit: cover;    /* fyller området og beskjærer om nødvendig */
       }
     
 .Dropdown-content {
-    display: none;
-    background-color: black; /* dropdown itself is black */
-    min-width: 50px; /* a more usable width */
-    position: absolute; /* remove from document flow so header won't expand */
-    top: 100%; /* place directly below the parent li */
-    right: 0; /* align dropdown to the right edge of the parent */
-    z-index: 999; /* make sure it appears above other content */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    display: none;  /* Skjuler dropdown-menyen som standard */
+    background-color: black;    /* Endrer bakgrunnsfargen på dropdown-menyen til svart */
+    min-width: 50px;    /* Setter en minimumsbredde på dropdown-menyen */
+    position: absolute; /* Posisonerer menyen absolutt i forhold til nærmeste posisjonerte forelder */
+    top: 100%;  /* Plasserer menyen rett under dropdown-knappen */
+    right: 0;   /* Justerer menyen til høyre */
+    z-index: 999;   /* Sørger for at menyen vises over andre elementer */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);  /* Legger til en skyggeeffekt for dybde */
 }
         }
 .Dropdown:hover .Dropdown-content {
-  display: block;
+  display: block;   /* Viser dropdown-menyen når man holder musepekeren over dropdownknappen */
 }
-
-/* Ensure the Dropdown list item is the positioning context */
 .Dropdown{
-    position: relative;
+    position: relative;    /* Sørger for at dropdown-menyen posisjoneres i forhold til dropdown-knappen */
 }
-
-/* Style links inside the dropdown so they're readable */
 .Dropdown-content a{
-    color: #fff; /* white text on black background */
-    padding: 10px 15px;
-    display: block;
-    text-decoration: none;
-    text-align: center;
+    color: #fff;    /*gjør teksten hvit*/
+    padding: 10px 15px;    /*Lager litt padding rundt lenkene*/
+    display: block; /*Gjør at lenkene oppfører seg som blokker*/
+    text-decoration: none;  /*Fjerner understreking på lenkene*/
+    text-align: center; /*Sentrerer teksten*/
 }
 .Dropdown-content a:hover{
-    background-color: rgba(255,255,255,0.08);
+    background-color: rgba(255,255,255,0.08);   /*Gjør at bakgrunnsfargen på lenkene blir lysere når man går over dem med musen*/
 }

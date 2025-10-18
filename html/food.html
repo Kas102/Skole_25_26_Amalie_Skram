@@ -1,71 +1,78 @@
-<!DOCTYPE html>
-<html lang="no" class=".grid-container">    
-<head>
-    <title></title>
+<!DOCTYPE html> <!--forteller nettleseren at dokumentet er en html fil-->
+<html lang="no">    <!--Setter språket til norsk-->    
+<head>  <!--Lager en head tag-->
+    <title>Food</title> <!--Setter Food som tittel-->
     <link rel="stylesheet" href="../css/stilark_food.css"> <!--Lager en kobling til stilarket-->
 </head>
-<body>
-    <header class="top-bar">
+<body>  <!--Lager en body tag-->
+    <header class="top-bar">    <!--Lager en header med klasse top-bar-->
         <h3 class="logo">Travel India</h3> <!--Lager en overskrift med klassen Logo-->
-        <nav class="navbar">
-                    <ul>    <!--Lager et pungtliste-->
-                        <li><a href="#">Contact</a></li> <!--Lager en pungt som heter Contact-->
+            <nav class="navbar">    <!--Lager en nav tag med klasse navbar-->
+                <ul>    <!--Lager et pungtliste-->
+                    <li><a href="#">Contact</a></li> <!--Lager en pungt som heter Contact-->
                         <li class="Dropdown"><a href="javascript:void(0)">About</a> <!--Lager en dropdown meny som heter about-->
                             <div class="Dropdown-content">  <!--Lager en div silk at det bilr enklere å endre på innholdet i et stilark-->
-                                <a href="attractions.html">Attractions</a> <!--Tekst med at anchor element-->
-                                <a href="#">Food</a>
-                                <a href="animals.html">Animals</a>  <!--Tekst med at anchor element-->
-                                <a href="politics.html">Politics</a>    <!--Tekst med at anchor element-->
+                                <a href="attractions.html">Attractions</a> <!--Tekst med et anchor element-->
+                                <a href="food.html">Food</a>    <!--Tekst med et anchor element-->
+                                <a href="animals.html">Animals</a>  <!--Tekst med et anchor element-->
+                                <a href="politics.html">Politics</a>    <!--Tekst med et anchor element-->
+                                <a href="funfacts.html">Fun Facts</a>   <!--Tekst med et anchor element-->
                             </div>
                         </li>
-                        <li><a href="../index.html">Home</a></li> <!--Lager et pungt som heter Home-->
-                    </ul> 
-        </nav>
+                    <li><a href="../index.html">Home</a></li> <!--Lager et pungt som heter Home-->
+                </ul> 
+            </nav>
     </header>
-               <h1>Food</h1>
-        <p> In India the food culture is different from many other countries. The food in India is made using many different
-             spices which makes the food taste great. They also use much of ingredients such as rice and chicken that makes the 
-             food even more iconic.</p>
-    <main class="grid-container">
-                <article class="mainpanel">
-            <div class="image-wrap">
-            <img src="bilder/Pygmy_Hoggen.png" alt="Nilgiri Tahr">
+        <h1>Food</h1>   <!--Lager et h1 element-->
+            <div class="grid-container_1">  <!--Lager en div med klasse grid-container_1-->
+                <p class="panel"> In India the food culture is different from many other countries. Indians often use a lot of ingredients such
+                    as rice and chicken, in combination with different spices and herbs. India does not have an official national dish,
+                    but khichdi is widely considered the unofficial national dish. Khichdi is a simple dish made from rice and lentils.
+                    It is enjoyed across all religions and classes.
+                </p>    <!--Lager et p element-->
             </div>
-            <h2>Indian Accent</h2>
-            <p>Indian Accent is a great food place that is located in New Dehli 
-                and is recognized as one of the greatest by many people. The food there is tasty and they  always have something for
-                 every person. Either if you like sweet or spicy they have something that you will enjoy. The chef’s there are well 
-                 trained and make delicious food. The place is fancy and therefore explains the higher prices. The dinner menu look 
-                 like this:</p>
-                 <h4>Opening hours</h4>
-                 <p>12:00 pm – 10:30pm Monday - Sunday</p>
+    <main class="grid-container">   <!--Lager en main element med klasse grid-container-->
+        <article class="mainpanel"> <!--Lager en article med klasse mainpanel-->
+            <h2>Indian Accent</h2>  <!--Lager en h2 element-->
+            <p>Indian accent is a great food place that is located in New Dehli, and it is recognized as one of the greatest
+                 by many people. The food there is tasty and they always have something for everybody to enjoy, whether you prefer
+                the sweet or spicy food. The chefs there are well trained and make delicious food. The place is considered to be
+                fancy and the price is therefore a little bit higher. 
+            </p>    <!--Lager et p element-->
+            <h4>Opening hours</h4>  <!--Lager en h4 element-->
+            <p>12:00 pm – 10:30pm Monday - Sunday</p>   <!--Lager et p element-->
+            <br>    <!--Lager et linjeskifte-->
+                <div class="image-wrap">    <!--Lager en div med klasse image-wrap-->
+                    <img src="../bilder/Indian Accent.png" alt="Indian Accent">   <!--Lager et img element-->
+                </div>
         </article>
-        <aside class="sidepanel">
-            <div class="image-wrap">
-            <img src="bilder/Sangai Deer.jpg" alt="Nilgiri Tahr">
-            </div>
-         <h2>Annemaya</h2>
-         <p>Annemaya is a  pretty new food hall that is highly inspired by the different colors and flavors from around the world.
-             On the menu you will find food with all sorts of flavors and spices you are even able to find food that is special
-              made for people with allergies. This restaurant is truly on of a kind a a place that you will have to visit while
-               travelling to India.</p>
-                <h4>Opening hours</h4>
-                <p>6:30 am – 12:00 am Monday - Sunday</p>
+        <aside class="sidepanel">   <!--Lager en aside med klasse sidepanel-->
+            <h2>Annemaya</h2>   <!--Lager en h2 element-->
+            <p>Annemaya is a relatively new food hall that is highly inspired by the different colors and flavors from all
+                around the world. On the menu you will find food with all sorts of flavors and spices. You are also able to find
+                food that is specially made for people with allergies. This restaurant is truly one of a kind , and a place that
+                you will have to visit while travelling to India.
+            </p>    <!--Lager et p element-->
+            <h4>Opening hours</h4>  <!--Lager en h4 element-->
+            <p>6:30 am – 12:00 am Monday - Sunday</p>   <!--Lager et p element-->
+            <br>    <!--Lager et linjeskifte-->
+                <div class="image-wrap">    <!--Lager en div med klasse image-wrap-->
+                    <img src="../bilder/Annema.png" alt="Annemaya">   <!--Lager et img element-->
+                </div>
         </aside>
-         <aside class="sidepanel">
-            <div class="image-wrap">
-            <img src="bilder/nandhu-kumar-oguTHIRSyHQ-unsplash.jpg" alt="Nilgiri Tahr">
-            </div>
-          <h2>The Table</h2>
-          <p>The table is a restaurant located in Mumbai India. It’s a highly ranked food place that has some 
-            of the best meals in India. It has all types of meals like lunch, dinner and even brunch. They also have special diets
-             that are vegan or vegetarian friendly.</p>
-             <h4>Opening hours</h4>
-             <p>12:00 pm – 4:00 pm Monday - Saturday
-            </p>
-            <p>11:00 am – 4:00 pm Sunday</p>
-            </aside>
+        <aside class="sidepanel">   <!--Lager en aside med klasse sidepanel-->
+            <h2>The Table</h2>  <!--Lager en h2 element-->
+            <p>The Table is a restaurant located in Mumbai,India. It’s a highly ranked food place that has some of the best meals
+                in India. It has all types of meals such as lunch, dinner and even brunch. They also have special diets that are
+                vegan or vegetarian friendly.</p>   <!--Lager et p element-->
+            <h4>Opening hours</h4>  <!--Lager en h4 element-->
+            <p>12:00 pm – 4:00 pm Monday - Saturday</p>  <!--Lager et p element-->
+            <p>11:00 am – 4:00 pm Sunday</p>    <!--Lager et p element-->
+                <div class="image-wrap">    <!--Lager en div med klasse image-wrap-->
+                    <img src="../bilder/The_table_3.png" alt="The Table" style="display:block; margin-top:20px;">   <!--Lager et img element-->
+                </div>
+        </aside>
     </main>
-<footer class="banner"></footer> 
+<footer class="banner"></footer>    <!--Lager en footer med klasse banner--> 
 </body>
 </html>

@@ -1,38 +1,38 @@
 body{
-    margin: 0px;
+    margin: 0px;    /*Fjerner standard margin på body-elementet*/
     background-image: url("../bilder/Taj_mahal.png"); /*Lager et bagrunnsbilde*/
     background-size: cover; /*Sørger for at bildet dekker hele bakgrunnen*/
 }
 .title-box{
     background-color: rgb(0, 0, 0, 0.7); /*Gjør at bakgrunnen til tittelen blir svart med litt gjennomsiktighet*/
-    height: 500px;
-    padding-top: 150px;
-    width: 800px;
+    height: 500px;  /*Gjør at bakrunnen til skriften blir 500px høy*/
+    padding-top: 150px; /*Lager litt padding over skriften*/
+    width: 800px;   /*Gjør at bakgrunnen til skriften blir 800px bred*/
 }
 h1{
-    margin: 0px;
-    padding: 0px;
-    color:rgb(255, 255, 255);
-    opacity: 0.8;;
-    padding-left: 40px;
-    font-family: milker, sans-serif;
-    font-size: 100px;
+    margin: 0px;    /*Fjerner margin rundt h1-elementet*/
+    padding: 0px;   /*Fjerner padding rundt h1-elementet*/
+    color:rgb(255, 255, 255);   /*Gjør at fargen på teksten blir hvit*/
+    opacity: 0.8; /*Gjør at teksten blir litt gjennomsiktig*/  
+    padding-left: 40px; /*Lager litt padding til venstre for teksten*/
+    font-family: milker, sans-serif;    /*Endrer fonten på teksten*/
+    font-size: 100px;   /*Gjør at teksten blir større*/
 }
 .grid-container {
-    display: grid;  /**Sier at noe skal displayes som grid */
+    display: grid;  /*Sier at noe skal displayes som grid */
    grid-template-columns: 3fr 1fr; /*Lager to kolonner, hvor den første er tre ganger så bred som den andre*/
 }
 .navbar a {
     color: rgb(255, 255, 255);  /*Gjør at fargen på lenkene blir hvit*/
     text-decoration: none;  /*Fjerner understreking på lenkene*/
     padding: 15px;  /*Lager litt padding rundt lenkene*/
-    display: block;
+    display: block; /*Gjør at lenkene oppfører seg som blokker*/
 }
 .navbar a:hover{
     background-color:rgb(55, 55, 55);   /*Gjør at bakgrunnsfargen på lenkene blir grå når man går over dem*/
 }
 .top-bar{
-    background-color: black;
+    background-color: black;    /*Gjør at bakgrunnsfargen på top-bar blir svart*/
 }
 .logo{
     padding-left: 40px; /*Lager litt padding til venstre for logoen*/
@@ -56,38 +56,36 @@ h1{
 }
 .banner{
     background-color: black;    /*Gjør at bakgrunnsfargen på banneret blir svart*/
-    width: 100%;
+    width: 100%;    /*Gjør at banneret tar opp hele bredden*/
     height: 80px;   /*Gjør at banneret blir 80px høyt*/
-    position: fixed;    
-    bottom: 0;
+    position: fixed;    /*Sørger for at banneret er festet til bunnen av siden*/
+    bottom: 0;  /*Plasserer banneret nederst*/
 }
 .Dropdown-content {
-    display: none;
-    background-color: black; /* dropdown itself is black */
-    min-width: 50px; /* a more usable width */
-    position: absolute; /* remove from document flow so header won't expand */
-    top: 100%; /* place directly below the parent li */
-    right: 0; /* align dropdown to the right edge of the parent */
-    z-index: 999; /* make sure it appears above other content */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    display: none;  /* Skjuler dropdown-menyen som standard */
+    background-color: black;   /* Endrer bakgrunnsfargen på dropdown-menyen til svart */
+    min-width: 50px;    /* Setter en minimumsbredde på dropdown-menyen */
+    position: absolute; /* Posisonerer menyen absolutt i forhold til nærmeste posisjonerte forelder */ 
+    top: 100%;  /* Plasserer menyen rett under dropdown-knappen */
+    right: 0;   /* Justerer menyen til høyre */
+    z-index: 999;   /* Sørger for at menyen vises over andre elementer */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);  /* Legger til en skyggeeffekt for dybde */
 }
 .Dropdown:hover .Dropdown-content {
-  display: block;
+  display: block;   /* Viser dropdown-menyen når man holder musepekeren over dropdown-knappen */
 }
 
-/* Ensure the Dropdown list item is the positioning context */
 .Dropdown{
-    position: relative;
+    position: relative; /* Sørger for at dropdown-menyen posisjoneres i forhold til dropdown-knappen */
 }
 
-/* Style links inside the dropdown so they're readable */
 .Dropdown-content a{
     color: #fff; /* white text on black background */
-    padding: 10px 15px;
-    display: block;
-    text-decoration: none;
-    text-align: center;
+    padding: 10px 15px; /*Lager litt padding rundt lenkene*/
+    display: block; /*Gjør at lenkene oppfører seg som blokker*/
+    text-decoration: none;  /*Fjerner understreking på lenkene*/
+    text-align: center; /*Sentrerer teksten*/
 }
 .Dropdown-content a:hover{
-    background-color: rgba(255,255,255,0.08);
+    background-color: rgba(255,255,255,0.08);   /*Gjør at bakgrunnsfargen på lenkene lysere når man går over dem med musen*/
 }

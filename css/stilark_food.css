@@ -1,33 +1,47 @@
-
-body{
-    margin: 0px;
+body{  
+    margin: 0px;    /*Fjerner standard margin på body-elementet*/
 }
 .grid-container {
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-grid-template-rows: 1fr;
-padding: 0px;   
+display: grid;  /*sier at det skal displayes som grid*/
+grid-template-columns: 1fr 1fr 1fr; /*Lager tre kolonner som tar opp like mye plass*/
+grid-template-rows: 1fr;    /*Lager en til rad*/
+padding: 0px;   /*Fjerner padding rundt grid-containeren*/
+}
+.grid-container_1 {
+display: grid;  /*sier at det skal displayes som grid*/
+grid-template-columns: 1fr; /*lager en kolonne som tar opp all tilgjengelig plass*/
+margin: 0px;    /*fjerner margin rundt grid-containeren*/
+}
+.panel{
+    padding-bottom: 20px;   /*Lager litt padding under*/
+    padding-top: 20px;    /*Lager litt padding over*/
+    border-style: solid;    /*Gjør at panelet får en kantlinje*/
+    background-color:  rgb(130, 222, 228);  /*Endrer bakrunnsfargen*/
+    text-align: center; /*Sentrerer teksten*/
+    margin: 0px;    /*Fjerner margin rundt panelet*/
 }
 .mainpanel, .sidepanel{
-    border-style: solid;
-    background-color:  rgb(130, 222, 228);
-    text-align: center;
+    border-style: solid;    /*Gjør at panelene får en kantlinje*/
+    background-color:  rgb(130, 222, 228);  /*Endrer bakrunnsfargen*/
+    text-align: center; /*Sentrerer teksten*/
+    margin: 0px;    /*Fjerner margin rundt panelene*/
+    padding-bottom: 40px;   /*Lager litt padding under panelene*/
 }
 h1, p {
-    text-align: center;
+    text-align: center; /*Sentrerer teksten*/
 
 }
 .navbar a {
     color: rgb(255, 255, 255);  /*Gjør at fargen på lenkene blir hvit*/
     text-decoration: none;  /*Fjerner understreking på lenkene*/
     padding: 15px;  /*Lager litt padding rundt lenkene*/
-    display: block;
+    display: block; /*Gjør at lenkene oppfører seg som blokker*/
 }
 .navbar a:hover{
     background-color:rgb(55, 55, 55);   /*Gjør at bakgrunnsfargen på lenkene blir grå når man går over dem*/
 }
 .top-bar{
-    background-color: black;
+    background-color: black;    /*Gjør at bakgrunnsfargen på top-bar blir svart*/
 }
 .logo{
     padding-left: 40px; /*Lager litt padding til venstre for logoen*/
@@ -50,74 +64,79 @@ h1, p {
     display: flex;  /*Gjør at elementene i top-bar vises på linje*/
 }
 .banner{
-    background-color: black;    /*Gjør at bakgrunnsfargen på banneret blir svart*/
-    width: 100%;
-    height: 80px;   /*Gjør at banneret blir 80px høyt*/
+    background-color: black;   /*Gjør at bakgrunnsfargen på banneret blir svart*/
+    width: 100%;    /*Gjør at banneret tar opp hele bredden*/
+    height: 85px;   /*Gjør at banneret blir 85px høyt*/
     position: fixed;    
-    bottom: 0;
+    bottom: 0;  /*Plasserer banneret nederst*/
 }
 .Dropdown-content {
-    display: none;
-    background-color: black; /* dropdown itself is black */
-    min-width: 50px; /* a more usable width */
-    position: absolute; /* remove from document flow so header won't expand */
-    top: 100%; /* place directly below the parent li */
-    right: 0; /* align dropdown to the right edge of the parent */
-    z-index: 999; /* make sure it appears above other content */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    display: none; /* Skjuler dropdown-menyen som standard */
+    background-color: black;   /* Endrer bakgrunnsfargen på dropdown-menyen til svart */
+    min-width: 50px;    /* Setter en minimumsbredde på dropdown-menyen */
+    position: absolute; /* Sørger for at menyen posisjoneres relativt til nærmeste posisjonerte forelder */
+    top: 100%;  /* Plasserer menyen rett under dropdown-knappen */
+    right: 0;   /* Justerer menyen til høyre */
+    z-index: 999;   /* Sørger for at menyen vises over andre elementer */ 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);  /* Legger til en skyggeeffekt for dybde */
 }
 .Dropdown:hover .Dropdown-content {
-  display: block;
+  display: block;   /* Viser dropdownmenyen når man holder musepekeren over dropdown-knappen */
 }
-
-/* Ensure the Dropdown list item is the positioning context */
 .Dropdown{
-    position: relative;
+    position: relative;     /* Sørger for at dropdown-menyen posisjoneres i forhold til dropdown-knappen */
 }
-
-/* Style links inside the dropdown so they're readable */
 .Dropdown-content a{
-    color: #fff; /* white text on black background */
-    padding: 10px 15px;
-    display: block;
-    text-align: center;
-    text-decoration: none;
+    color: #fff;    /*gjør teksten hvit*/
+    padding: 10px 15px;     /*Lager litt padding rundt lenkene*/ 
+    display: block; /*Gjør at lenkene oppfører seg som blokker*/ 
+    text-align: center; /*Sentrerer teksten*/
+    text-decoration: none;  /*Fjerner understreking på lenkene*/
 }
 .Dropdown-content a:hover{
-    background-color: rgba(255,255,255,0.08);
+    background-color: rgba(255,255,255,0.08);   /*Gjør at bakgrunnsfargen på lenkene blir lysere når man går over dem med musen*/
 }
   .image-wrap {
       display: block;         /* container oppfører seg som blokk */
       width: 100%;            /* ta opp all tilgjengelig bredde i foreldrekontekst */
-      max-width: 900px;    /* standard maksimal bredde (kan justeres) */
+      max-width: 400px;       /* standard maksimal bredde for ensartet bildestørrelse */
       margin: 24px auto;      /* sentrerer containeren horisontalt */
-      padding: 0;             /* litt luft på sidene, spesielt på mobil */
-      border-style: none;
-      align-items: center;
+      padding: 0;             /* ingen ekstra padding */
+      border-style: none;   /* ingen kantlinje */
+      position: relative;     /* gjør containeren til posisjoneringskontekst for bildet */
+      overflow: hidden;       /* skjul uønsket overskudd når bildet beskjæres */
   }
-      .image-wrap img {
-      display: block;         /* fjerner mulige inline-gap under bildet */
-      width: 100%;            /* bildet fyller containerens bredde */
-      height: auto;           /* behold aspektforholdet (bredde:høyde) */
-      max-height: none;  /* om ønskelig kan du sette en max-height */
-      border-radius: 32px;     /* estetisk avrunding */
-      /* Bruk object-fit hvis du setter max-height og ønsker kontroll over beskjæring */
-    }
+  .image-wrap::before {
+      content: "";            /* spacer for å opprette et fast aspektforhold */
+      display: block;           /* gjør at den oppfører seg som en blokk */
+      padding-top: 66.6667%;  /* 3:2 aspektforhold (høyde / bredde * 100%) */
+  }
+  .image-wrap img {
+      position: absolute;     /* plasser bildet over spaceren */
+      top: 0;                 /* fest til toppen av containeren */
+      left: 0;              /* fest til venstre side av containeren */
+      width: 100%;            /* fyll hele containerens bredde */
+      height: 100%;           /* fyll hele containerens høyde */
+      object-fit: cover;      /* beskjær og fyll uten å strekke bildet */
+      object-position: center;/* sentrer motivet i beskjæringen */
+      border-radius: 16px;    /* litt avrunding for estetikk */
+      display: block;         /* fjerner inline-gap */
+  }
 .image-panel .image-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;    /* cover the full area */
-    object-position: center;
-    border-radius: 0;
-    box-shadow: none;
+    width: 100%;    /* fyll hele containerens bredde */
+    height: 100%;   /* fyll hele containerens høyde */
+    object-fit: cover;  /* sikrer at bildet dekker containeren */  
+    object-position: center;    /* sentrerer bildet i containeren */
+    border-radius: 0;   /* ingen avrunding av kantene */
+    box-shadow: none;   /* ingen skyggeeffekt */
 }
-    @media (max-width: 500px) {
+    @media (max-width: 500px) {    /* responsiv justering for små skjermer */
       .image-wrap {
-        max-width: 600px;
+        max-width: 320px;    /* mindre maks-bredde på små skjermer */
       }
     }
-        @media (min-width: 100px) {
+    @media (min-width: 901px) {   /* responsiv justering for større skjermer */
       .image-wrap {
-        max-width: 1200px;    /* gir større visning på stasjonære */
+        max-width: 800px;    /* større maks-bredde på større skjermer */
       }
-        }
+    }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="no">
 <head>
@@ -362,3 +363,369 @@
             showCurrentStage();
         }
         </script>
+=======
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO2-Rådgiveren: Velg for En Annen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fbf8; /* Light green-blue background */
+        }
+        .carbon-bg {
+            background-color: #e0f2f1; /* Tailwind teal-50 equivalent */
+        }
+        .text-carbon {
+            color: #0d9488; /* Tailwind teal-600 equivalent */
+        }
+        .btn-choice {
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+        }
+        .btn-choice:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+        .co2-bar-good {
+            transition: width 1s ease-out;
+            background-color: #10b981; /* Emerald 500 */
+        }
+        .co2-bar-warning {
+            transition: width 1s ease-out;
+            background-color: #f59e0b; /* Amber 500 */
+        }
+        .co2-bar-danger {
+            transition: width 1s ease-out;
+            background-color: #ef4444; /* Red 500 */
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+    <div id="app-container" class="max-w-4xl mx-auto">
+
+        <!-- Tittel og CO2-budsjett (Oppdatert til CO2-Rådgiver) -->
+        <header class="text-center mb-8 p-4 rounded-xl carbon-bg shadow-lg">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-carbon mb-2">CO2-Rådgiveren</h1>
+            <p class="text-lg text-gray-700">I dette spillet skal du være 21 år gamle Jacob som bor i Norge. Han har funnet ut at hvis alle i verden hadde hatt like høye CO2 utslipp som en gjennomsnittlig nordmann hadde vi trengt 3,2 jordkloder. Han har derfor et stort ønske om å  kutte ned på sine egne utlipp. Klarer du å hjelpe han navigere seg gjennom en dag hvor han må ta stilling til ulike problemer han møter på veien</p>
+        </header>
+
+        <div class="bg-white p-6 rounded-xl shadow-2xl mb-8">
+            <h2 class="text-xl font-bold mb-3 text-gray-800">CO2-Banken din (Daglig Budsjettering)</h2>
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-semibold text-gray-600">Gjenværende CO2 (i gram):</span>
+                <span id="co2-remaining" class="text-2xl font-bold text-carbon">5500 g</span>
+            </div>
+            
+            <!-- CO2 Fremdriftsbar -->
+            <div class="w-full h-8 bg-gray-200 rounded-full overflow-hidden">
+                <div id="co2-bar" class="h-full co2-bar-good" style="width: 100%;"></div>
+            </div>
+            <p id="progress-status" class="text-xs mt-2 text-center text-gray-500">100% av budsjettet gjenstår.</p>
+        </div>
+
+        <!-- Hovedspillområde -->
+        <main id="game-area" class="bg-white p-6 rounded-xl shadow-2xl">
+            <p id="current-stage" class="text-sm font-medium text-gray-500 mb-3">Starter...</p>
+            <h3 id="current-activity" class="text-2xl font-semibold text-gray-800 mb-5">Trykk på Start for å begynne dagen!</h3>
+            
+            <div id="choice-buttons" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <button onclick="startGame()" id="start-button" class="btn-choice bg-teal-500 text-white p-4 rounded-lg font-bold text-lg hover:bg-teal-600">
+                    Start Dagen
+                </button>
+            </div>
+
+            <!-- Melding ved tap/seier -->
+            <div id="game-over-message" class="hidden mt-6 p-4 rounded-lg text-center" role="alert">
+                <h4 id="game-result-title" class="text-xl font-bold mb-2"></h4>
+                <p id="game-result-text" class="text-lg"></p>
+                <button onclick="resetGame()" class="mt-4 bg-blue-500 text-white p-3 rounded-lg font-semibold hover:bg-blue-600 transition">Start På Nytt</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for feedback/advarsel (Må brukes i stedet for alert/confirm) -->
+    <div id="feedback-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div class="bg-white p-6 rounded-xl shadow-2xl max-w-lg w-full transform transition-all">
+            <h4 id="modal-title" class="text-2xl font-bold mb-4 text-red-600">Advarsel: Høyt CO2-Fotavtrykk!</h4>
+            <p id="modal-impact" class="text-xl font-semibold mb-3 text-red-700"></p>
+            <p id="modal-explanation" class="text-gray-700 mb-4"></p>
+            <p id="modal-better-choice" class="text-lg font-semibold text-teal-600 mt-4 border-t pt-3 border-gray-200"></p>
+            
+            <button onclick="hideModalAndNextStage()" class="mt-5 w-full bg-teal-500 text-white p-3 rounded-lg font-bold hover:bg-teal-600 transition">
+                Forstått, Fortsett Dagen
+            </button>
+        </div>
+    </div>
+    </body>
+</html>
+
+    <script>
+        // Global konstanter for spillet
+        const DAILY_CO2_BUDGET = 5500; // Gram CO2, basert på et bærekraftig årsbudsjett
+        let currentCO2 = 0;
+        let currentStageIndex = 0;
+        let gameRunning = false;
+
+        // Spilldata: Dagens aktiviteter og valg (Oppdatert for å velge for "personen")
+        const gameStages = [
+            {
+                stage: "Morgenmad (Kl. 07:00)",
+                activity: "Hva velger du at personen spiser til frokost?",
+                choices: [
+                    { text: "Vegansk havregrøt og frukt", impact: 200, better: true, explanation: "Lavt fotavtrykk! Plantebasert mat er et av de beste valgene for klimaet." },
+                    { text: "Egg, ost og brød", impact: 750, better: false, explanation: "Meieriprodukter og egg har et moderat fotavtrykk. Produksjonen krever mer ressurser enn plantebasert mat." },
+                    { text: "Bacon og pølser", impact: 1500, better: false, explanation: "Kjøttbasert frokost har et høyt fotavtrykk, spesielt kjøtt fra drøvtyggere." }
+                ],
+                best_impact: 200,
+                best_choice_text: "Vegansk havregrøt og frukt (200 g CO2)"
+            },
+            {
+                stage: "Pendling (Kl. 08:00)",
+                activity: "Hvordan velger du at personen skal pendle til jobb/studie?",
+                choices: [
+                    { text: "Kjører bil alene (10km)", impact: 2000, better: false, explanation: "Bilkjøring er en stor kilde til CO2-utslipp og luftforurensning i byer. Dette spiser raskt opp budsjettet!" },
+                    { text: "Tar bussen", impact: 500, better: false, explanation: "Offentlig transport er bedre enn bilkjøring, men utslipp er fortsatt til stede fra drivstofforbruket." },
+                    { text: "Sykler/Går", impact: 0, better: true, explanation: "Gratulerer! Dette er den mest klimavennlige måten å reise korte avstander på." }
+                ],
+                best_impact: 0,
+                best_choice_text: "Sykler/Går (0 g CO2)"
+            },
+            {
+                stage: "Lunsj (Kl. 12:00)",
+                activity: "Hva velger du at personen skal spise til lunsj?",
+                choices: [
+                    { text: "Stor biffburger", impact: 3000, better: false, explanation: "Biff har et ekstremt høyt klimaavtrykk på grunn av metangass og arealbruk. Unngå det om du vil redde budsjettet!" },
+                    { text: "Kyllingsalat", impact: 800, better: false, explanation: "Fjærfe har lavere utslipp enn rødt kjøtt, men er fortsatt høyere enn plantebaserte alternativer." },
+                    { text: "Linsegryte/Vegetargryte", impact: 300, better: true, explanation: "Bra valg! Belgfrukter og grønnsaker gir svært lavt klimaavtrykk." }
+                ],
+                best_impact: 300,
+                best_choice_text: "Linsegryte/Vegetargryte (300 g CO2)"
+            },
+            {
+                stage: "Handling (Kl. 16:00)",
+                activity: "Personen trenger et nytt produkt. Hva velger du å kjøpe?",
+                choices: [
+                    { text: "Kjøper en ny smarttelefon", impact: 1000, better: false, explanation: "Produksjon av elektronikk, spesielt nye enheter, har et enormt CO2-avtrykk." },
+                    { text: "Kjøper en brukt bok", impact: 100, better: true, explanation: "Gjenbruk er nøkkelen! Forlenget levetid på produkter reduserer behovet for ny produksjon." },
+                    { text: "Kjøper et nytt klesplagg (bomull)", impact: 500, better: false, explanation: "Tekstilindustrien har høye utslipp, spesielt ved kjøp av nye plagg." }
+                ],
+                best_impact: 100,
+                best_choice_text: "Kjøper en brukt bok (100 g CO2)"
+            },
+            {
+                stage: "Middag (Kl. 19:00)",
+                activity: "Hva velger du at personen skal spise til middag?",
+                choices: [
+                    { text: "Importert biff og vin", impact: 4000, better: false, explanation: "Kombinasjonen av rødt kjøtt og lange transportveier (import) er budsjettets verste fiende." },
+                    { text: "Lokal fisk/kylling og grønnsaker", impact: 1200, better: false, explanation: "Bedre enn biff, men fortsatt et relativt høyt bidrag. Prøv å redusere kjøttmengden." },
+                    { text: "Hjemmelaget vegetarisk pasta", impact: 400, better: true, explanation: "Fantastisk! Hjemmelaget mat med fokus på lokale og plantebaserte råvarer er optimalt." }
+                ],
+                best_impact: 400,
+                best_choice_text: "Hjemmelaget vegetarisk pasta (400 g CO2)"
+            },
+            {
+                stage: "Kveld (Kl. 21:00)",
+                activity: "Hva velger du at personen bruker strømmen på i kveld?",
+                choices: [
+                    { text: "Lar PC/lys stå på, streamer 4K video i flere timer", impact: 700, better: false, explanation: "Unødvendig strømforbruk og dataoverføring øker CO2-avtrykket. Husk å skru av!" },
+                    { text: "Leser en fysisk bok, demper lyset", impact: 150, better: true, explanation: "Lavt forbruk. Enkle endringer i vane kan spare mye strøm og CO2." },
+                    { text: "Spiller krevende videospill på stor skjerm", impact: 400, better: false, explanation: "Spilling på kraftig utstyr krever mye strøm." }
+                ],
+                best_impact: 150,
+                best_choice_text: "Leser en fysisk bok, demper lyset (150 g CO2)"
+            }
+        ];
+
+        // --- DOM-elementer ---
+        const co2RemainingEl = document.getElementById('co2-remaining');
+        const co2BarEl = document.getElementById('co2-bar');
+        const progressStatusEl = document.getElementById('progress-status');
+        const currentStageEl = document.getElementById('current-stage');
+        const currentActivityEl = document.getElementById('current-activity');
+        const choiceButtonsEl = document.getElementById('choice-buttons');
+        const gameOverMessageEl = document.getElementById('game-over-message');
+        const gameResultTitleEl = document.getElementById('game-result-title');
+        const gameResultTextEl = document.getElementById('game-result-text');
+        const feedbackModalEl = document.getElementById('feedback-modal');
+        const modalTitleEl = document.getElementById('modal-title');
+        const modalImpactEl = document.getElementById('modal-impact');
+        const modalExplanationEl = document.getElementById('modal-explanation');
+        const modalBetterChoiceEl = document.getElementById('modal-better-choice');
+        const startButtonEl = document.getElementById('start-button');
+
+        // --- Funksjoner ---
+
+        /** Oppdaterer CO2-visningen og fremdriftsbaren. */
+        function updateCO2Display() {
+            const remaining = DAILY_CO2_BUDGET - currentCO2;
+            co2RemainingEl.textContent = `${remaining} g`;
+
+            const percentage = Math.max(0, (remaining / DAILY_CO2_BUDGET) * 100);
+            co2BarEl.style.width = `${percentage}%`;
+            
+            // Fargekoding av baren
+            co2BarEl.classList.remove('co2-bar-good', 'co2-bar-warning', 'co2-bar-danger');
+            let statusText = `${Math.round(percentage)}% av budsjettet gjenstår.`;
+
+            if (percentage > 50) {
+                co2BarEl.classList.add('co2-bar-good');
+                co2RemainingEl.classList.remove('text-red-500', 'text-yellow-600');
+                co2RemainingEl.classList.add('text-carbon');
+            } else if (percentage > 20) {
+                co2BarEl.classList.add('co2-bar-warning');
+                co2RemainingEl.classList.remove('text-carbon', 'text-red-500');
+                co2RemainingEl.classList.add('text-yellow-600');
+                statusText = `ADVARSEL! Du bruker mye CO2. ${Math.round(percentage)}% gjenstår.`;
+            } else {
+                co2BarEl.classList.add('co2-bar-danger');
+                co2RemainingEl.classList.remove('text-carbon', 'text-yellow-600');
+                co2RemainingEl.classList.add('text-red-500');
+                statusText = `KRITISK! Veldig lite CO2 gjenstår. ${Math.round(percentage)}% gjenstår.`;
+            }
+            
+            progressStatusEl.textContent = statusText;
+
+            // Sjekk for tap
+            if (remaining <= 0 && gameRunning) {
+                endGame(false);
+            }
+        }
+
+        /** Viser et nytt valg basert på gjeldende indeks. */
+        function showCurrentStage() {
+            if (currentStageIndex >= gameStages.length) {
+                endGame(true); // Vinner spillet
+                return;
+            }
+
+            const stageData = gameStages[currentStageIndex];
+            currentStageEl.textContent = `STEG ${currentStageIndex + 1} av ${gameStages.length}: ${stageData.stage}`;
+            currentActivityEl.textContent = stageData.activity;
+            startButtonEl.classList.add('hidden');
+            gameOverMessageEl.classList.add('hidden');
+
+            // Generer valgknapper
+            choiceButtonsEl.innerHTML = '';
+            stageData.choices.forEach((choice, index) => {
+                const button = document.createElement('button');
+                button.className = 'btn-choice bg-teal-500 text-white p-4 rounded-lg font-bold hover:bg-teal-600 transition';
+                // ENDRING HER: Viser kun teksten, ikke CO2-kostnaden
+                button.textContent = `${choice.text}`; 
+                button.onclick = () => handleChoice(index);
+                choiceButtonsEl.appendChild(button);
+            });
+        }
+
+        /** Håndterer brukerens valg. */
+        function handleChoice(choiceIndex) {
+            if (!gameRunning) return;
+
+            const stageData = gameStages[currentStageIndex];
+            const choice = stageData.choices[choiceIndex];
+
+            currentCO2 += choice.impact;
+            updateCO2Display();
+
+            // Hvis valget ikke var det beste ELLER budsjettet er overskredet
+            if (!choice.better || (DAILY_CO2_BUDGET - currentCO2 <= 0)) {
+                showFeedbackModal(stageData, choice);
+            } else {
+                // Bra valg, gå rett til neste steg
+                currentStageIndex++;
+                showCurrentStage();
+            }
+        }
+
+        /** Viser tilbakemeldingsmodalen. */
+        function showFeedbackModal(stageData, choice) {
+            feedbackModalEl.classList.remove('hidden');
+            
+            modalImpactEl.textContent = `Dette valget kostet personen: ${choice.impact} g CO2.`;
+            modalExplanationEl.textContent = choice.explanation;
+
+            // Finn den bedre løsningen for å vise i modalen
+            const betterChoice = stageData.choices.find(c => c.better) || { text: "Intet bedre alternativ funnet.", impact: 0 };
+            modalBetterChoiceEl.innerHTML = `Et **bedre, klimavennlig** valg ville vært: 
+                                            <span class="block mt-1 p-2 bg-teal-50 text-teal-700 rounded-lg">
+                                                ${betterChoice.text} (${betterChoice.impact} g CO2)
+                                            </span>`;
+
+            // Oppdater tittel basert på kritisk tilstand
+            const remaining = DAILY_CO2_BUDGET - currentCO2;
+            if (remaining <= 0) {
+                modalTitleEl.textContent = "BUDSJETT OVERSKREDET! Du har tapt for personen!";
+                modalTitleEl.classList.remove('text-red-600');
+                modalTitleEl.classList.add('text-red-800');
+            } else {
+                 modalTitleEl.textContent = "Advarsel: Høyt CO2-Fotavtrykk!";
+                 modalTitleEl.classList.add('text-red-600');
+                 modalTitleEl.classList.remove('text-red-800');
+            }
+        }
+
+        /** Skjuler modalen og går til neste steg. */
+        function hideModalAndNextStage() {
+            feedbackModalEl.classList.add('hidden');
+            
+            // Hvis budsjettet er overskredet, avslutt spillet
+            if (DAILY_CO2_BUDGET - currentCO2 <= 0) {
+                endGame(false);
+                return;
+            }
+
+            // Gå til neste steg
+            currentStageIndex++;
+            showCurrentStage();
+        }
+
+
+        /** Avslutter spillet og viser resultatmelding. */
+        function endGame(won) {
+            gameRunning = false;
+            choiceButtonsEl.innerHTML = '';
+            gameOverMessageEl.classList.remove('hidden');
+
+            if (won) {
+                gameResultTitleEl.textContent = "FANTASTISK! Du klarte å veilede personen!";
+                gameResultTitleEl.className = 'text-xl font-bold mb-2 text-green-700';
+                gameResultTextEl.textContent = `Du fullførte dagen med et totalt CO2-utslipp på ${currentCO2} g, og holdt personen innenfor budsjettet på ${DAILY_CO2_BUDGET} g! Gratulerer med en klimavennlig dag for personen.`;
+                gameOverMessageEl.classList.add('bg-green-100');
+                gameOverMessageEl.classList.remove('bg-red-100');
+            } else {
+                gameResultTitleEl.textContent = "BUDSJETT OVERSKREDET! Personen tapte.";
+                gameResultTitleEl.className = 'text-xl font-bold mb-2 text-red-700';
+                gameResultTextEl.textContent = `Personens totale CO2-utslipp endte på ${currentCO2} g. Dette er over det anbefalte budsjettet på ${DAILY_CO2_BUDGET} g. Din veiledning må bli bedre i morgen!`;
+                gameOverMessageEl.classList.add('bg-red-100');
+                gameOverMessageEl.classList.remove('bg-green-100');
+            }
+        }
+
+        /** Starter/tilbakestiller spillet. */
+        function resetGame() {
+            currentCO2 = 0;
+            currentStageIndex = 0;
+            updateCO2Display();
+            gameOverMessageEl.classList.add('hidden');
+            startButtonEl.classList.remove('hidden');
+            currentStageEl.textContent = "Klar til å starte?";
+            currentActivityEl.textContent = "Trykk Start for å starte dagen på nytt.";
+            choiceButtonsEl.innerHTML = ''; // Fjern knapper fra tap/vinn-skjermen
+            choiceButtonsEl.appendChild(startButtonEl);
+            gameRunning = false;
+        }
+
+        function startGame() {
+            gameRunning = true;
+            currentStageIndex = 0;
+            currentCO2 = 0;
+            updateCO2Display();
+            showCurrentStage();
+        }
+        </script>
+>>>>>>> 928c96caa422926e2397044231b6bd2623553a40

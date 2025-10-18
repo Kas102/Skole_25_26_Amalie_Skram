@@ -1,32 +1,92 @@
 body{
-    margin: 0px;
+    margin: 0px;    /*Fjerner standard margin på body-elementet*/
+}
+.my-button {
+    background-color: rgb(55, 55, 55);  /*Bakgrunnsfargen på knappen*/
+    border: none;   /* Fjerner standard kantlinje */
+    color: rgb(255, 254, 254);  /* Fargen på teksten */
+    margin-left: 6px;  /* Lager litt margin til venstre for knappen */
+    margin-bottom: 10px;    /* Lager litt margin under knappen */
+    margin-top: 110px;  /*lager margin på toppen av knappen*/
+    text-align: center; /* Sentrerer teksten */
+    text-decoration: none;  /* Fjerner understreking */
+    display: inline-block;  /* Gjør at knappen oppfører seg som en blokk */
+    font-size: 10px;    /* Størrelsen på teksten */
+    cursor: pointer;    /* Endrer musepekeren til en peker når man er over knappen */
+    border-radius: 12px;    /* Gjør hjørnene på knappen avrundet */
+    opacity: 0.8;   /*endrer hvor gjennomsiktig knappen er*/
+}
+.grid-container_1 {
+display: grid;  /*sier at det skal displayes som grid*/
+grid-template-columns: 1fr; /*lager en kolonne som tar opp all tilgjengelig plass*/
+margin: 0px;    /*fjerner margin rundt grid-containeren*/
+}
+.panel{
+    padding-bottom: 20px;   /*Lager litt padding under panelet*/
+    padding-top: 20px;      /*Lager litt padding over panelet*/
+    border-style: solid;    /*Gjør at panelet får en kantlinje*/
+    background-color:  rgb(130, 222, 228);  /*Endrer bakrunnsfargen*/
+    text-align: center;  /*Sentrerer teksten i panelet*/
+    margin: 0px;    /*Fjerner margin rundt panelet*/
 }
 .grid-container {
-display: grid;
-grid-template-columns: 1fr 1fr 1fr 1fr;
-grid-template-rows: 1fr;
-padding: 0px;   
+display: grid;  /*sier at det skal displayes som grid*/
+grid-template-columns: 1fr 1fr 1fr 1fr; /*Lager fire kolonner som tar opp like mye plass*/
+grid-template-rows: 1fr;    /*Lager en til rad*/
+padding: 0px;   /*Fjerner padding rundt grid-containeren*/
 }
-.mainpanel, .sidepanel{
-    border-style: solid;
-    background-color:  rgb(130, 222, 228);
-    text-align: center;
+.Taj-mahal-box, .scuba-diving-box, .golden-temple-box, .lotus-temple-box, .della-adventure-box,
+ .janipur-box, .amber-fort-box, .bandhavgarh-box{
+    border-style: solid;    /*Gjør at panelene får en kantlinje*/
+    text-align: center; /*Sentrerer teksten i panelene*/
+}
+.bandhavgarh-box{
+    background-image: url('../bilder/bandhavgarh-national-park.png'); /*Legger til et bakgrunnsbilde*/
+    background-size: cover;    /*Sørger for at bakgrunnsbildet dekker hele elementet*/
+}
+.amber-fort-box{
+    background-image: url('../bilder/Amber-fort.png'); /*Legger til et bakgrunnsbilde*/
+    background-size: cover;    /*Sørger for at bakgrunnsbildet dekker hele elementet*/
+}
+.janipur-box{
+    background-image: url('../bilder/Janipur1.png'); /*Legger til et bakgrunnsbilde*/
+    background-size: cover;    /*Sørger for at bakgrunnsbildet dekker hele elementet*/
+}
+.della-adventure-box{
+    background-image: url('../bilder/Della_adventure.png'); /*Legger til et bakgrunnsbilde*/
+    background-size: cover;    /*Sørger for at bakgrunnsbildet dekker hele elementet*/
+}
+.lotus-temple-box{
+    background-image: url('../bilder/Lotus_temple.png'); /*Legger til et bakgrunnsbilde*/
+    background-size: cover;    /*Sørger for at bakgrunnsbildet dekker hele elementet*/
+}
+.golden-temple-box{
+    background-image: url('../bilder/Golden-temple.png'); /*Legger til et bakgrunnsbilde*/
+    background-size: cover;    /*Sørger for at bakgrunnsbildet dekker hele elementet*/
+}
+.scuba-diving-box{
+    background-image: url('../bilder/Scuba_diving.png'); /*Legger til et bakgrunnsbilde*/
+    background-size: cover;    /*Sørger for at bakgrunnsbildet dekker hele elementet*/
+}
+.Taj-mahal-box{
+    background-image: url('../bilder/taj-mahal-attractios.jpg'); /*Legger til et bakgrunnsbilde*/
+    background-size: cover;    /*Sørger for at bakgrunnsbildet dekker hele elementet*/
 }
 h1, p {
-    text-align: center;
+    text-align: center;  /*Sentrerer all tekst i h1- og p elementer*/
 
 }
 .navbar a {
     color: rgb(255, 255, 255);  /*Gjør at fargen på lenkene blir hvit*/
     text-decoration: none;  /*Fjerner understreking på lenkene*/
     padding: 15px;  /*Lager litt padding rundt lenkene*/
-    display: block;
+    display: block; /*Gjør at lenkene oppfører seg som blokker*/
 }
 .navbar a:hover{
     background-color:rgb(55, 55, 55);   /*Gjør at bakgrunnsfargen på lenkene blir grå når man går over dem*/
 }
 .top-bar{
-    background-color: black;
+    background-color: black;    /*Gjør at bakgrunnsfargen på top-bar blir svart*/
 }
 .logo{
     padding-left: 40px; /*Lager litt padding til venstre for logoen*/
@@ -50,73 +110,35 @@ h1, p {
 }
 .banner{
     background-color: black;    /*Gjør at bakgrunnsfargen på banneret blir svart*/
-    width: 100%;
+    width: 100%;    /*Gjør at banneret tar opp hele bredden*/
     height: 80px;   /*Gjør at banneret blir 80px høyt*/
-    position: fixed;    
-    bottom: 0;
+    position: fixed;    /*Sørger for at banneret er festet til bunnen av siden*/
+    bottom: 0;  /*Plasserer banneret nederst*/
 }
 .Dropdown-content {
-    display: none;
-    background-color: black; /* dropdown itself is black */
-    min-width: 50px; /* a more usable width */
-    position: absolute; /* remove from document flow so header won't expand */
-    top: 100%; /* place directly below the parent li */
-    right: 0; /* align dropdown to the right edge of the parent */
-    z-index: 999; /* make sure it appears above other content */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    display: none;  /* Skjuler dropdown-menyen som standard */
+    background-color: black;    /* Endrer bakgrunnsfargen på dropdown-menyen til svart */
+    min-width: 50px;    /* Setter en minimumsbredde på dropdown-menyen */
+    position: absolute; /* Posisonerer menyen absolutt i forhold til nærmeste posisjonerte forelder */ 
+    top: 100%;  /* Plasserer menyen rett under dropdown-knappen */ 
+    right: 0;   /* Justerer menyen til høyre */ 
+    z-index: 999;   /* Sørger for at menyen vises over andre elementer */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);  /* Legger til en skyggeeffekt for dybde */
 }
 .Dropdown:hover .Dropdown-content {
-  display: block;
+  display: block;   /* Viser dropdown-menyen når man holder musepekeren over dropdown-knappen */
 }
-
-/* Ensure the Dropdown list item is the positioning context */
 .Dropdown{
-    position: relative;
+    position: relative;     /* Sørger for at dropdown-menyen posisjoneres i forhold til dropdown-knappen */
 }
 
-/* Style links inside the dropdown so they're readable */
 .Dropdown-content a{
-    color: #fff; /* white text on black background */
-    padding: 10px 15px;
-    display: block;
-    text-align: center;
-    text-decoration: none;
+    color: #fff; /*Gjør at teksten blir hvit*/
+    padding: 10px 15px;  /*Lager litt padding rundt lenkene*/
+    display: block; /*Gjør at lenkene oppfører seg som blokker*/
+    text-align: center; /*Sentrerer teksten*/
+    text-decoration: none;  /*Fjerner understreking på lenkene*/
 }
 .Dropdown-content a:hover{
-    background-color: rgba(255,255,255,0.08);
+    background-color: rgba(255,255,255,0.08);   /*Gjør at bakgrunnsfargen på lenkene blir lysere når man går over dem med musen*/
 }
-  .image-wrap {
-      display: block;         /* container oppfører seg som blokk */
-      width: 100%;            /* ta opp all tilgjengelig bredde i foreldrekontekst */
-      max-width: 900px;    /* standard maksimal bredde (kan justeres) */
-      margin: 24px auto;      /* sentrerer containeren horisontalt */
-      padding: 0;             /* litt luft på sidene, spesielt på mobil */
-      border-style: none;
-      align-items: center;
-  }
-      .image-wrap img {
-      display: block;         /* fjerner mulige inline-gap under bildet */
-      width: 100%;            /* bildet fyller containerens bredde */
-      height: auto;           /* behold aspektforholdet (bredde:høyde) */
-      max-height: none;  /* om ønskelig kan du sette en max-height */
-      border-radius: 32px;     /* estetisk avrunding */
-      /* Bruk object-fit hvis du setter max-height og ønsker kontroll over beskjæring */
-    }
-.image-panel .image-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;    /* cover the full area */
-    object-position: center;
-    border-radius: 0;
-    box-shadow: none;
-}
-    @media (max-width: 500px) {
-      .image-wrap {
-        max-width: 600px;
-      }
-    }
-        @media (min-width: 100px) {
-      .image-wrap {
-        max-width: 1200px;    /* gir større visning på stasjonære */
-      }
-        }
