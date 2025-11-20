@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <meta charset="UTF-8">
+        <title>Stein Saks Papir</title>
+    </head>
+    <body>
+
+        <h1>Stein - Saks - Papir</h1>
+        
+        <div class="choices">
+        <button onclick="playGame('stein')">🪨</button>
+        <button onclick="playGame('saks')">✂️</button>
+        <button onclick="playGame('papir')">📄</button>
+        </div>
+
+        <div id="playerDisplay">SPILLER 1: </div>
+        <div id="computerDisplay">SPILLER 2: </div>
+        <div id="resultDisplay"></div>
+
+
+    </body>
+    <style>
+
+        body{
+            font-family: arial, sans-serif;
+            font-weight: bold;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1{
+            font-size: 80px;
+        }
+        .choices{
+            margin-bottom: 30px;
+        }
+        .choices button{
+            font-size: 200px;
+            margin: 0 10px;
+            background-color: rgb(22, 172, 214);
+        }
+        .choices button:hover{
+            background-color: rgb(9, 177, 9);
+        }
+        #playerDisplay, #computerDisplay{
+            font-size: 60;
+        }
+        #resultDisplay{
+            font-size: 90px;
+            margin-top: 20px;
+        }
+    </style>
+
+    <script src="javascript/stein_saks_papir.js"></script>
+    
+</html>
