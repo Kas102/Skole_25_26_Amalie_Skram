@@ -1,0 +1,10 @@
+body{
+    margin: 0px; /* Setter en standard margin til 0 px */
+}
+header{
+    background-color: rgb(15, 15, 181);
+    text-align: center;
+    color: white;
+    height: 200px;
+    font-size: 68px;
+}

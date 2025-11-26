@@ -1,0 +1,69 @@
+<!DOCTYPE html> <!--Feil mangler en > på slutten-->
+<html lang="no">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Enkel</title> <!--Feil mangler en <title> på begynnelsen-->
+        <style>
+            /* Enkel styling */         /* Feil manglet slutten av kommentaren*/
+            body{
+                font-family: Arial, sans-seriff; /* Feil mangler ; tegnet */
+                margin: 20px;
+                padding: 20px;
+                background-color: #f4f4f4;
+            }
+            h1{
+                color: #333;
+            }
+            p{
+                font-size: 18px;
+            }
+            .result{
+                font-weight: bold;
+                color: #007BFF;
+            }
+        </style>    <!--Feil manglet style endelsen-->
+    </head>
+    <body>
+        <h1>Velkommen til min enkle nettside!</h1> <!--Feil manglet h1 tag på begynnelsen-->
+        <p id="variable">Variabel: </p>
+        <p id="calculation">Utregning: </p>
+        <p id="promtResult">Promt-resultat: </p> <!--feil manglet id og slutt </p> tag-->
+        <p id="array">Array: </p>
+    <script>
+        //1. En variabel
+        let navn = "Hei, jeg har klart det!"; //Feil let hadde en t for mye
+        //Viser variabelen på nettsiden
+        document.getElementById("variable").innerHTML += `<span class="result">${navn}<span>`;
+
+        // 2. En utregning av to tall
+        let tall1 = 10; //Feil brukte skrift istedenfor tall
+        let tall2 = 20;
+        let sum = tall1 + tall2 //legger sammen tallene
+        //viser utregningen på nettsiden
+        document.getElementById("calculation").innerHTML += `<span class="result">${tall1} + ${tall2} 
+        = ${sum}<span>`;
+        
+        // 3.En prompt
+        let brukerInput = prompt("Hva er favorittfargen din?"); //feil hadde promp istedetfor prompt
+        //Viser brukerens input på nettsiden
+        document.getElementById("promtResult").innerHTML += `<span class="result">Favorittfargen din er ${brukerInput}`;
+        
+        // 4.En funksjon
+        function multipliser(a, b){ //feil brukte den norske stavelsen av function
+            return a * b; //multipliserer to tall
+        }
+        let produkt = multipliser(5, 3);
+        //Viser resultat fra funksjonen på nettsiden
+        document.getElementById("calculation").innerHTML += `<br>5 * 3 = <span class="result">${produkt}</span>`;
+
+        // 5. Et array
+        const frukter =["Eple", "Banan", "Appelsin", "Druer"]; //Brukte let istedet for const
+        //Viser arrayet på nettsiden
+        document.getElementById("array").innerHTML +=`<span class="result">${frukter.join(",")}<span>`; //feil bruker dokument ikke document    
+    </script>   <!--Feil manglet / tegnet -->
+    </body>
+</html>
+ 
+ 
+ 
