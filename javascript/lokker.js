@@ -32,7 +32,7 @@ while(!loggedIn){
     username = window.prompt(`Skriv ditt brukernavn`);
     password = window.prompt(`Skriv ditt passord!`);
 
-    if(username === "mimimi" && password === "67unc67"){
+    if(username === "mimimi" && password === "hihihiha"){
         loggedIn = true;
         console.log("Du er logget inn!");
     }
