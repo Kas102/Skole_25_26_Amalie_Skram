@@ -3,125 +3,6 @@
     <head>
         <title>BringChildrenFromStreets</title>
         <link rel="stylesheet" href="../css/bringchildren.css">
-        <style>
-                         body{
-                text-align: center;
-                margin: 0px;
-                background-color: #fae2c1;
-                color: rgb(0, 0, 0);
-            }
-            header{
-                background-color: rgb(255, 255, 255);
-                height: 120px;
-                color: white;
-            }
-            h1{
-                margin: 0px;
-                padding-top: 20px;
-                color: black;
-                font: bold;
-                font-size: 60px;
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            }
-            h3{
-                margin-right: 300px;
-            }
-            .info{
-                text-align: center;
-                width: 600px;
-                margin-right: 300px;
-            }
-            span{
-                color: red;
-                font-weight: bold;
-            }
-            #nedtelling {
-        font-size: 40px;
-        color: white;
-        margin-top: 20px;
-            }
-            .slideshow {
-    flex-shrink: 0;
-    width: 400px;
-    height: 300px;
-    margin: 40px auto;
-    overflow: hidden;
-}
-
-.slideshow img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-}
-.container {
-    display: flex;
-    align-items: center; /* vertically center the text with the image */
-    gap: 1px; /* spacing between image and text */
-    margin: 0 auto; /* center on page */
-    background-color: rgb(253, 242, 181);
-}
-.textBoks {
-    display: flex;
-    flex-direction: column; /* h2 above p */
-    justify-content: center;
-}
-   #boks { 
-        position: relative; 
-        animation-name: frem-og-tilbake; 
-        animation-duration: 5s; 
-        animation-iteration-count: infinite; 
-        animation-direction: alternate; 
-    } 
-    @keyframes frem-og-tilbake { 
-        0% { 
-            left: 0px; 
-        } 
-        100% { 
-            left: 100px; 
-        } 
-    } 
-    .top-skrift{
-        font-size: 60px;
-        margin: 10px;
-        margin-left: 60px;
-        text-align: left;
-        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-    }
-    
-.top-section {
-    display: flex;
-    justify-content: space-between; /* venstre og høyre side */
-    align-items: center; /* vertikal sentrering */
-    padding: 20px;
-}
-
-.venstre-side {
-    display: flex;
-    flex-direction: column; /* teksten under hverandre */
-}
-
-.høyre-side button {
-    padding: 10px 20px;
-    background-color: orange;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-}
-    button{
-        margin-right: 60px;
-        width: 400px;
-        height: 200px;
-    }
-    .button-skrift{
-        font-size: 60px;
-        font-family:Georgia, 'Times New Roman', Times, serif;
-    }
-
-        </style> 
     </head>
     <body>
         <main>
@@ -153,7 +34,12 @@
                 <div class="høyre-side">
                 <button class="vipps"><p class="button-skrift">Vipps</p></button>
             </div>
-            </div>
+        </div>
+        <div class="bottom-section">
+            <button class="spill">Høyere - Lavere</button>
+            <p>Du kan gjøre en forskjell!</p>
+            <p>Spillene under </p>
+        </div>
             <p>Tid igjen:</p>
         <div id="nedtelling">
         <span id="dager"></span> dager, 
