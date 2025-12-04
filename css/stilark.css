@@ -1,6 +1,12 @@
 body{
     margin: 0px;
     text-align: center;
+    background: linear-gradient(to right, rgb(59, 59, 59), rgb(78, 78, 78));
+    color: white;
+}
+a{
+    text-decoration-line: none;
+    color: green;
 }
 header{
     background-color: black;
@@ -8,14 +14,12 @@ header{
     height: 80px;
     text-align: center;
 }
+h2{
+    color: black;
+}
 h1{
     margin: 0px;
     padding-top: 15px;
-}
-
-.bunntekst{
-    font-size: 60px;
-    font-weight: bold;
 }
 footer{ 
     background-color: black;    /*Gjør at bakgrunnsfargen på banneret blir svart*/
@@ -26,3 +30,7 @@ footer{
     color: white;
     text-align: center;
     vertical-align: center;}
+
+a:hover{
+    color: red;
+}

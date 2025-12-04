@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quote generator</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sitat</h1>
+            <div class="quote-box">
+                <p id="quote">"Klikk på knappen under for å generere et nytt sitat!"</p>
+                <p id="forfatter">- Tilfeldig Forfatter</p>
+            <button id="new-quote">Nytt Sitat</button>
+        </div>
+    </div>
+    <p><a href="../index.html">Tilbake til hovedsiden!</a></p>
+    <script>
+const quotes = [
+    {
+        quote: "Belive you can and you're halfway there.",
+        forfatter: "Theodore roosevelt"
+    },
+    {
+        quote: "Be the change that you wish to see in the world.",
+        forfatter: "Mahatma Gandhi"
+    },
+    {
+        quote: "The only thing we have to fear is fear itself.",
+        forfatter: "Franklin D.Roosevelt"
+    },
+    {
+        quote: "Never put off until tomorrow what can be done today.",
+        forfatter: "Sensei Wu"
+    }
+    // Legg til flere sitater her
+];
+
+// Hent HTML-elementene
+const quoteElement = document.getElementById("quote");
+const authorElement = document.getElementById("forfatter");
+const newQuoteButton = document.getElementById("new-quote");
+
+// Funksjon for å generere et tilfeldig sitat
+function generateRandomQuote() {
+    // Generer et tilfeldig indexnummer basert på lengden av quotes-matrisen
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    const randomQuote = quotes[randomIndex];
+
+    // Oppdater teksten i HTML-elementene
+    quoteElement.textContent = `"${randomQuote.quote}"`;
+    authorElement.textContent = `- ${randomQuote.forfatter}`;
+}
+
+// Legg til en "klikke"-lytter til knappen
+newQuoteButton.addEventListener("click", generateRandomQuote);
+
+// Generer et sitat når siden først lastes
+generateRandomQuote();
+    </script>
+</body>
+</html>

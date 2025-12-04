@@ -1,0 +1,61 @@
+             body{
+                text-align: center;
+                margin: 0px;
+                background-color: rgb(139, 139, 139);
+                color: rgb(0, 0, 0);
+            }
+            header{
+                background-color: rgb(255, 255, 255);
+                height: 120px;
+                color: white;
+            }
+            h1{
+                margin: 0px;
+                padding-top: 20px;
+                color: black;
+                font: bold;
+                font-size: 60px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            h2{
+                margin-right: 300px;
+            }
+            p{
+                text-align: center;
+                width: 600px;
+                margin-right: 300px;
+            }
+            span{
+                color: red;
+            }
+            #nedtelling {
+        font-size: 40px;
+        color: white;
+        margin-top: 20px;
+            }
+            .slideshow {
+    flex-shrink: 0;
+    width: 400px;
+    height: 300px;
+    margin: 40px auto;
+    overflow: hidden;
+}
+
+.slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.container {
+    display: flex;
+    align-items: center; /* vertically center the text with the image */
+    gap: 1px; /* spacing between image and text */
+    margin: 0 auto; /* center on page */
+    background-color: rgb(253, 181, 181);
+}
+.textBoks {
+    display: flex;
+    flex-direction: column; /* h2 above p */
+    justify-content: center;
+}
