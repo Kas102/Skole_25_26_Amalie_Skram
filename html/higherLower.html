@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <title>Høyere - Lavere</title>
+        <link rel="stylesheet" href="../css/higherLower.css">
+    </head>
+    <body>
+        <header><h1>Bring Children From Streets</h1></header>
+        
+        <div class="game">
+        <h1>Høyere - Lavere</h1>
+
+        <p>Gjeldende tall:</p>
+        <div id="current-number" class="number">0</div>
+
+        <p>Hva tror du det neste tallet blir?</p>
+
+        <div class="buttons">
+    <button id="higher-btn" onclick="guess('higher')">Høyere</button>
+    <button id="lower-btn" onclick="guess('lower')">Lavere</button>
+</div>
+
+        <p id="result"></p>
+        <p>Poeng: <span id="score">0</span></p>
+
+        <button id="restart" onclick="startGame()">Start på nytt</button>
+
+        <script src="../javascript/higherLower.js"></script>
+    </body>
+</html>

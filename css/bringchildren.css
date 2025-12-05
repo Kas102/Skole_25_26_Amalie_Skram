@@ -93,8 +93,7 @@
 
 .venstre-side {
     display: flex;
-    flex-direction: column; /* teksten under hverandre */
-}
+    flex-direction: column; /* teksten under hverandre */}
 
 .høyre-side button {
     padding: 10px 20px;
@@ -123,6 +122,33 @@
         background-color: rgb(100, 182, 71);
         border-radius: 8px;
     }
+    .spill1{
+       width: 200px;
+        height: 100px;
+        background-color: rgb(100, 182, 71);
+        border-radius: 8px; 
+    }
+    #nedtelling{
+        background-color: rgb(255, 255, 255);
+        height: 100px; 
+        color: black;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
     .bottom-section{
-        
+        margin: 0px;
+       background-color: rgb(253, 242, 181); 
+       border-radius: 8px;
+       height: 150px;
+    }
+    .midt-skrift{
+        font-size: 40px;
+    }
+    .top-skrift{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+    }
+    .skrift-2{
+        width: 600px;
+        padding-left: 460px;
+        margin: 0px;
     }
