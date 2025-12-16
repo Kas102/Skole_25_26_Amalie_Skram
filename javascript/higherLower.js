@@ -39,14 +39,14 @@ function guess(choice) {
         score++;
         resultText.textContent = `Riktig! Det nye tallet var ${nextNumber}`;
         document.getElementById("score").textContent = score;
-        numberBox.style.color = "green"; // holder seg grønt
+        numberBox.style.color = "green"; 
     } else {
         resultText.textContent = `Du tapte! Det nye tallet var ${nextNumber}`;
 
-        // farg tallet rødt
+        
         numberBox.style.color = "red";
 
-        // lås knappene
+        
         document.getElementById("higher-btn").disabled = true;
         document.getElementById("lower-btn").disabled = true;
 

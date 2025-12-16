@@ -1,40 +1,40 @@
-                        body{
-                text-align: center;
-                margin: 0px;
-                background-color: #fae2c1;
-                color: rgb(0, 0, 0);
-            }
-            header{
-                background-color: rgb(255, 255, 255);
-                height: 120px;
-                color: white;
-            }
-            h1{
-                margin: 0px;
-                padding-top: 20px;
-                color: black;
-                font: bold;
-                font-size: 60px;
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            }
-            h3{
-                margin-right: 300px;
-            }
-            .info{
-                text-align: center;
-                width: 600px;
-                margin-right: 300px;
-            }
-            span{
-                color: red;
-                font-weight: bold;
-            }
-            #nedtelling {
-        font-size: 40px;
-        color: white;
-        margin-top: 20px;
-            }
-            .slideshow {
+body{
+    text-align: center; /*Sentrerer teksten*/
+    margin: 0px;    /*Fjerner standard margin */
+    background-color: #fae2c1;  /*Bakgrunnsfarge*/
+    color: rgb(0, 0, 0);    /*Tekstfarge*/
+    }
+header{
+    background-color: rgb(255, 255, 255);   /*Bakgrunnsfarge på header*/
+    height: 120px;  /*Høyde på header*/
+    color: white;   /*Tekstfarge*/
+    }
+h1{
+    margin: 0px;    /*Fjerner standard margin */
+    padding-top: 20px;  /*Legger til badding på toppen*/
+    color: black;   /*Tekstfarge*/
+    font: bold;  /*Gjør teksten fet*/
+    font-size: 60px;    /*Størrelse på teksten*/
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;   /*Skrifttype*/
+    }
+h3{
+    margin-right: 300px;    /*Margin til høyre*/
+    }
+.info{
+    text-align: center; /*Sentrerer teksten*/
+    width: 600px;   /*Bredde på boksen*/
+    margin-right: 300px;    /*Margin til høyre*/
+    }
+span{
+    color: red;  /*Farge på teksten*/
+    font-weight: bold;  /*Gjør teksten fet*/
+    }
+#nedtelling {
+    font-size: 40px;    /*Størrelse på teksten*/
+    color: white;
+    margin: 0px auto;
+    }
+.slideshow {
     flex-shrink: 0;
     width: 400px;
     height: 300px;
@@ -129,7 +129,6 @@
         border-radius: 8px; 
     }
     #nedtelling{
-        background-color: rgb(255, 255, 255);
         height: 100px; 
         color: black;
         font-family: Georgia, 'Times New Roman', Times, serif;
@@ -138,7 +137,7 @@
         margin: 0px;
        background-color: rgb(253, 242, 181); 
        border-radius: 8px;
-       height: 150px;
+       height: 300px;
     }
     .midt-skrift{
         font-size: 40px;
@@ -152,3 +151,183 @@
         padding-left: 460px;
         margin: 0px;
     }
+    button{
+        cursor: pointer;
+        margin: 10px;
+    }
+    .spill-knapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 100px;
+        margin-top: 30px;
+    }
+    .progress-container {
+    width: 300px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #4caf50;
+    transition: width 0.4s ease;
+}
+.donation{
+    background-color: white;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 20px;
+}
+li{
+    list-style: none;  
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    padding: 10px;
+}
+.donation {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 15px;           
+    padding: 20px;
+    margin: 0 auto;        
+    width: fit-content;    
+}
+footer {
+    background-color: white;
+    display: flex;
+    justify-content: center;   
+    align-items: center;      
+}
+.navbar {
+    background-color: #ffffff;      
+    padding: 15px 40px;              
+    display: flex;
+    justify-content: center;          
+    align-items: center;
+    border-bottom: 2px solid #e0e0e0; 
+}
+
+
+.navbar ul {
+    list-style: none;
+    display: flex;                 
+    gap: 60px;                       
+    margin: 0;
+    padding: 0;
+}
+
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+
+.navbar a:hover {
+    background-color: orange;
+    color: white;
+}
+.doner-1 {
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(6px);
+    border: 2px solid #ff7a00;
+    color: #ff7a00;
+    font-size: 22px;
+    padding: 12px 28px;
+    border-radius: 12px;
+    transition: 0.25s ease;
+}
+
+.doner-1:hover {
+    background: #ff7a00;
+    color: white;
+}
+.spill, .spill1 {
+    width: 200px;
+    height: 100px;
+    border: none;
+    border-radius: 12px;         /* slightly rounded corners */
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #4caf50;   /* solid color, you can change this */
+    cursor: pointer;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+/* Hover effect */
+.spill:hover, .spill1:hover {
+    background-color: #45a049;
+}
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    background-color: #a8d0e6; /* soft blue */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.venstre-side {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* space between "Doner" and "I Dag" box */
+}
+
+.høyre-side .vipps {
+    width: 250px;  /* smaller width for better proportion */
+    height: 120px;
+    font-size: 36px;
+    background-color: #ff7a00; /* stands out from background */
+    border-radius: 12px;
+}
+.venstre-side #boks {
+    padding: 20px;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 12px;
+    text-align: center;
+}
+.bottom-section p, 
+.bottom-section h3 {
+    margin: 0;  /* fjerner default margin på tekst */
+    padding: 0; 
+    text-align: center;
+    
+}
+.bottom-section {
+    background-color: rgb(253, 242, 181);
+    border-radius: 8px;
+    height: 300px;
+
+    display: flex;
+    flex-direction: column;   /* 👈 STACK UNDER EACH OTHER */
+    align-items: center;      /* 👈 CENTER HORIZONTALLY */
+    justify-content: center;  /* 👈 CENTER VERTICALLY */
+    gap: 20px;                /* space between items */
+}
+.skrift-2 {
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+.spill-knapper {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 20px;
+}

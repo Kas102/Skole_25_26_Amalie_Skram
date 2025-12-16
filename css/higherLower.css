@@ -18,8 +18,7 @@
                 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             }
 .game {
-    margin-left: auto;
-    margin-right: 20px; 
+    margin: 40px auto;
     margin-top: 80px;
     background-color: rgb(253, 242, 181);
     padding: 30px;
@@ -42,4 +41,53 @@
 
 #restart {
     margin-top: 20px;
+}
+li{
+    list-style: none;  
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    padding: 10px;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 20px;
+}
+.navbar {
+    background-color: #ffffff;      
+    padding: 15px 40px;              
+    display: flex;
+    justify-content: center;          
+    align-items: center;
+    border-bottom: 2px solid #e0e0e0; 
+}
+
+
+.navbar ul {
+    list-style: none;
+    display: flex;                 
+    gap: 60px;                       
+    margin: 0;
+    padding: 0;
+}
+
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+
+.navbar a:hover {
+    background-color: orange;
+    color: white;
 }

@@ -1,58 +1,151 @@
 <!DOCTYPE html>
 <html lang="no">
-    <head>
-        <meta charset="UTF-8">
-        <title>Stein Saks Papir</title>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <title>Stein – Saks – Papir</title>
 
-        <h1>Stein - Saks - Papir</h1>
-        
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+            background-color: #fae2c1;
+            color: black;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        header {
+            background-color: white;
+            height: 120px;
+        }
+
+        header h1 {
+            margin: 0;
+            padding-top: 20px;
+            font-size: 60px;
+        }
+
+        /* Spill-boksen (samme stil som Higher–Lower) */
+        .game {
+            margin: 40px auto;
+            background-color: rgb(253, 242, 181);
+            padding: 30px;
+            border-radius: 12px;
+            width: 600px;
+            text-align: center;
+        }
+
+        .game h1 {
+            margin-top: 0;
+        }
+
+        .choices {
+            margin: 30px 0;
+        }
+
+        .choices button {
+            font-size: 120px;
+            margin: 10px;
+            background-color: #a8d0e6;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .choices button:hover {
+            background-color: #8bbcd6;
+        }
+
+        #playerDisplay,
+        #computerDisplay {
+            font-size: 32px;
+            margin: 10px 0;
+        }
+
+        #resultDisplay {
+            font-size: 48px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        li{
+    list-style: none;  
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    padding: 10px;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 20px;
+}
+.navbar {
+    background-color: #ffffff;      
+    padding: 15px 40px;              
+    display: flex;
+    justify-content: center;          
+    align-items: center;
+    border-bottom: 2px solid #e0e0e0; 
+}
+
+
+.navbar ul {
+    list-style: none;
+    display: flex;                 
+    gap: 60px;                       
+    margin: 0;
+    padding: 0;
+}
+
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+
+.navbar a:hover {
+    background-color: orange;
+    color: white;
+}
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Bring Children From Streets Innsamling</h1></header>
+                             <nav class="navbar">
+                    <ul>    
+                        <li><a href="">Contact</a></li>
+                        <li><a href="bringchildren.html">Home</a></li> 
+                        <li><a href="">Donate</a></li>
+                    </ul> 
+        </nav>
+
+    <div class="game">
+        <h1>Stein – Saks – Papir</h1>
+
         <div class="choices">
-        <button onclick="playGame('stein')">🪨</button>
-        <button onclick="playGame('saks')">✂️</button>
-        <button onclick="playGame('papir')">📄</button>
+            <button onclick="playGame('stein')">🪨</button>
+            <button onclick="playGame('saks')">✂️</button>
+            <button onclick="playGame('papir')">📄</button>
         </div>
 
-        <div id="playerDisplay">SPILLER 1: </div>
-        <div id="computerDisplay">SPILLER 2: </div>
+        <div id="playerDisplay">SPILLER 1:</div>
+        <div id="computerDisplay">SPILLER 2:</div>
         <div id="resultDisplay"></div>
+    </div>
 
+    <script src="../javascript/stein_saks_papir.js"></script>
 
-    </body>
-    <style>
-
-        body{
-            font-family: arial, sans-serif;
-            font-weight: bold;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        h1{
-            font-size: 80px;
-        }
-        .choices{
-            margin-bottom: 30px;
-        }
-        .choices button{
-            font-size: 200px;
-            margin: 0 10px;
-            background-color: rgb(22, 172, 214);
-        }
-        .choices button:hover{
-            background-color: rgb(9, 177, 9);
-        }
-        #playerDisplay, #computerDisplay{
-            font-size: 60;
-        }
-        #resultDisplay{
-            font-size: 90px;
-            margin-top: 20px;
-        }
-    </style>
-
-    <script src="javascript/stein_saks_papir.js"></script>
-    
+</body>
 </html>

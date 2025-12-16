@@ -6,15 +6,21 @@
     </head>
     <body>
         <main>
-            <header><h1>Bring Children From Streets</h1></header>
-            <h2>Aksjon</h2>
+            <header><h1>Bring Children From Streets Innsamling</h1></header>
+             <nav class="navbar">
+                    <ul>    
+                        <li><a href="https://www.bringchildren.com/">Contact</a></li>
+                        <li><a href="bringchildren.html">Home</a></li> 
+                        <li><a href="https://vipps.no/">Donate</a></li>
+                    </ul> 
+        </nav>
             <div class="container">
             <div class="slideshow">
                 <img id="slide" src="../bilder/mexico.png">
             </div>
             <div class="textBoks">
-            <h3>Informasjon</h3>
-            <p class="info">I Uganda lever mange barn uten et trygt hjem, et fast måltid eller voksne som kan
+            <h3>Informasjon Om Innsamlingen</h3>
+            <p class="info">Bring Children From Streets er en organisasjon som jobber for at barn i Uganda skal ha det bedre.I Uganda lever mange barn uten et trygt hjem, et fast måltid eller voksne som kan
                             ta vare på dem. Mange av dem havner på gata, ikke fordi de velger det selv, men fordi de
                             mangler ressurser, familie eller støtte til å gå på skole og få en trygg oppvekst.
                             Denne aksjonen handler om mer enn bare penger – den handler om mennesker. Målet er å gi
@@ -40,16 +46,36 @@
             <p class="skrift-2">Kos deg med spillene nedenfor og samtidig kan du bidra til noe stort.
                Doner til barna i Uganda og gi dem muligheten til skolegang, trygghet og en bedre fremtid.
                Hver krone teller. Din glede kan bli deres håp. </p>
+        
+        
+        <div class="spill-knapper">
+            <a href="higherLower.html">
+                <button class="spill">Høyere - Lavere</button>
+            </a>
+            <a href="stein_saks_papir.html">
+                <button class="spill1">Stein - Saks - Papir</button>
+            </a>
         </div>
-            <button class="spill">Høyere - Lavere</button>
-            <button class="spill1"></button>
-            
-        <div id="nedtelling">
-        Tid igjen: <span id="dager"></span> dager, 
-        <span id="timer"></span> timer, 
-        <span id="minutter"></span> minutter, 
-        <span id="sekunder"></span> sekunder
+    </div>
+    <div class="donation">   
+    <div class="progress-container">
+    <div id="progress-bar"></div>
+    </div>
+
+    <p id="progress-text"></p>
+
+        <button onclick="addDonation(50)" class="doner-1">Doner 50kr</button>
+        <button onclick="addDonation(10)" class="doner-1">Doner 10kr</button>
+    </div>
+    <footer>
+    <div id="nedtelling">
+            Tid igjen: 
+            <span id="dager"></span> dager, 
+            <span id="timer"></span> timer, 
+            <span id="minutter"></span> minutter, 
+            <span id="sekunder"></span> sekunder
         </div>
+    </footer>
         </main>
     </body>
     <script src="../javascript/bringchildren.js"></script> <!--Lenke til javascript-->

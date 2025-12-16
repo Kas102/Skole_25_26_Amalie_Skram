@@ -1,3 +1,5 @@
-for tall in range(1, 21):
-    kvadrat = tall**2
-print({kvadrat})
+navn = "Kasander"
+alder = 16
+klasse = "1IMA"
+skole = "Amalie Skram"
+print(navn, alder, klasse, skole)
