@@ -26,9 +26,9 @@ const x = setInterval(function() {
 
 
     let images = [
-    "../bilder/mexico.png",
-    "../bilder/Amber-fort.png",
-    "../bilder/LotusFlower.png"
+    "../bilder/uganda.webp",
+    "../bilder/Uganda-1.jpg",
+    "../bilder/Uganda-3.jpg"
 ];
 
 

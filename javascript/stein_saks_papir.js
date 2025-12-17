@@ -28,8 +28,8 @@ function playGame(playerChoice){
         }
     }
 
-    playerDisplay.textContent = `SPILLER 1: ${playerChoice}`;
-    computerDisplay.textContent = `SPILLER 2: ${computerChoice}`;
+    playerDisplay.textContent = `DEG: ${playerChoice}`;
+    computerDisplay.textContent = `DATAMASKIN: ${computerChoice}`;
     resultDisplay.textContent = result;
 
 }

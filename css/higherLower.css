@@ -91,3 +91,10 @@ a{
     background-color: orange;
     color: white;
 }
+button{
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    box-shadow: none;
+}
