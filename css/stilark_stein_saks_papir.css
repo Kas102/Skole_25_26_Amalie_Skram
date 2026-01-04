@@ -1,111 +1,96 @@
         body {
-            text-align: center;
-            margin: 0;
-            background-color: #fae2c1;
-            color: black;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center; /*sentrerer all tekst på siden*/
+            margin: 0;              /*fjerner standard margin rundt siden*/
+            background-color: #fae2c1;  /*setter bakgrunnsfarge for siden*/
+            color: black;       /*setter tekstfarge til svart*/
         }
 
         header {
-            background-color: white;
-            height: 120px;
+            background-color: white;    /*setter bakgrunnsfarge for header*/
+            height: 120px;            /*setter høyde på header*/
         }
 
         header h1 {
-            margin: 0;
-            padding-top: 20px;
-            font-size: 60px;
+            margin: 0;             /*fjerner standard margin rundt h1*/
+            padding-top: 20px;     /*legger til padding over h1*/
+            font-size: 60px;    /*setter fontstørrelse for h1*/
         }
 
-        /* Spill-boksen (samme stil som Higher–Lower) */
         .game {
-            margin: 40px auto;
-            background-color: rgb(253, 242, 181);
-            padding: 30px;
-            border-radius: 12px;
-            width: 600px;
-            text-align: center;
+            margin: 40px auto;  /*legger til margin over og under, og sentrerer horisontalt*/
+            background-color: rgb(253, 242, 181);   /*setter bakgrunnsfarge for spillboksen*/
+            padding: 30px;         /*legger til padding rundt innholdet*/
+            border-radius: 12px;    /*avrunder hjørnene på spillboksen*/
+            width: 600px;       /*setter bredde på spillboksen*/
+            text-align: center; /*sentrerer tekst i spillboksen*/
         }
 
         .game h1 {
-            margin-top: 0;
+            margin-top: 0;    /*fjerner margin over h1 i spillboksen*/
         }
 
         .choices {
-            margin: 30px 0;
+            margin: 30px 0;   /*legger til margin over og under valgknappene*/
         }
 
         .choices button {
-            font-size: 120px;
-            margin: 10px;
-            background-color: #a8d0e6;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
+            font-size: 120px;   /*økt fontstørrelse for knappene*/
+            margin: 10px;   /*lagt til margin mellom knappene*/
+            background-color: #a8d0e6;  /*endret bakgrunnsfarge*/
+            border: none;   /*fjernet standard kantlinje*/
+            border-radius: 12px;    /*avrunder hjørnene på knappene*/
+            cursor: pointer;    /*endret cursor til pointer for bedre brukeropplevelse*/
+            transition: background-color 0.2s ease; /*lagt til overgangseffekt*/
         }
 
         .choices button:hover {
-            background-color: #8bbcd6;
+            background-color: #8bbcd6;  /*endret hover farge for bedre kontrast*/
         }
 
         #playerDisplay,
         #computerDisplay {
-            font-size: 32px;
-            margin: 10px 0;
+            font-size: 32px;    /*økt fontstørrelse for valg*/
+            margin: 10px 0; /*legger til margin over og under*/
         }
 
         #resultDisplay {
-            font-size: 48px;
-            margin-top: 20px;
-            font-weight: bold;
+            font-size: 48px;    /*økt fontstørrelse for resultatet*/
+            margin-top: 20px;   /*legger til margin over resultatet*/
+            font-weight: bold;  /*gjør resultatteksten fet*/
         }
-        li{
-    list-style: none;  
-}
-a{
-    text-decoration: none;
-    color: black;
-    font-size: 24px;
-    padding: 10px;
-}
 .navbar {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  padding: 20px;
+    background-color: white;          /*setter bakgrunnsfarge for navbar*/
 }
-.navbar {
-    background-color: #ffffff;      
-    padding: 15px 40px;              
-    display: flex;
-    justify-content: center;          
-    align-items: center;
-    border-bottom: 2px solid #e0e0e0; 
-}
-
 
 .navbar ul {
-    list-style: none;
-    display: flex;                 
-    gap: 60px;                       
-    margin: 0;
-    padding: 0;
+    list-style: none;                   /*fjerner standard punktmerking for listen*/
+    display: flex;                      /*bruker flexbox for layout*/
+    justify-content: center;            /*sentrerer innhold horisontalt*/
+    gap: 40px;                          /*legger til mellomrom mellom elementene*/
+    margin: 0px;                        /*fjerner standard margin*/
+    padding: 14px 20px;                 /*legger til padding rundt listen*/
 }
-
 
 .navbar a {
-    text-decoration: none;
-    color: black;
-    font-size: 22px;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 6px;
-    transition: 0.3s;
+    text-decoration: none;              /*fjerner understreking på lenker*/
+    color: #222;                      /*setter tekstfarge for lenker*/
+    font-size: 18px;                    /*setter fontstørrelse for lenker*/
+    font-weight: 500;                   /*setter fontvekt for lenker*/
+    padding: 6px 4px;                   /*legger til padding rundt lenker*/
+    position: relative;                 /*setter posisjon til relativ */
 }
 
+.navbar a::after {
+    content: "";                        /*tomt innhold for pseudo-element */
+    position: absolute;                 /*absolutt posisjonering */
+    left: 0;                            /*starter fra venstre */
+    bottom: -4px;                       /*plassert litt under lenken/navbaren */
+    width: 0%;                          /*starter med bredde 0 */
+    height: 2px;                        /*høyde på linjen */
+    background-color: #ff7a00;        /*farge på linjen */
+    transition: width 0.25s ease;       /*overgangseffekt*/
+}
 
-.navbar a:hover {
-    background-color: orange;
-    color: white;
+.navbar a:hover::after {
+    width: 100%;                         /* utvider linjen til full bredde ved hover */
 }

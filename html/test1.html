@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Napra Care – Naprapatklinikk</title>
+
+<style>
+:root {
+    --green-main: #2f8f6b;
+    --green-light: #e6f4ef;
+    --green-dark: #257a5a;
+    --gray-text: #555;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #fff;
+    color: #1f2933;
+}
+
+/* HEADER */
+header {
+    background: var(--green-main);
+    padding: 1.2rem 2rem;
+    position: sticky;
+    top: 0;
+}
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: white;
+}
+
+.logo {
+    width: 44px;
+    height: 44px;
+    background: white;
+    color: var(--green-main);
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand h1 {
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.4rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* SECTIONS */
+section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 4rem 2rem;
+}
+
+.hero {
+    background: var(--green-light);
+    text-align: center;
+    padding: 5rem 2rem;
+}
+
+.hero h2 {
+    font-size: 2.6rem;
+}
+
+.hero p {
+    margin: 1rem 0 2rem;
+    color: var(--gray-text);
+    font-size: 1.2rem;
+}
+
+.btn {
+    background: var(--green-main);
+    color: white;
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background: var(--green-dark);
+}
+
+/* ABOUT */
+.about {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.about-img {
+    height: 380px;
+    border-radius: 12px;
+    background: url("https://via.placeholder.com/400x500") center/cover;
+}
+
+/* WEEK SCHEDULE */
+.schedule {
+    background: var(--green-light);
+    border-radius: 12px;
+}
+
+.week-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.day {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.day h4 {
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.time {
+    padding: 0.5rem;
+    margin: 0.3rem 0;
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.free {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.free:hover {
+    background: #a7f3d0;
+}
+
+.booked {
+    background: #eee;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* BOOKING FORM */
+.booking-form {
+    margin-top: 3rem;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* FOOTER */
+footer {
+    background: #f4f4f4;
+    padding: 2rem;
+    text-align: center;
+    color: #666;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .week-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+    <div class="brand">
+        <div class="logo">+</div>
+        <h1>Napra Care</h1>
+    </div>
+    <ul>
+        <li><a href="#hjem">Hjem</a></li>
+        <li><a href="#om">Om oss</a></li>
+        <li><a href="#timeplan">Ledige timer</a></li>
+    </ul>
+</nav>
+</header>
+
+<section id="hjem" class="hero">
+    <h2>Profesjonell naprapatbehandling</h2>
+    <p>Se ledige tider og bestill enkelt online</p>
+    <button class="btn" onclick="scrollToSchedule()">Se ledige timer</button>
+</section>
+
+<section id="om">
+    <div class="about">
+        <div class="about-img"></div>
+        <div>
+            <h2>Om Napra Care</h2>
+            <p>
+                Napra Care tilbyr trygg og moderne naprapatbehandling
+                med fokus på kvalitet og personlig oppfølging.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="timeplan" class="schedule">
+    <h2>Ledige dager og tider</h2>
+
+    <div class="week-grid">
+        <div class="day">
+            <h4>Mandag</h4>
+            <div class="time free" onclick="selectTime('Mandag 09:00')">09:00</div>
+            <div class="time booked">11:00</div>
+            <div class="time free" onclick="selectTime('Mandag 14:00')">14:00</div>
+        </div>
+
+        <div class="day">
+            <h4>Tirsdag</h4>
+            <div class="time free" onclick="selectTime('Tirsdag 10:00')">10:00</div>
+            <div class="time free" onclick="selectTime('Tirsdag 13:00')">13:00</div>
+            <div class="time booked">15:00</div>
+        </div>
+
+        <div class="day">
+            <h4>Onsdag</h4>
+            <div class="time booked">09:00</div>
+            <div class="time free" onclick="selectTime('Onsdag 12:00')">12:00</div>
+            <div class="time free" onclick="selectTime('Onsdag 16:00')">16:00</div>
+        </div>
+
+        <div class="day">
+            <h4>Torsdag</h4>
+            <div class="time free" onclick="selectTime('Torsdag 09:00')">09:00</div>
+            <div class="time booked">11:00</div>
+            <div class="time free" onclick="selectTime('Torsdag 15:00')">15:00</div>
+        </div>
+
+        <div class="day">
+            <h4>Fredag</h4>
+            <div class="time free" onclick="selectTime('Fredag 10:00')">10:00</div>
+            <div class="time free" onclick="selectTime('Fredag 13:00')">13:00</div>
+            <div class="time booked">15:00</div>
+        </div>
+    </div>
+
+    <div class="booking-form">
+        <h3>Bestill valgt time</h3>
+        <form onsubmit="bookTime(event)">
+            <input type="text" placeholder="Navn" required>
+            <input type="email" placeholder="E-post" required>
+            <input type="text" id="selectedTime" placeholder="Valgt tid" readonly required>
+            <button class="btn" type="submit">Bekreft time</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Napra Care – Alle rettigheter reservert</p>
+</footer>
+
+<script>
+function scrollToSchedule() {
+    document.getElementById("timeplan").scrollIntoView({ behavior: "smooth" });
+}
+
+function selectTime(time) {
+    document.getElementById("selectedTime").value = time;
+}
+
+function bookTime(event) {
+    event.preventDefault();
+    alert("Takk! Timen er reservert. Bekreftelse sendes på e-post.");
+}
+</script>
+
+</body>
+</html>

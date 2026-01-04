@@ -1,100 +1,96 @@
-            body{
-            text-align: center;
-                margin: 0px;
-                background-color: #fae2c1;
-                color: rgb(0, 0, 0);
-            }
-            header{
-                background-color: rgb(255, 255, 255);
-                height: 120px;
-                color: rgb(0, 0, 0);
-                margin: 0px;
-            }
-            h1{
-                margin: 0px;
-                padding-top: 20px;
-                font: bold;
-                font-size: 60px;
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            }
+body{
+    text-align: center; /* Sentrerer all tekst på siden */
+    margin: 0px;        /* Fjerner standard margin rundt siden */  
+    background-color: #fae2c1;  /* Setter bakgrunnsfarge for siden */
+    color: rgb(0, 0, 0);    /* Setter tekstfarge til svart */
+}
+header{
+    background-color: rgb(255, 255, 255);   /* Setter bakgrunnsfarge for header */
+    height: 120px;                     /* Setter høyde på header */
+    color: rgb(0, 0, 0);                 /* Setter tekstfarge til svart */
+    margin: 0px;                   /* Fjerner standard margin rundt header */
+ }
+h1{
+     margin: 0px;               /* Fjerner standard margin rundt h1 */
+    padding-top: 20px;        /* Legger til padding øverst i h1 */
+    font: bold;     /* Setter font til fet */
+    font-size: 60px;       /* Setter fontstørrelse til 60px */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;   /* Setter fontfamilie */
+}
 .game {
-    margin: 40px auto;
-    margin-top: 80px;
-    background-color: rgb(253, 242, 181);
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    width: 500px;
+    margin: 40px auto;  /* Sentrerer spillboksen horisontalt med margin */
+    margin-top: 80px; /* Legger til ekstra margin øverst */
+    background-color: rgb(253, 242, 181);   /* Setter bakgrunnsfarge for spillboksen */
+    padding: 30px;           /* Legger til padding rundt innholdet i spillboksen */
+    border-radius: 12px;    /* Runder hjørnene på spillboksen */
+    text-align: center; /* Sentrerer tekst i spillboksen */
+    width: 500px;   /* Setter bredde på spillboksen */
 }
 
 .number {
-    font-size: 48px;
-    margin: 20px 0;
+    font-size: 48px;    /* Setter fontstørrelse for tallet */
+    margin: 20px 0; /*setter margin*/
 }
 
 .buttons button {
-    padding: 10px 20px;
-    font-size: 18px;
-    margin: 10px;
-    cursor: pointer;
+    padding: 10px 20px;   /* Legger til padding rundt knappene */
+    font-size: 18px;        /* Setter fontstørrelse for knappene */
+    margin: 10px;     /* Legger til margin rundt knappene */
+    cursor: pointer;    /* Endrer musepekeren til en peker ved hover */
 }
 
 #restart {
-    margin-top: 20px;
-}
+    margin-top: 20px;   /* Legger til ekstra margin øverst på restart-knappen */
+}   
 li{
-    list-style: none;  
+    list-style: none;                /*fjerner standard punktmerking for listen*/
 }
 a{
-    text-decoration: none;
-    color: black;
-    font-size: 24px;
-    padding: 10px;
+    text-decoration: none;          /*fjerner understreking på lenker*/
+    color: black;                   /*setter tekstfarge for lenker*/
+    font-size: 24px;               /*setter fontstørrelse for lenker*/
+    padding: 10px;                   /*legger til padding rundt lenker*/
 }
 .navbar {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  padding: 20px;
+    background-color: white;          /*setter bakgrunnsfarge for navbar*/
 }
-.navbar {
-    background-color: #ffffff;      
-    padding: 15px 40px;              
-    display: flex;
-    justify-content: center;          
-    align-items: center;
-    border-bottom: 2px solid #e0e0e0; 
-}
-
 
 .navbar ul {
-    list-style: none;
-    display: flex;                 
-    gap: 60px;                       
-    margin: 0;
-    padding: 0;
+    list-style: none;                   /*fjerner standard punktmerking for listen*/
+    display: flex;                      /*bruker flexbox for layout*/
+    justify-content: center;            /*sentrerer innhold horisontalt*/
+    gap: 40px;                          /*legger til mellomrom mellom elementene*/
+    margin: 0px;                        /*fjerner standard margin*/
+    padding: 14px 20px;                 /*legger til padding rundt listen*/
 }
-
 
 .navbar a {
-    text-decoration: none;
-    color: black;
-    font-size: 22px;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 6px;
-    transition: 0.3s;
+    text-decoration: none;              /*fjerner understreking på lenker*/
+    color: #222;                      /*setter tekstfarge for lenker*/
+    font-size: 18px;                    /*setter fontstørrelse for lenker*/
+    font-weight: 500;                   /*setter fontvekt for lenker*/
+    padding: 6px 4px;                   /*legger til padding rundt lenker*/
+    position: relative;                 /*setter posisjon til relativ */
 }
 
+.navbar a::after {
+    content: "";                        /*tomt innhold for pseudo-element */
+    position: absolute;                 /*absolutt posisjonering */
+    left: 0;                            /*starter fra venstre */
+    bottom: -4px;                       /*plassert litt under lenken/navbaren */
+    width: 0%;                          /*starter med bredde 0 */
+    height: 2px;                        /*høyde på linjen */
+    background-color: #ff7a00;        /*farge på linjen */
+    transition: width 0.25s ease;       /*overgangseffekt*/
+}
 
-.navbar a:hover {
-    background-color: orange;
-    color: white;
+.navbar a:hover::after {
+    width: 100%;                         /* utvider linjen til full bredde ved hover */
 }
 button{
-    cursor: pointer;
-    border-radius: 8px;
-    background-color: white;
-    color: black;
-    box-shadow: none;
+    cursor: pointer;        /* Endrer musepekeren til en peker ved hover */
+    border-radius: 8px; /* Runder hjørnene på knappene */
+    background-color: white; /* Setter bakgrunnsfarge for knappene */
+    color: black; /* Setter tekstfarge for knappene */
+    box-shadow: none; /* Fjerner standard skygge på knappene */
 }

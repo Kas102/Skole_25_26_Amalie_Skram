@@ -1,37 +1,38 @@
-<!DOCTYPE html>
-<html lang="no">
-    <head>
-        <title>Høyere - Lavere</title>
-        <link rel="stylesheet" href="../css/higherLower.css">
-    </head>
-    <body>
-        <header><h1>Bring Children From Streets Innsamling</h1></header>
-                     <nav class="navbar">
-                    <ul>    
-                        <li><a href="https://www.bringchildren.com">Contact</a></li>
-                        <li><a href="bringchildren.html">Home</a></li> 
-                        <li><a href="https://vipps.no/">Donate</a></li>
-                    </ul> 
-        </nav>
+<!DOCTYPE html> <!--Sier at dokumentet skal vises som en HTML fil-->
+<html lang="no">    <!--Setter språket til norsk-->
+    <head>  <!--Åpner head taggen-->
+        <title>Høyere - Lavere</title>   <!--Setter tittelen på nettsiden-->
+         <meta charset="UTF-8">    <!--Setter tegnsettet til UTF-8-->
+        <link rel="stylesheet" href="../css/higherLower.css">  <!--Lenker til CSS-filen-->
+    </head>     <!--Lukker head taggen-->
+    <body>  <!--Åpner body taggen-->
+        <header><h1>Bring Children From Streets Innsamling</h1></header>    <!--Tittelen på nettsiden-->
+            <nav class="navbar">   <!--Navigasjonsmeny-->
+                <ul>        <!--Uordnet liste for navigasjonslenker-->
+                    <li><a href="https://www.bringchildren.com">Contact</a></li>    <!--Lenke til kontakt side-->
+                    <li><a href="bringchildren.html">Home</a></li>  <!--Lenke til hjem side-->
+                    <li><a href="https://vipps.no/">Donate</a></li>  <!--Lenke til donasjon side-->
+                </ul>   <!--Lukker uordnet liste-->
+        </nav>  <!--Lukker navigasjonsmeny-->
         
-        <div class="game">
-        <h1>Høyere - Lavere</h1>
+        <div class="game">  <!--Lager en div med klasse game-->
+        <h1>Høyere - Lavere</h1>    <!--Tittelen på spillet-->
 
-        <p>Gjeldende tall:</p>
-        <div id="current-number" class="number">0</div>
+        <p>Gjeldende tall:</p>  <!--Tekst som viser gjeldende tall-->
+        <div id="current-number" class="number">0</div>  <!--Viser gjeldende tall-->
 
-        <p>Hva tror du det neste tallet blir?</p>
+        <p>Hva tror du det neste tallet blir?</p>  <!--Tekst som spør brukeren om å gjette-->
 
-        <div class="buttons">
-    <button id="higher-btn" onclick="guess('higher')">Høyere</button>
-    <button id="lower-btn" onclick="guess('lower')">Lavere</button>
-</div>
+        <div class="buttons">   <!--div med klasse buttons-->
+            <button id="higher-btn" onclick="guess('higher')">Høyere</button>   <!--Knapp for å gjette høyere-->
+            <button id="lower-btn" onclick="guess('lower')">Lavere</button>   <!--Knapp for å gjette lavere-->
+        </div>  <!--Lukker div buttons-->
 
-        <p id="result"></p>
-        <p>Poeng: <span id="score">0</span></p>
+        <p id="result"></p> <!--Viser resultatet av gjetningen-->
+        <p>Poeng: <span id="score">0</span></p> <!--Viser spillerens poeng-->
 
-        <button id="restart" onclick="startGame()">Start på nytt</button>
+        <button id="restart" onclick="startGame()">Start på nytt</button>   <!--Knapp for å starte spillet på nytt-->
 
-        <script src="../javascript/higherLower.js"></script>
-    </body>
-</html>
+        <script src="../javascript/higherLower.js"></script>  <!--Lenker til JavaScript-filen-->
+    </body> <!--Lukker body taggen-->
+</html> <!--Lukker HTML dokumentet-->

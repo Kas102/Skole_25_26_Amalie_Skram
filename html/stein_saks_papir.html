@@ -1,38 +1,38 @@
-<!DOCTYPE html>
-<html lang="no">
-<head>
-    <meta charset="UTF-8">
-    <title>Stein – Saks – Papir</title>
-    <link rel="stylesheet" href="../css/stilark_stein_saks_papir.css">
-</head>
+<!DOCTYPE html> <!--Sier at dokumentet skal vises som en HTML fil-->
+<html lang="no">    <!--Setter språket til norsk-->
+<head>  <!--Åpner head taggen-->
+    <meta charset="UTF-8">    <!--Setter tegnsettet til UTF-8-->
+    <title>Stein – Saks – Papir</title>   <!--Setter tittelen på nettsiden-->
+    <link rel="stylesheet" href="../css/stilark_stein_saks_papir.css">  <!--Lenker til CSS-filen-->
+</head>     <!--Lukker head taggen-->
 
-<body>
+<body>  <!--Åpner body taggen-->
 
-    <header>
-        <h1>Bring Children From Streets Innsamling</h1></header>
-                             <nav class="navbar">
-                    <ul>    
-                        <li><a href="https://www.bringchildren.com">Contact</a></li>
-                        <li><a href="bringchildren.html">Home</a></li> 
-                        <li><a href="https://vipps.no/">Donate</a></li>
-                    </ul> 
-        </nav>
+    <header>    <!--Åpner header taggen-->
+        <h1>Bring Children From Streets Innsamling</h1></header>    <!--Tittelen på nettsiden-->
+                             <nav class="navbar">   <!--Navigasjonsmeny-->
+                    <ul>        <!--Uordnet liste for navigasjonslenker-->
+                        <li><a href="https://www.bringchildren.com">Contact</a></li>    <!--Lenke til kontakt side-->
+                        <li><a href="bringchildren.html">Home</a></li>  <!--Lenke til hjem side-->
+                        <li><a href="https://vipps.no/">Donate</a></li>   <!--Lenke til donasjon side-->
+                    </ul>   <!--Lukker uordnet liste-->
+        </nav>   <!--Lukker navigasjonsmeny-->
 
-    <div class="game">
-        <h1>Stein – Saks – Papir</h1>
+    <div class="game">  <!--Lager en div med klasse game-->
+        <h1>Stein – Saks – Papir</h1>   <!--Tittelen på spillet-->
 
-        <div class="choices">
-            <button onclick="playGame('stein')">🪨</button>
-            <button onclick="playGame('saks')">✂️</button>
-            <button onclick="playGame('papir')">📄</button>
-        </div>
+        <div class="choices">   <!--Lager en div med klasse choices-->
+            <button onclick="playGame('stein')">🪨</button>  <!--Knapp for valg stein-->
+            <button onclick="playGame('saks')">✂️</button>  <!--Knapp for valg saks-->
+            <button onclick="playGame('papir')">📄</button> <!--Knapp for valg av papir-->
+        </div>  <!--Lukker div choices-->
 
-        <div id="playerDisplay">DEG:</div>
-        <div id="computerDisplay">DATAMASKIN:</div>
-        <div id="resultDisplay"></div>
-    </div>
+        <div id="playerDisplay">DEG:</div>    <!--Viser spillerens valg-->
+        <div id="computerDisplay">DATAMASKIN:</div>    <!--Viser datamaskinens valg-->
+        <div id="resultDisplay"></div>  <!--Viser resultatet av spillet-->
+    </div>  <!--Lukker div game-->
 
-    <script src="../javascript/stein_saks_papir.js"></script>
+    <script src="../javascript/stein_saks_papir.js"></script>  <!--Lenker til JavaScript-filen-->
 
-</body>
-</html>
+</body> <!--Lukker body taggen-->
+</html> <!--Lukker HTML dokumentet-->

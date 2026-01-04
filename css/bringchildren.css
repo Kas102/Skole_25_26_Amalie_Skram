@@ -1,333 +1,366 @@
-body{
-    text-align: center; /*Sentrerer teksten*/
-    margin: 0px;    /*Fjerner standard margin */
-    background-color: #fae2c1;  /*Bakgrunnsfarge*/
-    color: rgb(0, 0, 0);    /*Tekstfarge*/
-    }
-header{
-    background-color: rgb(255, 255, 255);   /*Bakgrunnsfarge på header*/
-    height: 120px;  /*Høyde på header*/
-    color: white;   /*Tekstfarge*/
-    }
-h1{
-    margin: 0px;    /*Fjerner standard margin */
-    padding-top: 20px;  /*Legger til badding på toppen*/
-    color: black;   /*Tekstfarge*/
-    font: bold;  /*Gjør teksten fet*/
-    font-size: 60px;    /*Størrelse på teksten*/
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;   /*Skrifttype*/
-    }
-h3{
-    margin-right: 300px;    /*Margin til høyre*/
-    }
-.info{
-    text-align: center; /*Sentrerer teksten*/
-    width: 600px;   /*Bredde på boksen*/
-    margin-right: 300px;    /*Margin til høyre*/
-    }
-span{
-    color: red;  /*Farge på teksten*/
-    font-weight: bold;  /*Gjør teksten fet*/
-    }
-#nedtelling {
-    font-size: 40px;    /*Størrelse på teksten*/
-    color: white;
-    margin: 0px auto;
-    }
+
+/* ------------------------------*/
+/* BODY                          */
+/* ------------------------------*/
+* {
+    box-sizing: border-box; /*legger til box-sizing for alle elementer*/
+}
+
+body {
+    text-align: center; /*sentrerer all tekst på siden*/
+    margin: 0px;  /*fjerner standard margin rundt body*/  
+    background-color: #fae2c1;  /*setter bakgrunnsfarge*/
+    color: black;   /*setter tekstfarge*/
+    font-family: Arial, sans-serif; /*setter standard font for siden*/
+}
+
+
+/* ------------------------------*/
+/* HEADER                        */
+/* ------------------------------*/
+
+header { 
+    background-color: white;    /*setter bakgrunnsfarge for header*/
+    height: 120px;                /*setter høyde for header*/
+}
+
+h1 {
+    margin: 0px;               /*fjerner standard margin rundt h1*/
+    padding-top: 20px;         /*legger til padding over h1*/
+    font-size: 60px;           /*setter fontstørrelse for h1*/
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;   /*setter font for h1*/
+}
+
+
+/* ------------------------------*/
+/* NAVBAR                        */
+/* ------------------------------*/
+
+.navbar {
+    background-color: white;          /*setter bakgrunnsfarge for navbar*/
+}
+
+.navbar ul {
+    list-style: none;                   /*fjerner standard punktmerking for listen*/
+    display: flex;                      /*bruker flexbox for layout*/
+    justify-content: center;            /*sentrerer innhold horisontalt*/
+    gap: 40px;                          /*legger til mellomrom mellom elementene*/
+    margin: 0px;                        /*fjerner standard margin*/
+    padding: 14px 20px;                 /*legger til padding rundt listen*/
+}
+
+.navbar a {
+    text-decoration: none;              /*fjerner understreking på lenker*/
+    color: #222;                      /*setter tekstfarge for lenker*/
+    font-size: 18px;                    /*setter fontstørrelse for lenker*/
+    font-weight: 500;                   /*setter fontvekt for lenker*/
+    padding: 6px 4px;                   /*legger til padding rundt lenker*/
+    position: relative;                 /*setter posisjon til relativ */
+}
+
+.navbar a::after {
+    content: "";                        /*tomt innhold for pseudo-element */
+    position: absolute;                 /*absolutt posisjonering */
+    left: 0;                            /*starter fra venstre */
+    bottom: -4px;                       /*plassert litt under lenken/navbaren */
+    width: 0%;                          /*starter med bredde 0 */
+    height: 2px;                        /*høyde på linjen */
+    background-color: #ff7a00;        /*farge på linjen */
+    transition: width 0.25s ease;       /*overgangseffekt*/
+}
+
+.navbar a:hover::after {
+    width: 100%;                         /* utvider linjen til full bredde ved hover */
+}
+
+/* ------------------------------*/
+/* Språkbytter                   */
+/* ------------------------------*/
+
+.language-switch {
+    display: flex;                      /*bruker flexbox forlayout*/
+    justify-content: center;            /*sentrerer innhold horisontalt*/
+    align-items: center;                /*sentrerer innhold vertikalt*/
+    gap: 10px;                          /*legger til mellomrom mellom elementene*/
+    margin-top: 10px;                   /*legger til margin*/
+}
+
+.language-switch button {
+    background-color: transparent;      /*gjør bakgrunnen gjennomsiktig*/
+    border: 1px solid #ddd;           /*legger til en lys grå ramme*/
+    padding: 6px 14px;                  /*legger til padding */
+    font-size: 14px;                    /*setter fontstørrelse*/
+    border-radius: 20px;                /*runder hjørnene*/
+    cursor: pointer;                    /*endrer musepekeren ved hover*/
+    color: #333;                      /*setter tekstfarge*/
+    transition: all 0.2s ease;          /*legger til overgangseffekt*/
+}
+
+.language-switch button:hover {
+    background-color: #f5f5f5;        /*endrer bakgrunnsfarge ved hover*/
+    border-color: #bbb;               /*endrer rammefarge ved hover*/
+}
+/* ============================= */
+/* SLIDESHOW                     */
+/* ============================= */
+
 .slideshow {
-    flex-shrink: 0;
-    width: 400px;
-    height: 300px;
-    margin: 40px auto;
-    overflow: hidden;
+    width: 400px;           /*setter bredde på slideshow*/   
+    height: 300px;          /*setter høyde på slideshow*/
+    overflow: hidden;       /*skjuler overflødig innhold*/   
 }
 
 .slideshow img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
+    width: 100%;        /*setter bredde på bildet til å fylle containeren*/
+    height: 100%;       /*setter høyde på bildet til å fylle containeren*/
+    object-fit: cover;  /*beskjærer bildet for å fylle containeren*/
+    border-radius: 8px; /*runder hjørnene på bildet*/
 }
-.container {
-    display: flex;
-    align-items: center; /* vertically center the text with the image */
-    gap: 1px; /* spacing between image and text */
-    margin: 0 auto; /* center on page */
-    background-color: rgb(253, 242, 181);
-}
-.textBoks {
-    display: flex;
-    flex-direction: column; /* h2 above p */
-    justify-content: center;
-}
-   #boks { 
-        position: relative; 
-        animation-name: frem-og-tilbake; 
-        animation-duration: 5s; 
-        animation-iteration-count: infinite; 
-        animation-direction: alternate; 
-    } 
-    @keyframes frem-og-tilbake { 
-        0% { 
-            left: 0px; 
-        } 
-        100% { 
-            left: 100px; 
-        } 
-    } 
-    .top-skrift{
-        font-size: 60px;
-        margin: 10px;
-        margin-left: 60px;
-        text-align: left;
-        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
-    }
-    
+
+/* ============================= */
+/* TEKST                         */
+/* ============================= */
+
+.textBoks {
+    max-width: 600px;        /*setter maksimal bredde på tekstboksen*/
+}
+
+h3 {
+    margin: 0 0 10px;       /*legger til margin under h3*/
+}
+
+.info {
+    max-width: 600px;   /*setter maksimal bredde på info-teksten*/
+    margin: 0 auto;  /*sentrerer tekstboksen horisontalt*/
+    padding: 0 15px;    /*legger til padding på sidene*/
+}
+
+.container {
+    display: flex;                   /*bruker flexbox for layout*/
+    align-items: center;             /*sentrerer elementene vertikalt*/
+    justify-content: center;           /*sentrerer elementene horisontalt*/
+    background-color: rgb(253, 242, 181);  /*setter bakgrunnsfarge*/
+    padding: 40px 20px;               /*legger til padding rundt innholdet*/
+    gap: 30px;                       /*legger til mellomrom mellom elementene*/
+}
+
+/* ============================= */
+/* TOP DONASJON                  */
+/* ============================= */
+
 .top-section {
-    display: flex;
-    justify-content: space-between; /* venstre og høyre side */
-    align-items: center; /* vertikal sentrering */
-    padding: 20px;
+    display: flex;                          /*bruker flexbox for layout*/
+    justify-content: space-between;         /*fordeler plass mellom elementene*/
+    align-items: center;                    /*sentrerer elementene vertikalt*/ 
+    padding: 30px 40px;                     /*legger til padding*/
+    background-color: #a8d0e6;            /*setter bakgrunnsfarge*/   
 }
 
 .venstre-side {
-    display: flex;
-    flex-direction: column; /* teksten under hverandre */}
+    display: flex;                          /*bruker flexbox for layout*/
+    flex-direction: column;                 /*stabler elementene vertikalt*/
+    gap: 15px;                              /*legger til mellomrom mellom elementene*/
+}
 
-.høyre-side button {
-    padding: 10px 20px;
-    background-color: orange;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
+.top-skrift {
+    font-size: 60px;         /*setter fontstørrelse*/
+    font-weight: bold;       /*setter fontvekt*/
+    margin: 0px;             /*fjerner standard margin*/
 }
-    .vipps{
-        margin-right: 60px;
-        width: 400px;
-        height: 200px;
-        text-align: center;
-    }
-    .button-skrift{
-        font-size: 60px;
-        font-family:Georgia, 'Times New Roman', Times, serif;
-        padding: 0px;
-        margin: 0px;
-    }
-    .spill{
-        width: 200px;
-        height: 100px;
-        background-color: rgb(100, 182, 71);
-        border-radius: 8px;
-    }
-    .spill1{
-       width: 200px;
-        height: 100px;
-        background-color: rgb(100, 182, 71);
-        border-radius: 8px; 
-    }
-    #nedtelling{
-        height: 100px; 
-        color: black;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-    .bottom-section{
-        margin: 0px;
-       background-color: rgb(253, 242, 181); 
-       border-radius: 8px;
-       height: 300px;
-    }
-    .midt-skrift{
-        font-size: 40px;
-    }
-    .top-skrift{
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-weight: bold;
-    }
-    .skrift-2{
-        width: 600px;
-        padding-left: 460px;
-        margin: 0px;
-    }
-    button{
-        cursor: pointer;
-        margin: 10px;
-    }
-    .spill-knapper{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 100px;
-        margin-top: 30px;
-    }
-    .progress-container {
-    width: 300px;
-    height: 30px;
-    background-color: #ddd;
-    border-radius: 10px;
-    overflow: hidden;
+
+#boks {
+    padding: 20px;                     /*legger til padding*/
+    background-color: rgba(255,255,255);    /*setter bakgrunnsfarge*/
+    border-radius: 12px;                     /*runder hjørnene*/
+    position: relative;                  /*setter posisjon til relativ*/
+    animation: frem-og-tilbake 5s ease-in-out infinite alternate; /*legger til animasjon*/
 }
-#progress-bar {
-    width: 0%;
-    height: 100%;
-    background-color: #4caf50;
-    transition: width 0.4s ease;
+
+.vipps {
+    width: 250px;               /*setter bredde på vipps-knappen*/
+    height: 120px;              /*setter høyde på vipps-knappen*/
+    font-size: 36px;           /*setter fontstørrelse*/
+    background-color: #ff7a00;  /*setter bakgrunnsfarge*/
+    border: none;                 /*fjerner standard ramme*/
+    border-radius: 12px;        /*runder hjørnene*/
+    color: white;             /*setter tekstfarge*/
+    cursor: pointer;            /*endrer musepekeren ved hover*/
 }
-.donation{
-    background-color: white;
+
+
+/* ============================= */
+/* BUNN seksjon                  */
+/* ============================= */
+
+.bottom-section {
+    background: linear-gradient(180deg, #fdf2b5 0%, #fce9a0 100%); /*setter gradient bakgrunnsfarge*/   
+    padding: 40px 20px;               /*legger til padding rundt innholdet*/
+    border-radius: 12px;        /*runder hjørnene*/
+    display: flex;                     /*bruker flexbox for layout*/
+    flex-direction: column;            /*stabler elementene vertikalt*/
+    align-items: center;               /*sentrerer elementene horisontalt*/
+    gap: 20px;                     /*legger til mellomrom mellom elementene*/
 }
-.navbar {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  padding: 20px;
+
+.midt-skrift {
+    font-size: 40px;       /*setter fontstørrelse*/
 }
-li{
-    list-style: none;  
+
+.skrift-2 {
+    max-width: 600px;   /*setter maksimal bredde på tekstboksen*/
+    margin: 0 auto;     /*sentrerer tekstboksen horisontalt*/
+    padding: 0 15px;    /*legger til padding på sidene*/
 }
-a{
-    text-decoration: none;
-    color: black;
-    font-size: 24px;
-    padding: 10px;
+
+
+/* ------------------------------*/
+/* Spill knapper                 */
+/* ------------------------------*/
+
+.spill-knapper {
+    display: flex;                     /*bruker flexbox for layout*/
+    gap: 60px;                         /*legger til mellomrom mellom knappene*/
 }
+
+.spill,
+.spill1 {
+    width: 200px;               /*setter bredde på knappene*/
+    height: 100px;              /*setter høyde på knappene*/
+    border: none;               /*fjerner standard ramme*/
+    border-radius: 12px;        /*runder hjørnene på knappene*/
+    font-size: 20px;            /*setter fontstørrelse*/
+    font-weight: bold;          /*setter fontvekt*/
+    color: white;             /*setter tekstfarge*/
+    background-color: #18a102;/*setter bakgrunnsfarge*/
+    cursor: pointer;            /*endrer musepekeren ved hover*/
+}   
+
+.spill:hover,
+.spill1:hover {
+    background-color: #00db78; /*endrer bakgrunnsfarge ved hover*/
+}
+
+
+/* ============================= */
+/* DONATION / PROGRESS           */
+/* ============================= */
+
 .donation {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    gap: 15px;           
-    padding: 20px;
-    margin: 0 auto;        
-    width: fit-content;    
-}
-footer {
-    background-color: white;
-    display: flex;
-    justify-content: center;   
-    align-items: center;      
-}
-.navbar {
-    background-color: #ffffff;      
-    padding: 15px 40px;              
-    display: flex;
-    justify-content: center;          
-    align-items: center;
-    border-bottom: 2px solid #e0e0e0; 
+    background-color: white;    /*setter bakgrunnsfarge for donasjonsseksjonen*/
+    padding: 30px;               /*legger til padding rundt innholdet*/
+    display: flex;  /*bruker flexbox for layout*/
+    flex-direction: column; /*stabler elementene vertikalt*/
+    align-items: center;           /*sentrerer elementene horisontalt*/
+    gap: 15px;                   /*legger til mellomrom mellom elementene*/
 }
 
-
-.navbar ul {
-    list-style: none;
-    display: flex;                 
-    gap: 60px;                       
-    margin: 0;
-    padding: 0;
+.progress-container {
+    width: 300px;        /*setter bredde*/
+    height: 30px;         /*setter høyde*/
+    background-color: #ddd;  /*setter bakgrunnsfarge*/
+    border-radius: 10px;   /*runder hjørnene*/
+    overflow: hidden;     /*skjuler overflødig innhold*/
 }
 
-
-.navbar a {
-    text-decoration: none;
-    color: black;
-    font-size: 22px;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 6px;
-    transition: 0.3s;
+#progress-bar {
+    width: 0%;            /*starter med bredde 0%*/
+    height: 100%;         /*setter høyde til 100% av containeren*/
+    background-color: #4caf50; /*setter bakgrunnsfarge*/
+    transition: width 0.4s ease; /*legger til overgangseffekt*/
 }
 
-
-.navbar a:hover {
-    background-color: orange;
-    color: white;
-}
 .doner-1 {
-    background: rgba(255,255,255,0.8);
-    backdrop-filter: blur(6px);
-    border: 2px solid #ff7a00;
-    color: #ff7a00;
-    font-size: 22px;
-    padding: 12px 28px;
-    border-radius: 12px;
-    transition: 0.25s ease;
+    border: 2px solid #ff7a00;  /*legger til oransje ramme*/
+    background-color: white;    /*setter bakgrunnsfarge*/
+    color: #ff7a00;          /*setter tekstfarge*/
+    font-size: 22px;          /*setter fontstørrelse*/
+    padding: 12px 28px;       /*legger til padding rundt teksten*/
+    border-radius: 12px;    /*runder hjørnene*/
+    cursor: pointer;      /*endrer musepekeren ved hover*/
 }
 
 .doner-1:hover {
-    background: #ff7a00;
-    color: white;
-}
-.spill, .spill1 {
-    width: 200px;
-    height: 100px;
-    border: none;
-    border-radius: 12px;         /* slightly rounded corners */
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    background-color: #4caf50;   /* solid color, you can change this */
-    cursor: pointer;
-    transition: transform 0.15s ease, background-color 0.15s ease;
+    background-color: #ff7a00;  /*bytter bakgrunnsfarge til oransje ved hover*/
+    color: white;       /*bytter tekstfarge til hvit ved hover*/
 }
 
-/* Hover effect */
-.spill:hover, .spill1:hover {
-    background-color: #45a049;
-}
-.top-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 40px;
-    background-color: #a8d0e6; /* soft blue */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-.venstre-side {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* space between "Doner" and "I Dag" box */
+
+/* ------------------------------*/
+/* FOOTER                        */
+/* ------------------------------*/
+
+footer {
+    background-color: white;        /*setter bakgrunnsfarge for footer*/
+    padding: 20px;                    /*legger til padding rundt innholdet*/
+}  
+
+#nedtelling {
+    font-size: clamp(18px, 4vw, 40px);  /*bruker clamp for responsiv fontstørrelse*/
+    text-align: center;                 /*sentrerer teksten*/ 
 }
 
-.høyre-side .vipps {
-    width: 250px;  /* smaller width for better proportion */
-    height: 120px;
-    font-size: 36px;
-    background-color: #ff7a00; /* stands out from background */
-    border-radius: 12px;
-}
-.venstre-side #boks {
-    padding: 20px;
-    background-color: rgba(255,255,255,0.9);
-    border-radius: 12px;
-    text-align: center;
-}
-.bottom-section p, 
-.bottom-section h3 {
-    margin: 0;  /* fjerner default margin på tekst */
-    padding: 0; 
-    text-align: center;
-    
-}
-.bottom-section {
-    background-color: rgb(253, 242, 181);
-    border-radius: 8px;
-    height: 300px;
 
-    display: flex;
-    flex-direction: column;   /* 👈 STACK UNDER EACH OTHER */
-    align-items: center;      /* 👈 CENTER HORIZONTALLY */
-    justify-content: center;  /* 👈 CENTER VERTICALLY */
-    gap: 20px;                /* space between items */
+/* ------------------------------*/
+/* Responsivt                    */
+/* ------------------------------*/
+
+@media (max-width: 768px) { 
+
+    h1 {
+        font-size: 40px;               /*reduserer fontstørrelse for h1 på mindre skjermer*/
+    }
+
+    .container {
+        flex-direction: column;       /*stabler elementene vertikalt for mindre enheter*/
+    }
+
+    .slideshow {
+        width: 100%;                  /*setter bredde til 100% for mindre enheter*/   
+        height: auto;                 /*setter høyde til auto for å opprettholde proporsjoner*/
+    }
+
+    .top-section {
+        flex-direction: column;       /*stabler elementene vertikalt*/
+        gap: 30px;                    /*legger til mellomrom mellom elementene*/
+        text-align: center;           /*sentrerer teksten*/
+    }
+
+    .vipps {
+        width: 90%;                 /*setter bredde til 90% for mindre enheter*/
+        max-width: 300px;           /*setter maksimal bredde*/
+    }
+
+    .spill-knapper {
+        flex-direction: column;      /*stabler knappene vertikalt*/
+        gap: 20px;                   /*reduserer mellomrom mellom knappene*/
+    }
+
+    .spill,
+    .spill1 {
+        width: 90%;                  /*setter bredde til 90% for mindre enheter*/
+        max-width: 280px;            /*setter maksimal bredde*/
+    }
+
+    .navbar ul {
+        gap: 20px;                   /*reduserer mellomrom mellom elementene*/
+        flex-wrap: wrap;             /*lar elementene bryte til neste linje ved behov*/
+    }
 }
-.skrift-2 {
-    width: 600px;
-    margin: 0 auto;
-    text-align: center;
+
+
+/* ------------------------------*/
+/* Animasjon                     */
+/* ------------------------------*/
+
+@keyframes frem-og-tilbake {
+    from {
+        transform: translateX(0);      /*starter ved opprinnelig posisjon*/
+    }
+    to {
+        transform: translateX(80px);   /*flytter elementet 80px til høyre*/
+    }
 }
-.spill-knapper {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    margin-top: 20px;
-}
+
+
+

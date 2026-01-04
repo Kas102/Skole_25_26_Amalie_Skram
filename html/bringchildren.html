@@ -1,82 +1,92 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>BringChildrenFromStreets</title>
-        <link rel="stylesheet" href="../css/bringchildren.css">
-    </head>
-    <body>
-        <main>
-            <header><h1>Bring Children From Streets Innsamling</h1></header>
-             <nav class="navbar">
-                    <ul>    
-                        <li><a href="https://www.bringchildren.com/">Contact</a></li>
-                        <li><a href="bringchildren.html">Home</a></li> 
-                        <li><a href="https://vipps.no/">Donate</a></li>
-                    </ul> 
-        </nav>
-            <div class="container">
-            <div class="slideshow">
-                <img id="slide" src="../bilder/Uganda.webp">
-            </div>
-            <div class="textBoks">
-            <h3>Informasjon Om Innsamlingen</h3>
-            <p class="info">Bring Children From Streets er en organisasjon som jobber for at barn i Uganda skal ha det bedre.I Uganda lever mange barn uten et trygt hjem, et fast måltid eller voksne som kan
-                            ta vare på dem. Mange av dem havner på gata, ikke fordi de velger det selv, men fordi de
-                            mangler ressurser, familie eller støtte til å gå på skole og få en trygg oppvekst.
-                            Denne aksjonen handler om mer enn bare penger – den handler om mennesker. Målet er å gi
-                            barn støtte til skolegang, mat, helsehjelp og et trygt sted å bo. Når et barn får
-                            muligheten til å vokse opp i trygghet, kan det skape en framtid for seg selv som ellers
-                            ville vært umulig.
-                            Ved å bidra viser vi at ingen barn skal måtte klare seg alene. Sammen kan vi
-                            være med på å gi dem håp, muligheter og en sjanse til å leve et liv utenfor
-                            gatene. Små bidrag kan faktisk bety en stor forskjell</p>
-            </div>
-        </div>
-            <div class="top-section">
-                <div class="venstre-side">
-                    <p class="top-skrift">Doner</p>
-                    <div id="boks"><p class="top-skrift">I Dag</p></div>
-                </div>
-                <div class="høyre-side">
-                <button class="vipps"><p class="button-skrift">Vipps</p></button>
-            </div>
-        </div>
-        <div class="bottom-section">
-            <p class="midt-skrift">Du kan gjøre en forskjell</p>
-            <p class="skrift-2">Kos deg med spillene nedenfor og samtidig kan du bidra til noe stort.
-               Doner til barna i Uganda og gi dem muligheten til skolegang, trygghet og en bedre fremtid.
-               Hver krone teller. Din glede kan bli deres håp. </p>
-        
-        
-        <div class="spill-knapper">
-            <a href="higherLower.html">
-                <button class="spill">Høyere - Lavere</button>
-            </a>
-            <a href="stein_saks_papir.html">
-                <button class="spill1">Stein - Saks - Papir</button>
-            </a>
-        </div>
-    </div>
-    <div class="donation">   
-    <div class="progress-container">
-    <div id="progress-bar"></div>
-    </div>
+<!DOCTYPE html> <!--Sier at dette er et HTML dokument-->
+<html lang="no">    <!--Setter språket til norsk-->
+<head>  <!--Åpner en head tag-->
+  <meta charset="UTF-8">    <!--Setter tegnsettet til UTF-8-->
+  <title>Bring Children From Streets</title>    <!--Setter tittelen på nettsiden-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">    <!--Gjør nettsiden responsiv-->
+  <link rel="stylesheet" href="../css/bringchildren.css">   <!--Lenker til CSS-filen-->
+</head> <!--Lukker head taggen-->
 
-    <p id="progress-text"></p>
+<body>  <!--Åpner body taggen-->
+  <main>    <!--Hovedinnholdet på siden-->
+    
+    <header>    <!--Åpner en header tag-->
+      <h1 id="title"></h1>  <!--Tittelen på nettsiden-->
 
-        <button onclick="addDonation(50)" class="doner-1">Doner 50kr</button>
-        <button onclick="addDonation(10)" class="doner-1">Doner 10kr</button>
-    </div>
-    <footer>
-    <div id="nedtelling">
-            Tid igjen: 
-            <span id="dager"></span> dager, 
-            <span id="timer"></span> timer, 
-            <span id="minutter"></span> minutter, 
-            <span id="sekunder"></span> sekunder
-        </div>
-    </footer>
-        </main>
-    </body>
-    <script src="../javascript/bringchildren.js"></script> <!--Lenke til javascript-->
-</html>
+      <div class="language-switch"> <!--Språkvelger knapper-->
+        <button onclick="setLanguage('no')">Norsk</button>  <!--Norskt språk knapp-->
+        <button onclick="setLanguage('en')">English</button>  <!--Engelsk språk knapp-->
+      </div>    <!--Lukker språkvelger knapper-->
+    </header>   <!--Lukker header taggen-->
+
+    <nav class="navbar">    <!--Navigasjonsmeny-->
+      <ul>  <!--Uordnet liste for navigasjonslenker-->
+        <li><a href="https://www.bringchildren.com/" id="navContact"></a></li>  <!--Lenke til kontakt side-->
+        <li><a href="bringchildren.html" id="navHome"></a></li>  <!--Lenke til hjem side-->
+        <li><a href="https://vipps.no/" id="navDonate"></a></li>  <!--Lenke til donasjon side-->
+      </ul> <!--Lukker uordnet liste-->
+    </nav>  <!--Lukker navigasjonsmeny-->
+
+    <div class="container"> <!--Lager en div med navn container-->
+      <div class="slideshow"> <!--Lager en div for slideshow-->
+        <img id="slide" src="../bilder/Uganda.webp" alt="Uganda">   <!--Bilde for slideshow-->
+      </div>    <!--Lukker slideshow div-->
+
+      <div class="textBoks"> <!--Lager en div for tekstboks-->
+        <h3 id="infoTitle"></h3> <!--Lager et h3 element med id infotitle-->
+        <p class="info" id="infoText"></p>  <!--Lager et p element med class info og id infotext-->
+      </div>  <!--Lukker tekstboks div-->
+    </div> <!--Lukker container div-->
+
+    <div class="top-section"> <!--Lager en div med klasse top-section-->   
+      <div class="venstre-side">  <!--Lager en div med klasse venstre-side-->
+        <p class="top-skrift" id="donateText"></p>  <!--Lager et p element med klasse top-skrift og id donateText-->
+        <div id="boks"> <!--Lager en div med id boks-->
+          <p class="top-skrift" id="todayText"></p>   <!--Lager et p element med klasse top-skrift og id todayText-->
+        </div>  <!--Lukker div boks-->
+      </div>  <!--Lukker div boks-->
+
+      <div class="høyre-side">  <!--Lager en div med klasse høyre-side-->
+        <button class="vipps"> <!--Lager en knapp med klasse vipps-->
+          <p class="button-skrift" id="vippsText"></p>  <!--Lager et p element med klasse button-skrift og id vippsText-->
+        </button> <!--Lukker knapp-->
+      </div>  <!--Lukker div-->
+    </div>  <!--Lukker div-->
+
+    <div class="bottom-section">  <!--Lager en div med klasse bottom-section-->
+      <p class="midt-skrift" id="differenceText"></p> <!--Lager en p tag med klasse midt-skrift og id differenceText-->
+      <p class="skrift-2" id="gamesText"></p> <!--Lager en p tag med klasse skrift-2 og id gamesText-->
+
+      <div class="spill-knapper"> <!--Lager en div med klasse spill-knapper-->
+        <a href="higherLower.html"> <!--Lager et a element som linker til en annen HTML nettside-->
+          <button class="spill" id="game1"></button>  <!--Lager en knapp med klasse spill og id game1-->
+        </a>  <!--Lukker a element-->
+        <a href="stein_saks_papir.html">  <!--Lager et a element som lenker til en annen HTML nettside-->
+          <button class="spill1" id="game2"></button> <!--Lager en knapp med klasse spill1 med id game2-->
+        </a>  <!--Lukker a element-->
+      </div>  <!--Lukker div-->
+    </div>  <!--Lukker div-->
+
+    <div class="donation">  <!--Lager en div med klasse donation-->
+      <div class="progress-container">  <!--Lager en div med klasse progress-container -->
+      <div id="progress-bar"> <!--Lager en div med id progress-bar-->
+      </div>  <!--Lukker div-->
+      </div>  <!--Lukker div-->
+
+      <p id="progress-text"></p>  <!--Lager et p element med id progress-text-->
+
+      <button onclick="addDonation(50)" class="doner-1" id="donate50"></button> <!--Lager en donasjonsknapp-->
+      <button onclick="addDonation(10)" class="doner-1" id="donate10"></button>  <!--Lager en donasjonsknapp-->
+    </div> <!--Lukker div-->
+
+    <footer>  <!--Lager en footer-->
+      <div id="nedtelling"> <!--Lager en div med id nedtelling-->
+        <span id="timeLeft"></span>   <!--Lager et span element med id timeLeft-->
+      </div>  <!--Lukker div-->
+    </footer> <!--Lukker footer-->
+
+  </main> <!--Lukker main-->
+
+  <script src="../javascript/bringchildren.js"></script>  <!--Lenker til javascript filen-->
+</body> <!--Lukker body-->
+</html> <!--Lukker html-->
