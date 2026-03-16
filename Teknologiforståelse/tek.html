@@ -2,60 +2,43 @@
 <html lang="no">
 <head>
 <meta charset="UTF-8">
-<title>Alex og Nettverksbyen</title>
+<title>Interaktiv Nettverkshistorie</title>
 
 <style>
 
 body{
 font-family: Arial;
-background:#0b0f1a;
+background:#0f172a;
 color:white;
 text-align:center;
 padding:40px;
 }
 
 #game{
-max-width:800px;
+max-width:900px;
 margin:auto;
-background:#1a2138;
+background:#1e293b;
 padding:30px;
 border-radius:10px;
 }
 
 button{
-padding:12px 20px;
 margin:10px;
+padding:10px 20px;
+font-size:16px;
 border:none;
 border-radius:6px;
-background:#3b82f6;
-color:white;
-font-size:16px;
 cursor:pointer;
 }
 
 button:hover{
-background:#2563eb;
+background:#38bdf8;
 }
 
-#stats{
-margin-top:20px;
-font-size:18px;
-}
-
-#networkBar{
-width:100%;
-height:20px;
-background:#333;
-margin-top:20px;
-border-radius:10px;
-overflow:hidden;
-}
-
-#traffic{
-height:100%;
-width:20%;
-background:lime;
-transition:0.5s;
+#score{
+font-size:20px;
+margin-bottom:20px;
+color:#38bdf8;
 }
 
 </style>
@@ -65,257 +48,295 @@ transition:0.5s;
 
 <div id="game">
 
-<h1>Alex og Nettverksbyen</h1>
+<h1>Nettverksbyen</h1>
+
+<div id="score">
+Nettverkspoeng: <span id="points">0</span>
+</div>
 
 <p id="story"></p>
 
 <div id="choices"></div>
 
-<div id="stats">
-Poeng: <span id="points">0</span>
 </div>
 
-<div id="networkBar">
-<div id="traffic"></div>
-</div>
-
-</div>
 
 <script>
 
-let points = 0
-let networkLoad = 20
 let node = "start"
+let points = 0
 
 
-function updateUI(){
-
+function addPoints(p){
+points += p
 document.getElementById("points").innerText = points
-document.getElementById("traffic").style.width = networkLoad + "%"
+}
+
+
+function update(){
+
+const story = document.getElementById("story")
+const choices = document.getElementById("choices")
+choices.innerHTML = ""
+
+
+/* ---------------- START ---------------- */
+
+if(node === "start"){
+
+story.innerText = `
+I denne historien så er ditt navn Alex, en nesten helt vanlig person. Du liker spesielt godt og se serier, game og scrolle på mobilen akkurat slik som andre ungdommer. En dag slutter internettet ditt og funker og ruteren blinker rødt. Du sukker frustrert, men så plutselig åpner det seg en digital portal foran deg og ut kommer en liten svevende blå skapning.
+‘Hei, jeg er IP, vokteren av nettverket ditt, nettverket ditt er i kaos og bare DU kan hjelpe oss’
+Direkte etter blir sugd med inn i den digitale verden.
+
+`
+
+let btn = document.createElement("button")
+btn.innerText = "Start historien"
+btn.onclick = ()=>{ node="kap1"; update(); }
+
+choices.appendChild(btn)
 
 }
 
 
-function setScene(text, choices){
+/* ---------------- KAPITTEL 1 ---------------- */
 
-document.getElementById("story").innerText = text
+else if(node === "kap1"){
 
-let choiceHTML = ""
+story.innerText = `
+Med et hard smell lander du på bakken omgitt av en by full av enheter mobiler, PCer, printere og alt annet elektronisk du kan tenke deg. Ved siden av deg dukker IP opp som sier til deg “For at du skal kunne overleve her må du forstå hvordan IP-adresser fungerer. Hver enhet her har en unik ip-adresse akkurat slik som husene i din verden har en unik gateadresse” Han peker på en bygning ved siden av veien og sier 192.168.1.23. Dette er da en ipv4-adresse den er delt opp i 32 bitter. Du er helt forvirret og skjønner ingenting
+IP fortsetter ‘I det siste har det flyttet inn mange nye familier her, men det gjør jo slik at ikke alle husene her kommer til å ha en unik ipv4-adresse derfor skal vi nå finne en ny løsning’
 
-choices.forEach(choice => {
+`
 
-choiceHTML += `<button onclick="${choice.action}">${choice.text}</button>`
+let c1 = document.createElement("button")
+c1.innerText = "Hjelp ip"
+c1.onclick = ()=>{
+addPoints(1)
+node="node2"
+update()
+}
 
-})
+let c2 = document.createElement("button")
+c2.innerText = "Ignorer problemet"
+c2.onclick = ()=>{
+node="router"
+update()
+}
 
-document.getElementById("choices").innerHTML = choiceHTML
-
-updateUI()
+choices.appendChild(c1)
+choices.appendChild(c2)
 
 }
 
 
-function startGame(){
+/* ---------------- NODE 2 ---------------- */
 
-setScene(
+else if(node === "node2"){
 
-"I denne historien er du Alex. En vanlig ungdom som gamer, ser serier og scroller mobilen. Plutselig slutter internettet å fungere. Ruteren blinker rødt. En digital portal åpner seg og en blå skapning dukker opp. 'Jeg er IP. Nettverket er i kaos og bare DU kan hjelpe!'",
+story.innerText = `
+Du sier ja og velger å prøve og hjelpe IP med å finne en måte slik at alle kan ha unike ip-adresser. Dere velger å dra til sentrum av byen for å finne ideer til hva dere kan finne på. Der møter dere en person som kaller seg selv for DHCP-mesteren og han sier at hans ansvar er og gi ulike hus ip-adresser. Han forteller om hvordan systemet nå har blitt fullt og at han ikke har mulighet til å dele ut flere ip-adresser. Han forteller også om en ny type ip-adresse som han kaller for ipv6 som skal kunne ha 128 bitter i en ip-adresse. Men han sier også at byen ikke bare handler om antall adresser og legger et kart over byen ned på bordet se her byen deres er alt for dårlig organisert. Så snur DHCP og ser på deg “Kan du hjelpe oss” du kan enten bruke subnett for å prøve og dele opp nettverket, bytte til ipv6 eller bare la alt være som det er nå. Valget er ditt.
+`
 
-[
+let c1 = document.createElement("button")
+c1.innerText = "Bruk subnett"
+c1.onclick = ()=>{
+addPoints(2)
+node="subnet"
+update()
+}
 
-{text:"Bli med inn i portalen", action:"city()"}
+let c2 = document.createElement("button")
+c2.innerText = "Bytt til IPv6"
+c2.onclick = ()=>{
+addPoints(3)
+node="ipv6"
+update()
+}
 
-]
-
-)
+choices.appendChild(c1)
+choices.appendChild(c2)
 
 }
 
 
-function city(){
+/* ---------------- SUBNETT ---------------- */
 
-networkLoad += 10
+else if(node === "subnet"){
 
-setScene(
+story.innerText = `
+IP nikker og ser på kartet over byen som DHCP akkurat viste frem.
+Så sier IP brådt “når vi bruker subnett deler vi nettverket opp i mindre områder. Da blir trafikken lettere å kontrollere, og færre enheter som krangler om samme plass."
+Han tegner streker med en rød penn fort over kartet.
+"Men vi må være forsiktige fordi hvis vi velger feil subnett kan det bli enten bli altfor stort eller for lite."
 
-"Du lander i en by full av mobiler, PC-er og printere. IP forklarer at hver enhet har en IP-adresse. Men byen begynner å gå tom for IPv4-adresser.",
+`
 
-[
+let c1 = document.createElement("button")
+c1.innerText = "/24"
+c1.onclick = ()=>{
+addPoints(3)
+node="router"
+update()
+}
 
-{text:"Hjelp IP finne løsning", action:"dhcp()"},
+let c2 = document.createElement("button")
+c2.innerText = "/16"
+c2.onclick = ()=>{
+addPoints(1)
+node="router"
+update()
+}
 
-{text:"Prøv å finne veien hjem", action:"router()"}
+let c3 = document.createElement("button")
+c3.innerText = "/8"
+c3.onclick = ()=>{
+node="badend"
+update()
+}
 
-]
-
-)
+choices.appendChild(c1)
+choices.appendChild(c2)
+choices.appendChild(c3)
 
 }
 
 
-function dhcp(){
+/* ---------------- IPV6 ---------------- */
 
-points += 10
-networkLoad += 10
+else if(node === "ipv6"){
 
-setScene(
+story.innerText = `
+Du op IP blir med inn på kontoret til DHCP “ipv4 adressene er overfylt. Vi kan velge å oppgradere til ipv6 som da vil gi oss 128 bit adresser og generelt mange flere adresser. Men jeg er fortsatt ikke helt sikker på hva jeg skal gjøre”
+`
 
-"I sentrum møter du DHCP-mesteren. Han sier IPv4-adressene er nesten brukt opp. Han forteller om IPv6 med 128 bit adresser.",
+let c1 = document.createElement("button")
+c1.innerText = "Kun IPv6"
+c1.onclick = ()=>{
+addPoints(3)
+node="router"
+update()
+}
 
-[
+let c2 = document.createElement("button")
+c2.innerText = "IPv4 + IPv6"
+c2.onclick = ()=>{
+addPoints(2)
+node="router"
+update()
+}
 
-{text:"Bruk subnett", action:"subnet()"},
+let c3 = document.createElement("button")
+c3.innerText = "Ingen organisering"
+c3.onclick = ()=>{
+node="badend"
+update()
+}
 
-{text:"Bytt til IPv6", action:"ipv6()"}
-
-]
-
-)
+choices.appendChild(c1)
+choices.appendChild(c2)
+choices.appendChild(c3)
 
 }
 
 
-function subnet(){
+/* ---------------- ROUTER ---------------- */
 
-setScene(
+else if(node === "router"){
 
-"IP foreslår å dele nettverket i mindre subnett.",
+story.innerText = `
+Du prøver å finne portalen hjem, men møter en mystisk robot på et svevende rullebrett.
+ “Jeg er Router, vokteren av portalen. For å komme hjem må du først forstå IP-konflikter,” sier han.
+`
 
-[
+let c1 = document.createElement("button")
+c1.innerText = "Lær om IP-konflikt"
+c1.onclick = ()=>{
+node="conflict"
+update()
+}
 
-{text:"255.255.255.0 (/24)", action:"bestSubnet()"},
+let c2 = document.createElement("button")
+c2.innerText = "Gi opp"
+c2.onclick = ()=>{
+node="badend"
+update()
+}
 
-{text:"255.255.0.0 (/16)", action:"midSubnet()"},
-
-{text:"255.0.0.0 (/8)", action:"badEnd()"}
-
-]
-
-)
+choices.appendChild(c1)
+choices.appendChild(c2)
 
 }
 
 
-function bestSubnet(){
+/* ---------------- IP KONFLIKT ---------------- */
 
-points += 20
-networkLoad -= 10
+else if(node === "conflict"){
 
-router()
+story.innerText = `
+Routervokteren viser deg en skjerm over nettverksbyen på den kan du se to hus som blinker rødt “Begge disse husene har samme ip-adresse og det skaper ip konflikt” sier Router. DU blir nødt til å hjelpe oss med å finne en løsning fordi vi står mellom tre ulike valg og det er og bruke DHCP, sette in ip manuelt eller kan du velge og ignorere problemet. Valget er ditt.
+`
+
+let c1 = document.createElement("button")
+c1.innerText = "Bruk DHCP"
+c1.onclick = ()=>{
+addPoints(3)
+node="goodend"
+update()
+}
+
+let c2 = document.createElement("button")
+c2.innerText = "Sett IP manuelt"
+c2.onclick = ()=>{
+addPoints(1)
+node="midend"
+update()
+}
+
+let c3 = document.createElement("button")
+c3.innerText = "Ignorer problemet"
+c3.onclick = ()=>{
+node="badend"
+update()
+}
+
+choices.appendChild(c1)
+choices.appendChild(c2)
+choices.appendChild(c3)
 
 }
 
 
-function midSubnet(){
+/* ---------------- SLUTTER ---------------- */
 
-points += 10
+else if(node === "goodend"){
 
-router()
-
-}
-
-
-function ipv6(){
-
-points += 15
-networkLoad -= 15
-
-router()
+story.innerText = `
+Du løser ip konflikten og husene slutter å blinke rødt. Alle enheter har fått hver sin ip-adresse og hele nettverket fungerer igjen. Portalen åpner seg og du returnerer tilbake til din verden.
+`
 
 }
 
+else if(node === "midend"){
 
-function router(){
-
-setScene(
-
-"Du møter Router-vokteren. Han sier to hus har samme IP-adresse og lager IP-konflikt.",
-
-[
-
-{text:"Bruk DHCP til å fikse det", action:"goodEnd()"},
-
-{text:"Sett IP manuelt", action:"mediumEnd()"},
-
-{text:"Ignorer problemet", action:"badEnd()"}
-
-]
-
-)
+story.innerText = `
+Du greier og fikse noen problemer, men ikke i nærheten av alle. Nettverket funker men er ikke optimalisert. Portalen åpnes og du returnerer til din verden internettet ditt funker, men det er ofte tregt.
+`
 
 }
 
+else if(node === "badend"){
 
-function goodEnd(){
-
-points += 30
-networkLoad = 10
-
-setScene(
-
-"Alle husene får unike IP-adresser. Nettverket stabiliserer seg. Router åpner portalen hjem. Du reddet nettverksbyen!",
-
-[
-
-{text:"Spill igjen", action:"restart()"}
-
-]
-
-)
+story.innerText = `
+Hele nettverket ditt er i kaos, flere enheter har samme ip-adresse og portalen blir ikke åpnet så du vil sitte fast i nettverksbyen i all evighet.
+`
 
 }
 
-
-function mediumEnd(){
-
-points += 10
-networkLoad = 40
-
-setScene(
-
-"Nettverket fungerer, men manuelt arbeid gjør det ustabilt. Du kommer hjem, men nettet er litt tregt.",
-
-[
-
-{text:"Spill igjen", action:"restart()"}
-
-]
-
-)
-
 }
 
-
-function badEnd(){
-
-networkLoad = 100
-
-setScene(
-
-"Nettverket kollapser. Printere spammer sider og PC-er mister forbindelsen. Du sitter fast i digitalt kaos.",
-
-[
-
-{text:"Prøv igjen", action:"restart()"}
-
-]
-
-)
-
-}
-
-
-function restart(){
-
-points = 0
-networkLoad = 20
-
-startGame()
-
-}
-
-
-startGame()
+update()
 
 </script>
 
