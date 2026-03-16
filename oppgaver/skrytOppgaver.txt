@@ -1,0 +1,15 @@
+SkryteApp - Oppgavebeskrivelse
+Spør hvem det skal skrytes av. Spør hvor mange skryteord du ønsker å ta med. 
+Skriv en funksjon som tek inn punkta over og skriv ut resultatet til HTML. 
+Her må/bør du bruke løkke i forbindelse med array. 
+Skriv CSS som gjør dette enda mer “koselig”. 
+Ekstra: Hva skjer når du sender inn i funksjonen at du vil ha 50 skryteord?
+Kan du fikse det slik at det ikke krasjer?
+
+
+Oppgaver stringhåndtering:
+Funksjoner som håndterer strenger: split, replaceAll, length, toUpperCase, 
+1. Lag en funksjon som tar inn en setning og teller antall ord i setningen. 
+2. Lag en funksjon som tar inn en setning og bytter ut alle forekomster av et bestemt ord med et annet ord.
+3. Lag en funksjon som tar inn en setning og returnerer setningen med alle vokaler fjernet.    
+4. Lag en funksjon som tar inn et fornavn og et etternavn, og returnerer initialene til personen.

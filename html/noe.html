@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kasander</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Share Tech Mono', monospace;
+    overflow: hidden;
+}
+
+
+.container {
+    text-align: center;
+    z-index: 2;
+}
+
+
+.text-wrapper {
+    font-size: 110px;
+    letter-spacing: 2px;
+    display: flex;
+    gap: 5px;
+}
+
+
+.letter {
+    display: inline-block;
+    position: relative;
+    background: repeating-linear-gradient(
+        to bottom,
+        #00ff00 0px,
+        #00ff00 2px,
+        #003300 2px,
+        #003300 4px
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 8px #00ff00;
+    transition: opacity 0.1s, text-shadow 0.1s;
+}
+
+
+.subtext {
+    margin-top: 20px;
+    font-size: 22px;
+    color: white;
+    letter-spacing: 3px;
+}
+
+
+.file-menu {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.file-menu a {
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 8px 16px;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+
+.file-menu a:hover {
+    color: black;
+    background: #00ff00;
+    box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00 inset;
+}
+
+
+input[type="text"] {
+    background:black;
+    color:#00ff00;
+    border:none;
+    font-family:'Share Tech Mono';
+    font-size:18px;
+    padding:5px;
+    margin-top:15px;
+    letter-spacing:1px;
+}
+
+
+.hack-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    font-family: 'Share Tech Mono', monospace;
+    color: #00ff00;
+    font-size: 14px;
+    line-height: 1.2em;
+    white-space: pre;
+    overflow: hidden;
+    pointer-events: none;
+    background-color: black;
+    /* Initial mask in center, will follow mouse */
+    -webkit-mask-image: radial-gradient(circle 150px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: 50% 50%;
+    mask-image: radial-gradient(circle 150px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+    mask-repeat: no-repeat;
+    mask-position: 50% 50%;
+}
+
+
+a{
+    text-decoration: none;
+}
+</style>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="text-wrapper">
+        <span class="letter">K</span>
+        <span class="letter">A</span>
+        <span class="letter">S</span>
+        <span class="letter">A</span>
+        <span class="letter">N</span>
+        <span class="letter">D</span>
+        <span class="letter">E</span>
+        <span class="letter">R</span>
+    </div>
+    <div class="subtext">searching for database</div>
+
+
+    <!-- File input -->
+    <input id="fileInput" type="text" placeholder="Enter file name and press Enter">
+
+
+    <!-- Neon file links -->
+    <div class="file-menu">
+        <a href="noe1.html">Database</a>
+        <a href="noe2.html">Logs</a>
+        <a href="noe3.html">Settings</a>
+    </div>
+</div>
+
+
+<pre class="hack-overlay" id="hackOverlay"></pre>
+
+
+<script>
+/* ---------- Matrix overlay ---------- */
+const overlay = document.getElementById('hackOverlay');
+const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:',.<>/?";
+
+
+function generateCode() {
+    const rows = Math.floor(window.innerHeight / 16);
+    const cols = Math.floor(window.innerWidth / 1);
+    let code = "";
+    for(let r = 0; r < rows; r++) {
+        for(let c = 0; c < cols; c++) {
+            code += chars[Math.floor(Math.random() * chars.length)];
+        }
+        code += "\n";
+    }
+    overlay.textContent = code;
+}
+
+
+setInterval(generateCode, 100);
+generateCode();
+
+
+/* ---------- Flashlight that always follows mouse ---------- */
+document.addEventListener('mousemove', e => {
+    const x = e.clientX;
+    const y = e.clientY;
+    // Spotlight mask around cursor
+    overlay.style.webkitMaskImage = `radial-gradient(circle 150px at ${x}px ${y}px, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%)`;
+    overlay.style.maskImage = `radial-gradient(circle 150px at ${x}px ${y}px, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%)`;
+});
+
+
+window.addEventListener('resize', generateCode);
+
+
+/* ---------- Blinking letters ---------- */
+const letters = document.querySelectorAll('.letter');
+function randomLetterFlash() {
+    const randomIndex = Math.floor(Math.random() * letters.length);
+    const letter = letters[randomIndex];
+
+
+    letter.style.opacity = "0.2";
+    letter.style.textShadow = "0 0 25px #00ff00";
+
+
+    setTimeout(() => {
+        letter.style.opacity = "1";
+        letter.style.textShadow = "0 0 8px #00ff00";
+    }, Math.random() * 120 + 50);
+
+
+    setTimeout(randomLetterFlash, Math.random() * 300 + 50);
+}
+randomLetterFlash();
+
+
+/* ---------- File input redirect ---------- */
+const fileInput = document.getElementById('fileInput');
+fileInput.addEventListener('keydown', e => {
+    if(e.key === 'Enter') {
+        let file = fileInput.value.trim();
+        if(!file.endsWith('.html')) file += '.html';
+        window.location.href = file;
+    }
+});
+</script>
+
+
+</body>
+</html>
+

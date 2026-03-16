@@ -1,0 +1,14 @@
+body{
+    background-color: rgb(133, 226, 226);
+    font-family: Arial, sans-serif;
+}
+label{
+    font-weight: bold;
+    font-size: 30px;
+}
+#input{
+    margin-top: 20px;
+}
+label{
+    text-align: center;
+}

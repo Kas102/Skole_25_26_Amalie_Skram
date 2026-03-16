@@ -244,76 +244,9 @@ footer {
         </div>
     </div>
 </section>
-
-<section id="timeplan" class="schedule">
-    <h2>Ledige dager og tider</h2>
-
-    <div class="week-grid">
-        <div class="day">
-            <h4>Mandag</h4>
-            <div class="time free" onclick="selectTime('Mandag 09:00')">09:00</div>
-            <div class="time booked">11:00</div>
-            <div class="time free" onclick="selectTime('Mandag 14:00')">14:00</div>
-        </div>
-
-        <div class="day">
-            <h4>Tirsdag</h4>
-            <div class="time free" onclick="selectTime('Tirsdag 10:00')">10:00</div>
-            <div class="time free" onclick="selectTime('Tirsdag 13:00')">13:00</div>
-            <div class="time booked">15:00</div>
-        </div>
-
-        <div class="day">
-            <h4>Onsdag</h4>
-            <div class="time booked">09:00</div>
-            <div class="time free" onclick="selectTime('Onsdag 12:00')">12:00</div>
-            <div class="time free" onclick="selectTime('Onsdag 16:00')">16:00</div>
-        </div>
-
-        <div class="day">
-            <h4>Torsdag</h4>
-            <div class="time free" onclick="selectTime('Torsdag 09:00')">09:00</div>
-            <div class="time booked">11:00</div>
-            <div class="time free" onclick="selectTime('Torsdag 15:00')">15:00</div>
-        </div>
-
-        <div class="day">
-            <h4>Fredag</h4>
-            <div class="time free" onclick="selectTime('Fredag 10:00')">10:00</div>
-            <div class="time free" onclick="selectTime('Fredag 13:00')">13:00</div>
-            <div class="time booked">15:00</div>
-        </div>
-    </div>
-
-    <div class="booking-form">
-        <h3>Bestill valgt time</h3>
-        <form onsubmit="bookTime(event)">
-            <input type="text" placeholder="Navn" required>
-            <input type="email" placeholder="E-post" required>
-            <input type="text" id="selectedTime" placeholder="Valgt tid" readonly required>
-            <button class="btn" type="submit">Bekreft time</button>
-        </form>
-    </div>
-</section>
-
 <footer>
     <p>© 2025 Napra Care – Alle rettigheter reservert</p>
 </footer>
-
-<script>
-function scrollToSchedule() {
-    document.getElementById("timeplan").scrollIntoView({ behavior: "smooth" });
-}
-
-function selectTime(time) {
-    document.getElementById("selectedTime").value = time;
-}
-
-function bookTime(event) {
-    event.preventDefault();
-    alert("Takk! Timen er reservert. Bekreftelse sendes på e-post.");
-}
-</script>
 
 </body>
 </html>

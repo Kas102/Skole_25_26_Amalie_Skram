@@ -1,0 +1,36 @@
+body{
+font-family: Arial;
+background:#0f172a;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+#game{
+max-width:800px;
+margin:auto;
+background:#1e293b;
+padding:30px;
+border-radius:10px;
+}
+
+button{
+display:block;
+margin:10px auto;
+padding:12px;
+font-size:16px;
+background:#3b82f6;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#2563eb;
+}
+
+#stats{
+margin-top:20px;
+color:#93c5fd;
+}

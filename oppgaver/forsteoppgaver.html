@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Oppgaver</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #2e3440 0%, #3b4252 100%);
+            color: #d8dee9;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #eceff4;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        h1::before {
+            content: "✨ ";
+        }
+
+        h2 {
+            color: #88c0d0;
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #5e81ac;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            color: #8fbcbb;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        section {
+            background: #3b4252;
+            border-left: 4px solid #88c0d0;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        section:hover {
+            background: #434c5e;
+            border-left-color: #81a1c1;
+            transform: translateX(4px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        p {
+            color: #d8dee9;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        code {
+            background: #2e3440;
+            color: #a3be8c;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        strong {
+            color: #eceff4;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            margin-bottom: 0.8rem;
+            padding: 0.75rem;
+            background: #2e3440;
+            border: 2px solid #4c566a;
+            color: #eceff4;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #88c0d0;
+            background: #434c5e;
+            box-shadow: 0 0 0 3px rgba(136, 192, 208, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #88c0d0 0%, #81a1c1 100%);
+            color: #2e3440;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(136, 192, 208, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        #outputA1, #outputA2, #outputA3, #outputA4, #outputA5,
+        #outputA6, #outputA7, #outputA8, #outputA9, #outputA10,
+        #outputB1, #outputB2, #outputB3, #outputB4, #outputB5,
+        #outputB6, #outputC1, #outputC2, #outputC3, #outputC4,
+        #outputC5, #outputC6, #outputC7, #outputC8 {
+            background: #2e3440;
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 3px solid #a3be8c;
+            color: #a3be8c;
+            font-family: 'Courier New', monospace;
+            min-height: 1.5rem;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+                margin-top: 2rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    
+    <h1>Oppgaver i JavaScript</h1>
+
+    <h2>A. Strenger</h2>
+
+    <section>
+        <h3>A1 – Lengde [L]</h3>
+        <p>Lag en funksjon <code>lengthOf(text)</code> som returnerer lengden på en streng.<br />
+        <strong>Eksempel:</strong> lengthOf("hei") → 3</p>
+        <input type="text" id="inputA1" placeholder="Skriv en tekst her" />
+        <button id="btnA1">Kjør Oppgave A1</button>
+        <p id="outputA1"></p>
+    </section>
+
+    <section>
+        <h3>A2 – Første og siste tegn [L]</h3>
+        <p>Lag funksjonene <code>firstChar(text)</code> og <code>lastChar(text)</code> som returnerer henholdsvis første og siste tegn i strengen.<br />
+        <strong>Eksempel:</strong> firstChar("test") → "t", lastChar("test") → "t"</p>
+        <input type="text" id="inputA2" placeholder="Skriv en tekst her" />
+        <button id="btnA2">Kjør Oppgave A2</button>
+        <p id="outputA2"></p>
+    </section>
+
+    <section>
+        <h3>A3 – Store bokstaver [L]</h3>
+        <p>Lag en funksjon <code>shout(text)</code> som returnerer teksten i store bokstaver.<br />
+        <strong>Eksempel:</strong> shout("hei") → "HEI"</p>
+        <input type="text" id="inputA3" placeholder="Skriv en tekst her" />
+        <button id="btnA3">Kjør Oppgave A3</button>
+        <p id="outputA3"></p>
+    </section>
+
+    <section>
+        <h3>A4 – Sjekk prefiks [L]</h3>
+        <p>Lag en funksjon <code>startsWithHttp(url)</code> som returnerer true hvis URL-en starter med "http://" eller "https://".<br />
+        <strong>Eksempel:</strong> startsWithHttp("https://vg.no") → true, startsWithHttp("ftp://server") → false</p>
+        <input type="text" id="inputA4" placeholder="Skriv en URL her" />
+        <button id="btnA4">Kjør Oppgave A4</button>
+        <p id="outputA4"></p>
+    </section>
+
+    <section>
+        <h3>A5 – Finn spørsmålstegn [L/M]</h3>
+        <p>Lag en funksjon <code>hasQuestionMark(text)</code> som returnerer true hvis teksten inneholder "?".</p>
+        <input type="text" id="inputA5" placeholder="Skriv en tekst her" />
+        <button id="btnA5">Kjør Oppgave A5</button>
+        <p id="outputA5"></p>
+    </section>
+
+    <section>
+        <h3>A6 – Del URL i path og query [M]</h3>
+        <p>Lag en funksjon <code>splitPathAndQuery(url)</code> som deler en URL ved "?" tegnet.<br />
+        <strong>Eksempel:</strong> splitPathAndQuery("/search?q=kattevideo") → { path: "/search", query: "q=kattevideo" }</p>
+        <input type="text" id="inputA6" placeholder="/search?q=kattevideo" />
+        <button id="btnA6">Kjør Oppgave A6</button>
+        <p id="outputA6"></p>
+    </section>
+
+    <section>
+        <h3>A7 – Hent domenenavn [M]</h3>
+        <p>Lag en funksjon <code>getDomain(url)</code> som trekker ut domenenavnet fra en URL.<br />
+        <strong>Eksempel:</strong> getDomain("https://www.vg.no/nyheter") → "www.vg.no"</p>
+        <input type="text" id="inputA7" placeholder="Skriv en URL her" />
+        <button id="btnA7">Kjør Oppgave A7</button>
+        <p id="outputA7"></p>
+    </section>
+
+    <section>
+        <h3>A8 – Bytt ut mellomrom [M]</h3>
+        <p>Lag en funksjon <code>toSlug(text)</code> som konverterer teksten til små bokstaver og bytter mellomrom med bindestrek (-), ideelt for URL-er.<br />
+        <strong>Eksempel:</strong> toSlug("Hei På Deg") → "hei-på-deg"</p>
+        <input type="text" id="inputA8" placeholder="Skriv en tekst her" />
+        <button id="btnA8">Kjør Oppgave A8</button>
+        <p id="outputA8"></p>
+    </section>
+
+    <section>
+        <h3>A9 – Tell bokstav [M]</h3>
+        <p>Lag en funksjon <code>tellChar(text, char)</code> som teller hvor mange ganger en spesifikk bokstav eller tegn forekommer i teksten.<br />
+        <strong>Eksempel:</strong> tellChar("banan", "a") → 2</p>
+        <input type="text" id="inputA9text" placeholder="Tekst" />
+        <input type="text" id="inputA9char" placeholder="Tegn å telle" maxlength="1" />
+        <button id="btnA9">Kjør Oppgave A9</button>
+        <p id="outputA9"></p>
+    </section>
+
+    <section>
+        <h3>A10 – Rens whitespace [M]</h3>
+        <p>Lag en funksjon <code>clean(text)</code> som fjerner whitespace (mellomrom, tab, newline) i starten og slutten av teksten.</p>
+        <input type="text" id="inputA10" placeholder="  Skriv tekst med spaces  " />
+        <button id="btnA10">Kjør Oppgave A10</button>
+        <p id="outputA10"></p>
+    </section>
+
+    <h2>B. Datatyper</h2>
+
+    <section>
+        <h3>B1 – Type-navn [L]</h3>
+        <p>Lag en funksjon <code>typeOf(value)</code> som returnerer typen av en verdi som en streng.<br />
+        <strong>Returner:</strong> "number", "string", eller "boolean"<br />
+        <strong>Eksempel:</strong> typeOf(42) → "number", typeOf("test") → "string"</p>
+        <input type="text" id="inputB1" placeholder="Skriv verdi her" />
+        <button id="btnB1">Kjør Oppgave B1</button>
+        <p id="outputB1"></p>
+    </section>
+
+    <section>
+        <h3>B2 – Til tall [L]</h3>
+        <p>Lag en funksjon <code>toNumber(text)</code> som konverterer en tekststreng til et tall.<br />
+        <strong>Eksempel:</strong> toNumber("42") → 42, toNumber("3.14") → 3.14, toNumber("hei") → NaN</p>
+        <input type="text" id="inputB2" placeholder="Skriv tall som streng" />
+        <button id="btnB2">Kjør Oppgave B2</button>
+        <p id="outputB2"></p>
+    </section>
+
+    <section>
+        <h3>B3 – Sjekk heltall [L/M]</h3>
+        <p>Lag en funksjon <code>isInteger(value)</code> som sjekker om verdien er et heltall (hele tall uten desimaler).</p>
+        <input type="text" id="inputB3" placeholder="Skriv tall her" />
+        <button id="btnB3">Kjør Oppgave B3</button>
+        <p id="outputB3"></p>
+    </section>
+
+    <section>
+        <h3>B4 – Trygg parse av tall [M]</h3>
+        <p>Lag en funksjon <code>safeParseInt(text)</code> som forsøker å konvertere teksten til et heltall.<br />
+        <strong>Returner:</strong> { ok: true, value: 42 } hvis vellykket, eller { ok: false } hvis det mislykkes.</p>
+        <input type="text" id="inputB4" placeholder="Skriv tall her" />
+        <button id="btnB4">Kjør Oppgave B4</button>
+        <p id="outputB4"></p>
+    </section>
+
+    <section>
+        <h3>B5 – Boolean fra streng [M]</h3>
+        <p>Lag en funksjon <code>toBoolean(text)</code> som konverterer en tekststreng til en boolsk verdi.<br />
+        <strong>Returner:</strong> true for "true" eller "yes", false for "false" eller "no", ellers null (uten andre bokstaver å skille mellom stor/små)</p>
+        <input type="text" id="inputB5" placeholder="true, false, yes, no" />
+        <button id="btnB5">Kjør Oppgave B5</button>
+        <p id="outputB5"></p>
+    </section>
+
+    <section>
+        <h3>B6 – Kombiner streng + tall [M]</h3>
+        <p>Lag en funksjon <code>formatAge(name, age)</code> som kombinerer navn og alder til en setning.<br />
+        <strong>Eksempel:</strong> formatAge("Ola", 17) → "Ola er 17 år"</p>
+        <input type="text" id="inputB6name" placeholder="Navn" />
+        <input type="number" id="inputB6age" placeholder="Alder" />
+        <button id="btnB6">Kjør Oppgave B6</button>
+        <p id="outputB6"></p>
+    </section>
+
+    <h2>C. Objekter</h2>
+
+    <section>
+        <h3>C1 – Lag person-objekt [L]</h3>
+        <p>Lag en funksjon <code>makePerson(name, age)</code> som lager et objekt med navn og alder.<br />
+        <strong>Eksempel:</strong> makePerson("Ola", 17) → { name: "Ola", age: 17 }</p>
+        <input type="text" id="inputC1name" placeholder="Navn" />
+        <input type="number" id="inputC1age" placeholder="Alder" />
+        <button id="btnC1">Kjør Oppgave C1</button>
+        <p id="outputC1"></p>
+    </section>
+
+    <section>
+        <h3>C2 – Les felt [L]</h3>
+        <p>Lag funksjonene <code>getName(person)</code> og <code>getAge(person)</code> som returnerer henholdsvis navn og alder fra et person-objekt.</p>
+        <input type="text" id="inputC2name" placeholder="Navn" />
+        <input type="number" id="inputC2age" placeholder="Alder" />
+        <button id="btnC2">Kjør Oppgave C2</button>
+        <p id="outputC2"></p>
+    </section>
+
+    <section>
+        <h3>C3 – Oppdater felt [L]</h3>
+        <p>Lag en funksjon <code>birthday(person)</code> som returnerer et nytt objekt der alderen er økt med 1.</p>
+        <input type="text" id="inputC3name" placeholder="Navn" />
+        <input type="number" id="inputC3age" placeholder="Alder" />
+        <button id="btnC3">Kjør Oppgave C3</button>
+        <p id="outputC3"></p>
+    </section>
+
+    <section>
+        <h3>C4 – Slå sammen to objekter [M]</h3>
+        <p>Lag en funksjon <code>merge(a, b)</code> som slår sammen to objekter til et nytt objekt med alle feltene fra begge.<br />
+        <strong>Eksempel:</strong> merge({a:1}, {b:2}) → {a:1, b:2}</p>
+        <input type="text" id="inputC4a" placeholder="Objekt A (JSON)" value="{&quot;a&quot;:1}" />
+        <input type="text" id="inputC4b" placeholder="Objekt B (JSON)" value="{&quot;b&quot;:2}" />
+        <button id="btnC4">Kjør Oppgave C4</button>
+        <p id="outputC4"></p>
+    </section>
+
+    <section>
+        <h3>C5 – Header-liste til objekt [M]</h3>
+        <p>Lag en funksjon <code>headersToObject(lines)</code> som konverterer en liste med header-linjer (på formatet "Key: value") til et objekt.<br />
+        <strong>Eksempel:</strong> ["Host: localhost", "User-Agent: test"] → { Host: "localhost", "User-Agent": "test" }</p>
+        <textarea id="inputC5" placeholder='Host: localhost&#10;User-Agent: test' rows="3"></textarea>
+        <button id="btnC5">Kjør Oppgave C5</button>
+        <p id="outputC5"></p>
+    </section>
+
+    <section>
+        <h3>C6 – Plukk ut felt [M]</h3>
+        <p>Lag en funksjon <code>pick(obj, key)</code> som returnerer verdien av en spesifikk nøkkel fra objektet, eller undefined hvis nøkkelen ikke finnes.</p>
+        <input type="text" id="inputC6obj" placeholder="Objekt (JSON)" value="{&quot;name&quot;:&quot;Ola&quot;,&quot;age&quot;:20}" />
+        <input type="text" id="inputC6key" placeholder="Nøkkel" />
+        <button id="btnC6">Kjør Oppgave C6</button>
+        <p id="outputC6"></p>
+    </section>
+
+    <section>
+        <h3>C7 – Bygg query-objekt [M/F]</h3>
+        <p>Lag en funksjon <code>parseQuery(queryString)</code> som parser en query-streng (fra URL) til et objekt.<br />
+        <strong>Eksempel:</strong> parseQuery("name=trond&age=40") → { name: "trond", age: "40" }</p>
+        <input type="text" id="inputC7" placeholder="name=trond&age=40" />
+        <button id="btnC7">Kjør Oppgave C7</button>
+        <p id="outputC7"></p>
+    </section>
+
+    <section>
+        <h3>C8 – Objekt til query-streng [F]</h3>
+        <p>Lag en funksjon <code>toQuery(params)</code> som konverterer et objekt til en query-streng (brukt i URLer).<br />
+        <strong>Eksempel:</strong> toQuery({ name: "trond", age: 40 }) → "name=trond&age=40"</p>
+        <input type="text" id="inputC8" placeholder="Objekt (JSON)" value="{&quot;name&quot;:&quot;trond&quot;,&quot;age&quot;:40}" />
+        <button id="btnC8">Kjør Oppgave C8</button>
+        <p id="outputC8"></p>
+    </section>
+
+    </div>
+
+    <script src="forsteoppgaver.js"></script>
+    <script src="forsteoppgaver-helpers.js"></script>
+</body>
+</html>

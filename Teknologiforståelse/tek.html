@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<title>Alex og Nettverksbyen</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#0b0f1a;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+#game{
+max-width:800px;
+margin:auto;
+background:#1a2138;
+padding:30px;
+border-radius:10px;
+}
+
+button{
+padding:12px 20px;
+margin:10px;
+border:none;
+border-radius:6px;
+background:#3b82f6;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#2563eb;
+}
+
+#stats{
+margin-top:20px;
+font-size:18px;
+}
+
+#networkBar{
+width:100%;
+height:20px;
+background:#333;
+margin-top:20px;
+border-radius:10px;
+overflow:hidden;
+}
+
+#traffic{
+height:100%;
+width:20%;
+background:lime;
+transition:0.5s;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="game">
+
+<h1>Alex og Nettverksbyen</h1>
+
+<p id="story"></p>
+
+<div id="choices"></div>
+
+<div id="stats">
+Poeng: <span id="points">0</span>
+</div>
+
+<div id="networkBar">
+<div id="traffic"></div>
+</div>
+
+</div>
+
+<script>
+
+let points = 0
+let networkLoad = 20
+let node = "start"
+
+
+function updateUI(){
+
+document.getElementById("points").innerText = points
+document.getElementById("traffic").style.width = networkLoad + "%"
+
+}
+
+
+function setScene(text, choices){
+
+document.getElementById("story").innerText = text
+
+let choiceHTML = ""
+
+choices.forEach(choice => {
+
+choiceHTML += `<button onclick="${choice.action}">${choice.text}</button>`
+
+})
+
+document.getElementById("choices").innerHTML = choiceHTML
+
+updateUI()
+
+}
+
+
+function startGame(){
+
+setScene(
+
+"I denne historien er du Alex. En vanlig ungdom som gamer, ser serier og scroller mobilen. Plutselig slutter internettet å fungere. Ruteren blinker rødt. En digital portal åpner seg og en blå skapning dukker opp. 'Jeg er IP. Nettverket er i kaos og bare DU kan hjelpe!'",
+
+[
+
+{text:"Bli med inn i portalen", action:"city()"}
+
+]
+
+)
+
+}
+
+
+function city(){
+
+networkLoad += 10
+
+setScene(
+
+"Du lander i en by full av mobiler, PC-er og printere. IP forklarer at hver enhet har en IP-adresse. Men byen begynner å gå tom for IPv4-adresser.",
+
+[
+
+{text:"Hjelp IP finne løsning", action:"dhcp()"},
+
+{text:"Prøv å finne veien hjem", action:"router()"}
+
+]
+
+)
+
+}
+
+
+function dhcp(){
+
+points += 10
+networkLoad += 10
+
+setScene(
+
+"I sentrum møter du DHCP-mesteren. Han sier IPv4-adressene er nesten brukt opp. Han forteller om IPv6 med 128 bit adresser.",
+
+[
+
+{text:"Bruk subnett", action:"subnet()"},
+
+{text:"Bytt til IPv6", action:"ipv6()"}
+
+]
+
+)
+
+}
+
+
+function subnet(){
+
+setScene(
+
+"IP foreslår å dele nettverket i mindre subnett.",
+
+[
+
+{text:"255.255.255.0 (/24)", action:"bestSubnet()"},
+
+{text:"255.255.0.0 (/16)", action:"midSubnet()"},
+
+{text:"255.0.0.0 (/8)", action:"badEnd()"}
+
+]
+
+)
+
+}
+
+
+function bestSubnet(){
+
+points += 20
+networkLoad -= 10
+
+router()
+
+}
+
+
+function midSubnet(){
+
+points += 10
+
+router()
+
+}
+
+
+function ipv6(){
+
+points += 15
+networkLoad -= 15
+
+router()
+
+}
+
+
+function router(){
+
+setScene(
+
+"Du møter Router-vokteren. Han sier to hus har samme IP-adresse og lager IP-konflikt.",
+
+[
+
+{text:"Bruk DHCP til å fikse det", action:"goodEnd()"},
+
+{text:"Sett IP manuelt", action:"mediumEnd()"},
+
+{text:"Ignorer problemet", action:"badEnd()"}
+
+]
+
+)
+
+}
+
+
+function goodEnd(){
+
+points += 30
+networkLoad = 10
+
+setScene(
+
+"Alle husene får unike IP-adresser. Nettverket stabiliserer seg. Router åpner portalen hjem. Du reddet nettverksbyen!",
+
+[
+
+{text:"Spill igjen", action:"restart()"}
+
+]
+
+)
+
+}
+
+
+function mediumEnd(){
+
+points += 10
+networkLoad = 40
+
+setScene(
+
+"Nettverket fungerer, men manuelt arbeid gjør det ustabilt. Du kommer hjem, men nettet er litt tregt.",
+
+[
+
+{text:"Spill igjen", action:"restart()"}
+
+]
+
+)
+
+}
+
+
+function badEnd(){
+
+networkLoad = 100
+
+setScene(
+
+"Nettverket kollapser. Printere spammer sider og PC-er mister forbindelsen. Du sitter fast i digitalt kaos.",
+
+[
+
+{text:"Prøv igjen", action:"restart()"}
+
+]
+
+)
+
+}
+
+
+function restart(){
+
+points = 0
+networkLoad = 20
+
+startGame()
+
+}
+
+
+startGame()
+
+</script>
+
+</body>
+</html>

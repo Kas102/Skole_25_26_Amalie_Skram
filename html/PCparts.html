@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>PC-deler forklart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #1e1e1e;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        nav button {
+            background: #555;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        nav button:hover {
+            background: #777;
+        }
+
+        main {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eee;
+            padding: 5px 10px;
+            margin: 5px 5px 5px 0;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        .good {
+            background: #c8f7c5;
+        }
+
+        .gpu-model {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .gpu-model img {
+            width: 120px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+
+        .gpu-info {
+            flex: 1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #1e1e1e;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>PC-deler forklart</h1>
+    <p>Hjelp til å velge riktige komponenter</p>
+</header>
+
+<nav>
+    <button onclick="showPart('cpu')">CPU</button>
+    <button onclick="showPart('gpu')">Grafikkkort</button>
+    <button onclick="showPart('ram')">RAM</button>
+    <button onclick="showPart('storage')">Lagring</button>
+    <button onclick="showPart('case')">Kabinett</button>
+</nav>
+
+<main id="content">
+    <div class="card">
+        <h2>Velkommen 👋</h2>
+        <p>Velg en PC-del i menyen for å lese forklaringer og anbefalinger.</p>
+    </div>
+</main>
+
+<footer>
+    © 2026 – PC-deler forklart
+</footer>
+
+<script>
+const parts = {
+    cpu: {
+        title: "CPU – Prosessor",
+        description: "CPU-en er hjernen i PC-en og styrer hvor raskt programmer kjører.",
+        use: "Viktig for skole, gaming og redigering.",
+        specs: ["Antall kjerner", "Klokkehastighet", "Generasjon"],
+        level: "Middels til høy prioritet"
+    },
+
+    gpu: {
+        title: "GPU – Grafikkort",
+        description: "Grafikkortet håndterer spill, grafikk og video.",
+        use: "Svært viktig for gaming og grafisk arbeid.",
+        specs: ["Ytelse", "VRAM", "Strømforbruk"],
+        level: "Høy prioritet for gaming",
+        models: [
+            {
+                name: "NVIDIA RTX 5070 (eksempel)",
+                info: "Kraftig kort for høy FPS i 1440p.",
+                best: false,
+                price: "7000 kr",
+                image: "bilder/NVIDIA RTX 5070.webp"
+            },
+            {
+                name: "NVIDIA RTX 4060",
+                info: "Veldig god ytelse for prisen i 1080p gaming.",
+                best: true,
+                price: "4000 kr",
+                image: "https://via.placeholder.com/120x80?text=RTX+4060"
+            },
+            {
+                name: "AMD RX 6700 XT",
+                info: "Sterk ytelse og mye minne for pengene.",
+                best: true,
+                price: "4500 kr",
+                image: "https://via.placeholder.com/120x80?text=RX+6700+XT"
+            }
+        ]
+    },
+
+    ram: {
+        title: "RAM – Minne",
+        description: "RAM lar PC-en kjøre flere programmer samtidig.",
+        use: "Alle typer bruk.",
+        specs: ["16 GB anbefalt", "Hastighet", "DDR4 / DDR5"],
+        level: "Middels prioritet"
+    },
+
+    storage: {
+        title: "Lagring – SSD / HDD",
+        description: "Her lagres filer, spill og operativsystem.",
+        use: "SSD gir rask oppstart og korte lastetider.",
+        specs: ["NVMe SSD", "Størrelse (GB)", "Hastighet"],
+        level: "SSD anbefales alltid"
+    },
+
+    case: {
+        title: "Kabinett – PC-skap",
+        description: "Kabinettet holder alle delene og påvirker kjøling og utseende.",
+        use: "Viktig for luftflyt og plass.",
+        specs: ["ATX / mATX", "Luftflyt", "Plass til skjermkort"],
+        level: "Lav til middels prioritet"
+    }
+};
+
+function showPart(part) {
+    const data = parts[part];
+
+    let html = `
+        <div class="card">
+            <h2>${data.title}</h2>
+            <p><strong>Hva gjør den?</strong><br>${data.description}</p>
+            <p><strong>Passer for:</strong><br>${data.use}</p>
+            <p><strong>Viktige spesifikasjoner:</strong></p>
+            ${data.specs.map(s => `<span class="tag">${s}</span>`).join("")}
+            <p><strong>Prioritet:</strong> ${data.level}</p>
+        </div>
+    `;
+
+    if (data.models) {
+        html += `
+        <div class="card">
+            <h3>Eksempler på grafikkort</h3>
+            ${data.models.map(m => `
+                <div class="gpu-model">
+                    <img src="${m.image}" alt="${m.name}">
+                    <div class="gpu-info">
+                        <p><strong>${m.name}</strong> ${m.best ? `<span class="tag good">Best for pengene</span>` : ""}</p>
+                        <p>${m.info}</p>
+                        <p><strong>Pris:</strong> ${m.price}</p>
+                    </div>
+                </div>
+            `).join("")}
+        </div>
+        `;
+    }
+
+    document.getElementById("content").innerHTML = html;
+}
+</script>
+
+</body>
+</html>

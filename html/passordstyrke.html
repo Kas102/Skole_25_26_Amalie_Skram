@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <style>
+        h1{
+            text-align: center;
+        }
+        button{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+<h1>Passordstyrke</h1>
+<input id="passord" type="text" placeholder="Skriv her">
+<button id="Submitknapp" onclick="displayer()"><p>Klikk meg for å skjekke passordstyrke</p></button>
+<p id="passordstyrke"></p>
+</body>
+<script>
+
+ document.getElementById("Submitknapp")
+ 
+ function display(){
+    document.getElementById("passordstyrke").innerHTML = "Sterkt"
+}
+function displayer(){
+  const input = document.getElementById("passord");
+
+  input.addEventListener("input", () => {
+    const characters = input.value.split("");
+    console.log(characters);
+  });
+}
+
+
+
+</script>
+</html>

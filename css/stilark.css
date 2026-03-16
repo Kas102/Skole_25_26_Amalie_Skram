@@ -1,17 +1,24 @@
 body{
     margin: 0px;
     text-align: center;
-    background: linear-gradient(to right, rgb(59, 59, 59), rgb(78, 78, 78));
+    background: linear-gradient(to right, rgb(192, 255, 241), rgb(101, 222, 212));
     color: white;
+}
+.navbaren, .navbaren-a{
+    display: flex;
+    display: inline-block;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 0px;
 }
 a{
     text-decoration-line: none;
-    color: green;
+    text-decoration: none;
 }
 header{
-    background-color: black;
-    color: white;
-    height: 80px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    height: 100px;
     text-align: center;
 }
 h2{
@@ -19,15 +26,15 @@ h2{
 }
 h1{
     margin: 0px;
-    padding-top: 15px;
+    padding-top: 25px;
 }
 footer{ 
-    background-color: black;    /*Gjør at bakgrunnsfargen på banneret blir svart*/
+    background-color: rgb(255, 255, 255);    /*Gjør at bakgrunnsfargen på banneret blir svart*/
     width: 100%;    /*Gjør at banneret tar opp hele bredden*/
     height: 80px;   /*Gjør at banneret blir 80px høyt*/
     position: fixed;    /*Sørger for at banneret er festet til bunnen av siden*/
     bottom: 0;  /*Plasserer banneret nederst*/
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     vertical-align: center;}
 

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaktiv Lyd og Akustikk</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; font-family: sans-serif; }
+        canvas { background: #000; border-radius: 8px; width: 100%; height: auto; display: block; }
+        .control-panel { background: #1e293b; padding: 20px; border-radius: 12px; }
+        input[type=range] { cursor: pointer; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl font-bold text-blue-400">Lyd og Akustikk Simulering</h1>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Kontrollpanel -->
+            <div class="control-panel flex flex-col gap-6">
+                <div>
+                    <label class="block mb-2 font-semibold">Frekvens (Hz): <span id="freqVal" class="text-blue-400">440</span></label>
+                    <input type="range" id="freq" min="100" max="1000" value="440" class="w-full h-2 bg-blue-700 rounded-lg appearance-none">
+                    <p class="text-xs text-gray-400 mt-1">Styrer tonehøyden (lyse vs. mørke toner).</p>
+                </div>
+
+                <div>
+                    <label class="block mb-2 font-semibold">Amplitude: <span id="ampVal" class="text-blue-400">0.5</span></label>
+                    <input type="range" id="amp" min="0" max="1" step="0.1" value="0.5" class="w-full h-2 bg-blue-700 rounded-lg appearance-none">
+                    <p class="text-xs text-gray-400 mt-1">Styrer lydstyrken og bølgehøyden.</p>
+                </div>
+
+                <div class="flex flex-col gap-3 mt-4">
+                    <button id="startBtn" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded transition">
+                        Start Lyd
+                    </button>
+                    <button id="toggleParticles" class="bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded transition">
+                        Vis Partikler
+                    </button>
+                </div>
+
+                <div class="mt-4 p-4 border border-blue-500/30 rounded bg-blue-900/20">
+                    <h3 class="font-bold text-sm mb-1">Fagtips:</h3>
+                    <p class="text-xs leading-relaxed">Når frekvensen øker, blir bølgelengden kortere ($v = f \cdot \lambda$).</p>
+                </div>
+            </div>
+
+            <!-- Visualisering -->
+            <div class="md:col-span-2 space-y-4">
+                <div class="relative">
+                    <h2 class="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-2">Bølgeform (Oscilloskop)</h2>
+                    <canvas id="waveCanvas" height="200"></canvas>
+                </div>
+                
+                <div id="particleContainer" class="relative hidden">
+                    <h2 class="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-2">Luftpartikler (Longitudinal bølge)</h2>
+                    <canvas id="particleCanvas" height="150"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const waveCanvas = document.getElementById('waveCanvas');
+        const waveCtx = waveCanvas.getContext('2d');
+        const particleCanvas = document.getElementById('particleCanvas');
+        const pCtx = particleCanvas.getContext('2d');
+        const freqInput = document.getElementById('freq');
+        const ampInput = document.getElementById('amp');
+        const startBtn = document.getElementById('startBtn');
+        const toggleParticlesBtn = document.getElementById('toggleParticles');
+        
+        let audioCtx;
+        let oscillator;
+        let gainNode;
+        let isPlaying = false;
+        let showParticles = false;
+
+        // Generer partikkel-data
+        const particles = [];
+        const numParticles = 600; // Økt antall for bedre visualisering
+        function initParticles() {
+            particles.length = 0;
+            const width = particleCanvas.clientWidth || 600;
+            for (let i = 0; i < numParticles; i++) {
+                particles.push({
+                    originX: Math.random() * width,
+                    originY: Math.random() * 150
+                });
+            }
+        }
+
+        function initAudio() {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            oscillator = audioCtx.createOscillator();
+            gainNode = audioCtx.createGain();
+
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(freqInput.value, audioCtx.currentTime);
+            gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            oscillator.start();
+        }
+
+        startBtn.onclick = () => {
+            if (!audioCtx) initAudio();
+            if (!isPlaying) {
+                gainNode.gain.setTargetAtTime(ampInput.value, audioCtx.currentTime, 0.05);
+                startBtn.textContent = "Stopp Lyd";
+                startBtn.classList.replace('bg-blue-600', 'bg-red-600');
+            } else {
+                gainNode.gain.setTargetAtTime(0, audioCtx.currentTime, 0.05);
+                startBtn.textContent = "Start Lyd";
+                startBtn.classList.replace('bg-red-600', 'bg-blue-600');
+            }
+            isPlaying = !isPlaying;
+        };
+
+        toggleParticlesBtn.onclick = () => {
+            showParticles = !showParticles;
+            document.getElementById('particleContainer').classList.toggle('hidden');
+            toggleParticlesBtn.textContent = showParticles ? "Skjul Partikler" : "Vis Partikler";
+            if (showParticles && particles.length === 0) initParticles();
+        };
+
+        let time = 0;
+        function draw() {
+            requestAnimationFrame(draw);
+            
+            // Juster størrelse på canvas dynamisk
+            if (waveCanvas.width !== waveCanvas.clientWidth) {
+                waveCanvas.width = waveCanvas.clientWidth;
+                particleCanvas.width = particleCanvas.clientWidth;
+                if(showParticles) initParticles();
+            }
+
+            const freq = parseFloat(freqInput.value);
+            const amp = parseFloat(ampInput.value);
+            document.getElementById('freqVal').textContent = freq;
+            document.getElementById('ampVal').textContent = amp;
+
+            if (oscillator) {
+                oscillator.frequency.setTargetAtTime(freq, audioCtx.currentTime, 0.05);
+                if (isPlaying) {
+                    gainNode.gain.setTargetAtTime(amp, audioCtx.currentTime, 0.05);
+                }
+            }
+
+            // Tegn bølge (Oscilloskop)
+            waveCtx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
+            waveCtx.beginPath();
+            waveCtx.strokeStyle = '#60a5fa';
+            waveCtx.lineWidth = 3;
+
+            for (let x = 0; x < waveCanvas.width; x++) {
+                const k = (freq / 500); // Bølgetall-ish
+                const y = (waveCanvas.height / 2) + Math.sin(x * 0.02 * k + time) * (amp * 60);
+                if (x === 0) waveCtx.moveTo(x, y);
+                else waveCtx.lineTo(x, y);
+            }
+            waveCtx.stroke();
+
+            // Tegn partikler (Longitudinal bølge)
+            if (showParticles) {
+                pCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+                pCtx.fillStyle = '#94a3b8';
+                
+                particles.forEach(p => {
+                    // Partiklene svinger horisontalt (longitudinalt)
+                    // Forskyvningen skjer i samme retning som bølgen beveger seg
+                    const k = (freq / 500); 
+                    const displacement = Math.sin(p.originX * 0.02 * k + time) * (amp * 30);
+                    
+                    pCtx.beginPath();
+                    pCtx.arc(p.originX + displacement, p.originY, 2, 0, Math.PI * 2);
+                    pCtx.fill();
+                });
+            }
+
+            // Oppdater tid uavhengig av om lyden spiller for å holde animasjonen flytende
+            time -= 0.1 * (freq / 440); 
+        }
+
+        draw();
+    </script>
+</body>
+</html>
