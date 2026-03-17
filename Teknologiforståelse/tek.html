@@ -113,7 +113,7 @@ transition:0.5s;
 
 <div id="choices"></div>
 
-
+<p id="feedback"></p>
 
 
 <div id="stats">
@@ -121,10 +121,11 @@ Poeng: <span id="points">0</span>
 </div>
 
 
-
+<p id="feedback"></p>
 
 <div id="networkBar">
 <div id="traffic"></div>
+
 </div>
 
 
@@ -210,13 +211,23 @@ updateUI()
 
 function choose(action, pts){
 
+    points += pts;
 
-points += pts
+    const feedback = document.getElementById("feedback");
 
+    if(pts > 2){
+        feedback.innerText = "Veldig bra valg!";
+    } else if(pts > 0){
+        feedback.innerText = "Helt ok valg!";
+    } 
+    else if(pts === 0){
+        feedback.innerText = "";
+    }
+    else {
+        feedback.innerText = "Ikke et bra valg...";
+    }
 
-eval(action)
-
-
+    eval(action);
 }
 
 
@@ -247,7 +258,7 @@ Direkte etter blir sugd med inn i den digitale verden.
 
 
 
-{text:"Bli med inn i portalen", action:"city()", points:1}
+{text:"Bli med inn i portalen", action:"city()", points:3}
 
 
 
@@ -296,12 +307,12 @@ IP fortsetter ‘I det siste har det flyttet inn mange nye familier her, men det
 
 
 
-{text:"Hjelp IP finne løsning", action:"dhcp()", points:1},
+{text:"Hjelp IP finne løsning", action:"dhcp()", points:3},
 
 
 
 
-{text:"Prøv å finne veien hjem", action:"router()", points:0}
+{text:"Prøv å finne veien hjem", action:"router()", points:-1}
 
 
 
@@ -353,15 +364,15 @@ setScene(
 
 
 
-{text:"Bruk subnett", action:"subnet()", points:2},
+{text:"Bruk subnett", action:"subnet()", points:3},
 
 
 
 
-{text:"Bytt til IPv6", action:"ipv6()", points:1},
+{text:"Bytt til IPv6", action:"ipv6()", points:2},
 
 
-{text:"La DHCP fortsette som før", action:"badEnd()", points:0}
+{text:"La DHCP fortsette som før", action:"badEnd()", points:-1}
 
 
 
@@ -416,7 +427,7 @@ setScene(
 
 
 
-{text:"255.0.0.0 (/8)", action:"badEnd()", points:1}
+{text:"255.0.0.0 (/8)", action:"badEnd()", points:-1}
 
 
 
@@ -541,7 +552,7 @@ setScene(
 
 
 
-{text:"Lær om ip-konflikter", action:"ipkonflikter()", points:2},
+{text:"Lær om ip-konflikter", action:"ipkonflikter()", points:3},
 
 
 {text:"Gi opp", action:"badEnd()", points:-1}
@@ -623,7 +634,7 @@ setScene(
 
 
 
-{text:"Spill igjen", action:"restart()"}
+{text:"Spill igjen", action:"restart()", points:0}
 
 
 
@@ -670,7 +681,7 @@ setScene(
 
 
 
-{text:"Spill igjen", action:"restart()"}
+{text:"Spill igjen", action:"restart()", points:0}
 
 
 
@@ -717,7 +728,7 @@ setScene(
 
 
 
-{text:"Prøv igjen", action:"restart()"}
+{text:"Prøv igjen", action:"restart()"  , points:0}
 
 
 

@@ -73,37 +73,44 @@
 </section>
 
 <section class="ukeplan">
-    <h2 class="section-title2">Timeplan</h2>
-    <table class="ukeplan-table">
-        <tr>  
-            <th>Mandag</th>
-            <th>Tirsdag</th>
-            <th>Onsdag</th>
-            <th>Torsdag</th>
-            <th>Fredag</th>
-        </tr>
-        <tr>
-            <td class="slot" bestillingstime="08:00" bestillingdag="mandag">08:00</td>
-            <td class="slot" bestillingstime="08:00" bestillingdag="tirsdag">08:00</td>
-            <td class="slot" bestillingstime="08:00" bestillingdag="onsdag">08:00</td>
-            <td class="slot" bestillingstime="08:00" bestillingdag="torsdag">08:00</td>
-            <td class="slot" bestillingstime="08:00" bestillingdag="fredag">08:00</td>
-        </tr>
-        <tr>
-            <td class="slot" bestillingstime="08:30" bestillingdag="mandag">08:30</td>
-            <td class="slot" bestillingstime="08:30" bestillingdag="tirsdag">08:30</td>
-            <td class="slot" bestillingstime="08:30" bestillingdag="onsdag">08:30</td>
-            <td class="slot" bestillingstime="08:30" bestillingdag="torsdag">08:30</td>
-            <td class="slot" bestillingstime="08:30" bestillingdag="fredag">08:30</td>
-        </tr>
-        <tr>
-            <td class="slot" bestillingstime="09:00" bestillingdag="mandag">09:00</td>
-            <td class="slot" bestillingstime="09:00" bestillingdag="tirsdag">09:00</td>
-            <td class="slot" bestillingstime="09:00" bestillingdag="onsdag">09:00</td>
-            <td class="slot" bestillingstime="09:00" bestillingdag="torsdag">09:00</td>
-            <td class="slot" bestillingstime="09:00" bestillingdag="fredag">09:00</td>
-        </tr>
-    </table>
+
+  <div class="navigation">
+    <button id="prevWeek">Forrige uke</button>
+    <h2 id="weekTitle">Uke</h2>
+    <button id="nextWeek">Neste uke</button>
+  </div>
+
+  <table class="ukeplan-table">
+
+    <tr>
+      <th></th>
+      <th>Mandag</th>
+      <th>Tirsdag</th>
+      <th>Onsdag</th>
+      <th>Torsdag</th>
+      <th>Fredag</th>
+    </tr>
+
+    <tr>
+      <th>Tid</th>
+      <th class="date"></th>
+      <th class="date"></th>
+      <th class="date"></th>
+      <th class="date"></th>
+      <th class="date"></th>
+    </tr>
+
+    <!-- Eksempel rad -->
+    <tr>
+      <td>08:00</td>
+      <td class="slot"></td>
+      <td class="slot"></td>
+      <td class="slot"></td>
+      <td class="slot"></td>
+      <td class="slot"></td>
+    </tr>
+
+  </table>
 </section>
 <section id="booking" class="booking">
     <h2 class="section-title1">Bestill Time</h2>
